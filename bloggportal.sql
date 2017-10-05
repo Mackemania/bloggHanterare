@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 05 okt 2017 kl 09:52
+-- Tid vid skapande: 05 okt 2017 kl 10:07
 -- Serverversion: 10.1.19-MariaDB
 -- PHP-version: 7.0.13
 
@@ -89,11 +89,11 @@ CREATE TABLE `post` (
 
 CREATE TABLE `user` (
   `userID` int(5) NOT NULL,
+  `eMail` varchar(50) NOT NULL,
+  `alias` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `alias` varchar(30) DEFAULT NULL,
   `fName` varchar(30) DEFAULT NULL,
   `eName` varchar(30) DEFAULT NULL,
-  `eMail` varchar(50) NOT NULL,
   `fDate` varchar(10) DEFAULT NULL,
   `admin` tinyint(1) NOT NULL,
   `IP` varchar(15) NOT NULL,
@@ -138,7 +138,9 @@ ALTER TABLE `post`
 -- Index för tabell `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `alias` (`alias`),
+  ADD UNIQUE KEY `eMail` (`eMail`);
 
 --
 -- AUTO_INCREMENT för dumpade tabeller

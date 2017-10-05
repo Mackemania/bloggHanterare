@@ -10,7 +10,7 @@
 			require_once("blog_menu.php");
 		?>
 		<div id="container">
-			<div id="form">
+			<div id="form" class="modal">
 				<h2>Register user</h2>
 				<form method="post" action="">
 
@@ -24,7 +24,7 @@
 					<input type="password" id="password" name="password" class="formText" placeholder="Password" autocomplete="off" maxlength="100" required="required"/></br></br>
 					
 					<input type="submit" id="registerUser" name="registerUser" class="formButton" value="Register"/>
-			</form>
+				</form>
 			</div>
 		</div>
 	</body>

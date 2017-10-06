@@ -3,6 +3,7 @@ function blog_loginToDB() {
     var password = document.getElementById("loginPassword").value;
 
     var data = "username="+username+"&password="+password;
+    console.log(data);
     sendData("login", "blog_loginDB.php", data, blog_loggedIn);
 
 }
@@ -10,14 +11,15 @@ function blog_loginToDB() {
 function blog_loggedIn(id, request) {
 
     var text = request.responseText;
-    
-    if(text == "False") {
-
-        document.getElementById("info").innerHTML = "Wrong username or password!";
+    console.log(text);
+    if(text == true) {
+        alert("Du loggades in");
+        document.getElementById("login").style.display = "none";
 
     } else {
-        document.getElementById("login").style.display = "none";
-        
+        alert("Du loggades inte in");
+        document.getElementById("info").innerHTML = "Wrong username or password!";
+
     }
 }
 
@@ -30,13 +32,13 @@ function blog_passwordCheck() {
     if (password1 !== password2) {
         document.getElementById("info").innerHTML ="</br>Du har angett olika lösenord";
         return false;
-        
+
     } else {
 
         return true;
-    
+
     }
-    
+
 }
 
 function blog_regUserToDB() {

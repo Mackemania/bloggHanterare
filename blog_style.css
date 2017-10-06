@@ -47,24 +47,9 @@ ul {
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: rgb(51, 51, 51);
     position: fixed;
-    margin-top: -10;
-    margin-left: -8;
     width: 100%;
-}
-li {
-    float: left;
-}
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-li a:hover {
-    background-color: #111;
 }
 
 #menu {
@@ -76,8 +61,6 @@ li a:hover {
     font-size: 100%;
     background-color: rgba(0, 0, 0, 0.35);
     color: rgb(255, 255, 255);
-    padding-bottom: 0.5%;
-    padding-top: 0.5%;
 }
 
 #info {
@@ -94,11 +77,16 @@ li a:hover {
 .menuA {
     color: rgb(255, 255, 255);
     text-decoration: none;
+    text-align: center;
+    display: block;
+    float: left;
+    padding: 1% 2%;
+    text-decoration: none;
 
 }
 
 .menuA:hover {
-    text-decoration: underline;
+    background-color: rgb(17, 17, 17);
 }
 
 .modal {

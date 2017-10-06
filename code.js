@@ -1,7 +1,30 @@
+function blog_loginToDB() {
+    var username = document.getElementById("loginUsername").value;
+    var password = document.getElementById("loginPassword").value;
+
+    var data = "username="+username+"&password="+password;
+    sendData("login", "blog_loginDB.php", data, blog_loggedIn);
+
+}
+
+function blog_loggedIn(id, request) {
+
+    var text = request.responseText;
+    
+    if(text == "False") {
+
+        document.getElementById("info").innerHTML = "Wrong username or password!";
+
+    } else {
+        document.getElementById("login").style.display = "none";
+        
+    }
+}
+
+
 function blog_passwordCheck() {
-    alert("hej!");
-    var password1 = document.getElementById("password").value;
-    var password2 = document.getElementById("password2").value;
+    var password1 = document.getElementById("regPassword").value;
+    var password2 = document.getElementById("regPassword2").value;
     console.log(password1);
     console.log(password2);
     if (password1 !== password2) {
@@ -9,15 +32,17 @@ function blog_passwordCheck() {
         return false;
         
     } else {
+
         return true;
+    
     }
-    return false;
+    
 }
 
 function blog_regUserToDB() {
-    var username = document.getElementById("username").value;
+    var username = document.getElementById("regUsername").value;
     var email = document.getElementById("eMail").value;
-    var password = document.getElementById("password").value;
+    var password = document.getElementById("regPassword").value;
 
     var data = "username="+username+"&eMail="+email+"&password="+password;
 
@@ -30,7 +55,7 @@ function blog_userRegistered(id, request) {
 
     if(text == "True") {
         alert("You are now registered!");
-        location.replace("blog_logIn.php");
+        location.replace("index.php");
 
     } else {
 

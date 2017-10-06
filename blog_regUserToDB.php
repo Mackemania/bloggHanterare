@@ -15,6 +15,7 @@
         $SQL = "insert into user(eMail, alias, password) values('$eMail', '$username', '$password')";
         $db->execute($SQL);
         echo("True");
+    
     } else {
 
         echo("This username/email is in use");

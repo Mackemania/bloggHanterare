@@ -19,6 +19,12 @@
     src: url(GOTHIC.ttf);
 }
 
+/*
+    Colors to use:
+    Orange: rgb(253, 119, 66);
+    Blue: rgb(0, 162, 255);
+*/
+
 body {
     font-family: CenturyGothic;
     font-size: 140%;
@@ -47,7 +53,7 @@ ul {
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    background-color: rgb(51, 51, 51);
+    background-color: rgb(0, 162, 255);
     position: fixed;
     width: 100%;
 }
@@ -86,7 +92,7 @@ ul {
 }
 
 .menuA:hover {
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(253, 119, 66);
 }
 
 .modal {
@@ -128,6 +134,19 @@ ul {
     font-size: 90%;
     padding-top: 0%;
     padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border: none;
+}
+.formButton:hover {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border: none;
 
 }
 

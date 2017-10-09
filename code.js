@@ -1,3 +1,31 @@
+function blog_loadUserSettings(page) {
+
+        var buttons = document.getElementsByClassName("selectedButton")
+        for(var i = 0; i<buttons.length; i++) {
+            buttons[i].setAttribute("class", "button");
+
+        }
+    if(page == "about") {
+        
+        var button = document.getElementById("aboutButton");
+        button.setAttribute("class", "selectedButton");
+
+        sendData("loadUserSettings", "blog_aboutMe.php", "", blog_writeUserSettings);
+        
+
+    } else if(page == "settings") {
+        
+        var button = document.getElementById("blogSettingsButton");
+        button.setAttribute("class", "selectedButton");
+    
+    } else if(page == "edit") {
+
+        var button = document.getElementById("editProfileButton");
+        button.setAttribute("class", "selectedButton");
+    }
+
+}
+
 function blog_loginToDB() {
     var username = document.getElementById("loginUsername").value;
     var password = document.getElementById("loginPassword").value;
@@ -13,11 +41,12 @@ function blog_loggedIn(id, request) {
     var text = request.responseText;
     console.log(text);
     if(text == true) {
-        alert("Du loggades in");
+        //alert("Du loggades in");
         document.getElementById("login").style.display = "none";
+        location.reload();
 
     } else {
-        alert("Du loggades inte in");
+        //alert("Du loggades inte in");
         document.getElementById("info").innerHTML = "Wrong username or password!";
 
     }
@@ -30,7 +59,7 @@ function blog_passwordCheck() {
     console.log(password1);
     console.log(password2);
     if (password1 !== password2) {
-        document.getElementById("info").innerHTML ="</br>Du har angett olika lösenord";
+        document.getElementById("regInfo").innerHTML ="</br>Du har angett olika lösenord";
         return false;
 
     } else {
@@ -67,7 +96,7 @@ function blog_userRegistered(id, request) {
 }
 
 function showModal(modalName) {
-    console.log(modalName);
+    //console.log(modalName);
     document.getElementById(modalName).style.display = "block";
 
 }

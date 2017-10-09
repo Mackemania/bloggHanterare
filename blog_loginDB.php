@@ -3,6 +3,7 @@
     $db = new DB("localhost", "root", "", "bloggportal");
 
     $user = $_REQUEST["username"];
+    $user = strtolower($user);
     $password = $_REQUEST["password"];
     $SQL = "select * from user where alias='$user' and password='$password'";
     $matrix = $db->getData($SQL);

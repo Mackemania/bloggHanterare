@@ -20,7 +20,7 @@ $blogLocation = "blog_".$matrix[0][0];
 
 mkdir("blog/".$blogLocation);
 
-$blogphp = "<?php require_once('../../blog_postMaker.php');"." $"."_SESSION"."['blogID'] = ".$matrix[0][0]." ?>";
+$blogphp = "<?php require_once('../../blog_postMaker.php');"." session_start(); $"."_SESSION"."['blogID'] = ".$matrix[0][0]."; require_once('../../blog_postLink.php'); ?>";
 
 $blogfile = fopen("blog/".$blogLocation."/blog.php", "w");
 fwrite($blogfile, $blogphp);

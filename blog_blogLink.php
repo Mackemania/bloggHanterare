@@ -2,6 +2,7 @@
   $blogLink = "";
   $blogName = "";
 
+
   require_once("blog_db.php");
   $db = new DB("localhost", "root", "", "bloggportal");
 

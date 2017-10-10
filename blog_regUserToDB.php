@@ -4,6 +4,7 @@
     $db = new DB("localhost", "root", "", "bloggportal");
 
     $username = $_REQUEST["username"];
+    $username = strtolower($username);
     $eMail = $_REQUEST["eMail"];
     $password = $_REQUEST["password"];
 

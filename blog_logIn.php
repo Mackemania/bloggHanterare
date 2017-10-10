@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Startsida | Bibliotekssystem</title>
+		<title>Sign in | Bloog</title>
 		<link href="blog_style.css" media="screen" type="text/css" rel="stylesheet"/>
         <script src="code.js"></script>
         <script src="ajaxlib.js"></script>

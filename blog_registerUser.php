@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>BloggNation</title>
+		<title>Sign up | Bloog</title>
 		<link href="blog_style.css" media="screen" type="text/css" rel="stylesheet"/>
 		<script src="code.js"></script>
 		<script src="ajaxlib.js"></script>
@@ -29,8 +29,9 @@
 						
 						Repeat password</br>
 						<input type="password" id="regPassword2" name="regPassword2" class="formText" placeholder="Password" autocomplete="off" maxlength="100" required="required"/>
-						<div id="info">
-						</div></br></br>
+						<div id="regInfo">
+						</div>
+						</br></br>
 
 						<input type="submit" id="registerUser" name="registerUser" class="formButton" value="Register"/>
 					</form>

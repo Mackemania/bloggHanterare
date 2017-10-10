@@ -23,11 +23,14 @@
     Colors to use:
     Orange: rgb(253, 119, 66);
     Blue: rgb(0, 162, 255);
+    Button border: rgb(0, 119, 255);
 */
 
 body {
     font-family: CenturyGothic;
     font-size: 140%;
+    margin: 0;
+    padding: 0;
 
 }
 input {
@@ -43,10 +46,6 @@ select {
     font-family: CenturyGothic;
 
 }
-#container {
-    text-align: center;
-    margin-top: 3%;
-}
 
 ul {
     font-family: CenturyGothic;
@@ -58,6 +57,11 @@ ul {
     width: 100%;
 }
 
+#container {
+    text-align: center;
+    margin-top: 5%;
+}
+
 #menu {
     position: fixed;
     width: 100%;
@@ -67,10 +71,44 @@ ul {
     font-size: 100%;
     background-color: rgba(0, 0, 0, 0.35);
     color: rgb(255, 255, 255);
+    z-index: 1;
+}
+
+#settingsMenu {
+    float: left;
+    max-width: 15%;
+    border-collapse: collapse;
+    height: 85%;
+
 }
 
 #info {
     color: rgb(255, 0, 0);
+}
+
+#regInfo {
+    color: rgb(255, 0, 0);
+}
+
+#closeDiv {
+    margin-right: 0%;
+
+}
+
+#userPanel {
+    float: right;
+    z-index: 2;
+}
+
+#userSettingsContent {
+    width: 84%;
+    height: 85%;
+    float: left;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    overflow: auto;
 }
 
 .form {
@@ -98,7 +136,7 @@ ul {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
@@ -150,8 +188,46 @@ ul {
 
 }
 
-#closeDiv {
-    margin-right: 0%;
+.button {
+    float: left;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
+    border-width: 1px;
+    outline: none;
+}
+
+.selectedButton {
+    float: left;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
+    /*border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;*/
+}
+
+.button:hover {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
 
 }
 

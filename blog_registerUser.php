@@ -16,7 +16,7 @@
                         <span onclick="document.getElementById('register').style.display='none'" class="close" title="Stäng">&times;</span>
                     </div>
 					<h2>Register user</h2>
-					<form method="post" onsubmit="return blog_passwordCheck();" action="javascript: blog_regUserToDB();">
+					<form method="post" onsubmit="return blog_registerPasswordCheck();" action="javascript: blog_regUserToDB();">
 
 						Username:</br>
 						<input type="text"  id="regUsername" name="regUsername" class="formText" placeholder="Username" autocomplete="off" maxlength="30" required="required"/></br></br>

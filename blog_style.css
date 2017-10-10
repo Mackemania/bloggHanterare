@@ -22,8 +22,9 @@
 /*
     Colors to use:
     Orange: rgb(253, 119, 66);
+    Border orange: rgb(253, 97, 35);
     Blue: rgb(0, 162, 255);
-    Button border: rgb(0, 119, 255);
+    Border blue: rgb(0, 119, 255);
 */
 
 body {
@@ -35,9 +36,15 @@ body {
 }
 input {
     font-family: CenturyGothic;
-
 }
 
+textarea {
+    font-family: CenturyGothic;
+    resize: none;
+    border-radius: 15px;
+    padding: 2%;
+    outline: none;
+}
 button {
     font-family: CenturyGothic;
 
@@ -55,6 +62,11 @@ ul {
     background-color: rgb(0, 162, 255);
     position: fixed;
     width: 100%;
+}
+
+h2 {
+
+    margin: 0%;
 }
 
 #container {
@@ -76,9 +88,45 @@ ul {
 
 #settingsMenu {
     float: left;
+    padding-top: 2.2%;
     max-width: 15%;
     border-collapse: collapse;
     height: 85%;
+
+}
+
+#userSettingsContent {
+    min-width: 50%;
+    min-height: 55%;
+    float: left;
+}
+
+.userSettingsContentBorder {
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+}
+
+#editProfileContent {
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#editProfileContentPane {
+
+    padding: 2%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
@@ -98,17 +146,6 @@ ul {
 #userPanel {
     float: right;
     z-index: 2;
-}
-
-#userSettingsContent {
-    width: 84%;
-    height: 85%;
-    float: left;
-    border: solid;
-    border-width: 1px;
-    border-color: rgb(0, 0, 0);
-    border-radius: 15px;
-    overflow: auto;
 }
 
 .form {
@@ -176,6 +213,18 @@ ul {
     background-color: rgb(0, 162, 255);
     border: none;
 }
+
+.formButton:disabled, .formButton:hover:disabled {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(169, 169, 169);
+    border: none;
+}
+
 .formButton:hover {
     width: 90%;
     min-height: 5%;
@@ -186,6 +235,12 @@ ul {
     background-color: rgb(253, 119, 66);
     border: none;
 
+}
+
+.textarea {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
 }
 
 .button {

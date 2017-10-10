@@ -5,7 +5,7 @@
         <script src="code.js"></script>
         <script src="ajaxlib.js"></script>
 	</head>
-	<body onload:"javascript: blog_loadUserSettings('about');">
+	<body onload="javascript: blog_loadUserSettings('about');">
 		<?PHP
         	require_once("blog_menu.php");
         ?>

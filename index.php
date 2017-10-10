@@ -1,8 +1,12 @@
 <html>
 	<head>
-		<title>Homepage | Bloog</title>
+
+		<title>Startsida | Bloog</title>
+		<link href="blog_style.css" media="screen" type="text/css" rel="stylesheet"/>
+        <script src="code.js"></script>
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script src="ajaxlib.js"></script>
 	</head>
 	<body>

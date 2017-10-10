@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Sign in | Bloog</title>
+		<title>Logga in | Bloog</title>
 		<link href="blog_style.css" media="screen" type="text/css" rel="stylesheet"/>
         <script src="code.js"></script>
         <script src="ajaxlib.js"></script>
@@ -18,14 +18,14 @@
                     </div>
                     <h2>Logga In</h2>
                     <form method="post" action="javascript: blog_loginToDB();">
-                        Username:</br>
-                        <input type="text" class="formText" id="loginUsername" name="loginUsername" placeholder="Username" autocomplete="off" required="required"/></br></br>
-                        <div id="info">
-                        </div>
-                        Password:</br>
-                        <input type="password" class="formText" id="loginPassword" name="loginPassword" placeholder="Password" required="required"/></br></br>
+                        Användarnamn:</br>
+                        <input type="text" class="formText" id="loginUsername" name="loginUsername" placeholder="Användarnamn" autocomplete="off" required="required"/>
+                        <div id="info" name="info">
+                        </div></br>
+                        Lösenord:</br>
+                        <input type="password" class="formText" id="loginPassword" name="loginPassword" placeholder="Lösenord" required="required"/></br></br>
                         
-                        <input type="submit" class="formButton" value="Log in"/>
+                        <input type="submit" class="formButton" value="Logga in"/>
                     </form>
                 </div>
             </div>

@@ -15,18 +15,19 @@
 
 <div id="menu">
     <ul>
-        <li><a class="menuA" href="index.php" title="KYS" data-toggle="popover" data-trigger="hover" data-content="Some content">Hem</a></li>
-        
+        <li><a class="menuA" href="index.php" title="KYS" data-toggle="popover" data-trigger="hover" data-content="Some content">Startsida</a></li>
+
         <?PHP
             if(!isset($_SESSION["userID"])) {
                 echo(
-                '<li><a class="menuA" href="javascript: showModal(\'register\');">Sign up</a></li>
-                <li><a class="menuA" href="javascript: showModal(\'login\');">Sign in</a></li>');
+                '<li><a class="menuA" href="javascript: showModal(\'register\');">Registrera</a></li>
+                <li><a class="menuA" href="javascript: showModal(\'login\');">Logga in</a></li>');
             
             } else {
 
                 echo('<li><a class="menuA" href="blog_userSettings.php" title="Ändra din profil och bloggar" data-toggle="popover" data-trigger="hover" data-content="Some content">Min profil</a></li>');
                 echo('<li><a class="menuA" href="blog_logout.php" title="Klicka här för att logga ut" data-toggle="popover" data-trigger="hover" data-content="Some content">Logga ut</a></li>');
+
             }
             
         ?>

@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Sign up | Bloog</title>
+		<title>Registrera | Bloog</title>
 		<link href="blog_style.css" media="screen" type="text/css" rel="stylesheet"/>
 		<script src="code.js"></script>
 		<script src="ajaxlib.js"></script>
@@ -15,25 +15,25 @@
 					<div id="closeDiv">
                         <span onclick="document.getElementById('register').style.display='none'" class="close" title="Stäng">&times;</span>
                     </div>
-					<h2>Register user</h2>
-					<form method="post" onsubmit="return blog_passwordCheck();" action="javascript: blog_regUserToDB();">
+					<h2>Registrera användare</h2>
+					<form method="post" onsubmit="return blog_registerPasswordCheck();" action="javascript: blog_regUserToDB();">
 
-						Username:</br>
-						<input type="text"  id="regUsername" name="regUsername" class="formText" placeholder="Username" autocomplete="off" maxlength="30" required="required"/></br></br>
+						Användarnamn:</br>
+						<input type="text"  id="regUsername" name="regUsername" class="formText" placeholder="Användarnamn" autocomplete="off" maxlength="30" required="required"/></br></br>
 
 						E-mail:</br>
-						<input type="email" id="eMail" name="eMail" class="formText" placeholder="tex: epost@mail.com" autocomplete="off" maxlength="50" required="required"/></br></br>
+						<input type="email" id="eMail" name="eMail" class="formText" placeholder="T.ex: epost@mail.se" autocomplete="off" maxlength="50" required="required"/></br></br>
 						
-						Password:</br>
-						<input type="password" id="regPassword" name="regPassword" class="formText" placeholder="Password" autocomplete="off" maxlength="100" required="required"/></br></br>
+						Lösenord:</br>
+						<input type="password" id="regPassword" name="regPassword" class="formText" placeholder="Lösenord" autocomplete="off" maxlength="100" required="required"/></br></br>
 						
-						Repeat password</br>
-						<input type="password" id="regPassword2" name="regPassword2" class="formText" placeholder="Password" autocomplete="off" maxlength="100" required="required"/>
-						<div id="regInfo">
+						Upprepa lösenord</br>
+						<input type="password" id="regPassword2" name="regPassword2" class="formText" placeholder="Upprepa lösenord" autocomplete="off" maxlength="100" required="required"/>
+						<div id="regInfo" name="info">
 						</div>
 						</br></br>
 
-						<input type="submit" id="registerUser" name="registerUser" class="formButton" value="Register"/>
+						<input type="submit" id="registerUser" name="registerUser" class="formButton" value="Registrera"/>
 					</form>
 				</div>
 			</div>

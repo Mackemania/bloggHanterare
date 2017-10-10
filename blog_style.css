@@ -68,6 +68,9 @@ ul {
     position: fixed;
     width: 100%;
 }
+a {
+    text-decoration: none;
+}
 
 h2 {
 
@@ -153,6 +156,11 @@ h2 {
     z-index: 2;
 }
 
+#searchbar {
+
+    padding-top: 0.25%;
+}
+
 .form {
     width: 100%;
     text-align: center;
@@ -167,12 +175,17 @@ h2 {
     display: block;
     float: left;
     padding: 1% 2%;
-    text-decoration: none;
 
 }
 
 .menuA:hover {
     background-color: rgb(253, 119, 66);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    float: left;
+    padding: 1% 2%;
 }
 
 .modal {
@@ -304,4 +317,13 @@ h2 {
     color: rgb(255, 0, 0);
     cursor: pointer;
 
+}
+#sidebar_left {
+   
+}
+#searchbar {
+    float: left;
+    margin-top: 0.6%;
+    margin-left: 1%;
+    text-decoration: none;
 }

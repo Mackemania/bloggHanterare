@@ -1,6 +1,6 @@
 <?PHP
     require_once("blog_db.php");
-    $db = new DB("localhost", "root", "", "bloggportal");
+    $db = new DB("localhost", "root", "", "blog");
 
     $user = $_REQUEST["username"];
     $user = strtolower($user);

@@ -114,6 +114,7 @@ CREATE TABLE `permission` (
 
 CREATE TABLE `post` (
   `postID` int(11) NOT NULL,
+  `postTitle` varchar(30) NOT NULL,
   `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `source` varchar(30) NOT NULL,
   `userID` int(11) NOT NULL,

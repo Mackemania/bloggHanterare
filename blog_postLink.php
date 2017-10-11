@@ -4,9 +4,9 @@
   $blogID = $_SESSION["blogID"];
 
   require_once("blog_db.php");
-  $db = new DB("localhost", "root", "", "bloggportal");
+  $db = new DB("localhost", "root", "", "blog");
 
-  $sql = "SELECT postID, title FROM post WHERE bloggID=".$blogID;
+  $sql = "SELECT postID, postTitle FROM post WHERE bloggID=".$blogID;
 
   $matrix = $db->getData($sql);
 

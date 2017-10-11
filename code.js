@@ -1,6 +1,7 @@
 var fName = "";
 var lName = "";
 var birthdate = "";
+var serverRootFolder = "";
 
 function blog_editProfileInDB() {
     var firstName = document.getElementById("editFirstName").value;

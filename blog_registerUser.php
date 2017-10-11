@@ -1,4 +1,6 @@
-//sida och form för att göra en ny användare.
+<?PHP
+	//sida och form för att göra en ny användare.
+?>
 <html>
 	<head>
 		<title>Registrera | Bloog</title>

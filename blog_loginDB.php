@@ -1,5 +1,5 @@
-//skickar loggin infomration till databasen och får ett svar.
 <?PHP
+    //skickar loggin infomration till databasen och får ett svar.
     require_once("blog_db.php");
     $db = new DB();
 

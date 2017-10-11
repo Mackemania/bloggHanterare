@@ -1,24 +1,30 @@
-//övre menyn högst upp på sidan som finns på varje sida.
 <?PHP
+    //övre menyn högst upp på sidan som finns på varje sida.
     session_start();
-    require_once("blog_logIn.php");
+    $root = $_SERVER["DOCUMENT_ROOT"]."/blog";
+    require_once("$root/blog_logIn.php");
     require_once("blog_registerUser.php");
 
 ?>
 <head>
     <meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="blog_style.css" media="screen" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <?PHP
+        echo("<link href='blog_style.css' media='screen' type='text/css' rel='stylesheet'/>");
+    ?>
+    
     <script src="code.js"></script>
 </head>
 
 <div id="menu">
     <ul>
-        <li><img src="graphics/logga.svg" class="menuLogo"/></li>
-        <li><a class="menuA" href="index.php" title="KYS" data-toggle="popover" data-trigger="hover" data-content="Some content">Startsida</a></li>
-
         <?PHP
+            echo("
+                <li><img src='graphics/logga.svg' class='menuLogo'/></li>
+                <li><a class='menuA' href='index.php' title='KYS' data-toggle='popover' data-trigger='hover' data-content='Some content'>Startsida</a></li>
+            ");
+        
             if(!isset($_SESSION["userID"])) {
                 echo(
                 '<li><a class="menuA" href="javascript: showModal(\'register\');">Registrera</a></li>

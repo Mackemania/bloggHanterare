@@ -1,4 +1,6 @@
-//inloggningsfunktion
+<?PHP
+    //inloggningsfunktion
+?>
 <html>
 	<head>
 		<title>Logga in | Bloog</title>

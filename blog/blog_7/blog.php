@@ -1,0 +1,1 @@
+<?php require_once('../../blog_postMaker.php'); require_once('../../blog_menu.php'); $_SESSION['blogID'] = 7; require_once('../../blog_postLink.php'); ?>

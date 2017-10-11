@@ -1,8 +1,8 @@
 <?PHP
+    $root = $_SERVER["DOCUMENT_ROOT"];
     require_once("../../blog_menu.php");
     require_once("../../blog_db.php");
     $db = new DB();
-
     $SQL = "SELECT blogTitle FROM blog WHERE";
 
 ?>

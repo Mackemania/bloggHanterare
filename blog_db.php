@@ -1,43 +1,44 @@
-//skapar en koppling och hanterar kommunikation med databasen.
 <?PHP
-class DB
-{
-var $db;
+	//skapar en koppling och hanterar kommunikation med databasen.
 
-			function __construct()
-			{
-				$this->db = new mysqli("localhost","root","","blog");
-				if ($this->db->connect_error)
+	class DB
+	{
+	var $db;
+
+				function __construct()
 				{
-				die('Connect Error (' . $this->db.connect_errno . ') '. $this>db.connect_error);
+					$this->db = new mysqli("localhost", "root", "", "blog");
+					if ($this->db->connect_error)
+					{
+					die('Connect Error (' . $this->db.connect_errno . ') '. $this>db.connect_error);
+					}
 				}
-			}
 
-			function getData($SQL)
-			{
-				$result = $this->db->query($SQL);
-				$retval= array();
-				while($row = $result->fetch_row())
+				function getData($SQL)
 				{
-					array_push($retval,$row);
+					$result = $this->db->query($SQL);
+					$retval= array();
+					while($row = $result->fetch_row())
+					{
+						array_push($retval,$row);
+					}
+					return$retval;
 				}
-				return$retval;
-			}
 
-			function getOneColumn($SQL)
-			{
-				$result = $this->db->query($SQL);
-				$retval= array();
-				while($row = $result->fetch_row())
+				function getOneColumn($SQL)
 				{
-					array_push($retval,$row[0]);
+					$result = $this->db->query($SQL);
+					$retval= array();
+					while($row = $result->fetch_row())
+					{
+						array_push($retval,$row[0]);
+					}
+					return$retval;
 				}
-				return$retval;
-			}
 
-			function execute($SQL)
-			{
-				return $this->db->query($SQL);
-			}
-}
+				function execute($SQL)
+				{
+					return $this->db->query($SQL);
+				}
+	}
 ?>

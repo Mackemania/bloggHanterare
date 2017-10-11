@@ -1,16 +1,12 @@
-//gör en lista med alla bloggar.
 <?php
+    /*gör en lista med alla bloggar.*/
+    
     $blogLink = "";
     $blogName = "";
 
-
-<<<<<<< Updated upstream
-  require_once("blog_db.php");
-  $db = new DB();
-=======
     require_once("blog_db.php");
-    $db = new DB("localhost", "root", "", "blog");
->>>>>>> Stashed changes
+    $db = new DB();
+
 
     $sql = "SELECT blogID, blogTitle FROM blog";
     $matrix = $db->getData($sql);

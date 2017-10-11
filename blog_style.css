@@ -1,24 +1,3 @@
-@font-face {
-	font-family: CenturyGothic;
-    src: url(GOTHICB.ttf);
-    font-weight: bold;
-}
-@font-face {
-	font-family: CenturyGothic;
-    src: url(GOTHICBI.ttf);
-    font-weight: italic,bold;
-}
-@font-face {
-	font-family: CenturyGothic;
-    src: url(GOTHICI.ttf);
-    font-weight: italic;
-}
-
-@font-face {
-	font-family: CenturyGothic;
-    src: url(GOTHIC.ttf);
-}
-
 /*
     Colors to use:
     Orange: rgb(253, 119, 66);
@@ -26,6 +5,27 @@
     Blue: rgb(0, 162, 255);
     Border blue: rgb(0, 119, 255);
 */
+
+@font-face {
+	font-family: CenturyGothic;
+    src: url(GOTHICB.TTF);
+    font-weight: bold;
+}
+@font-face {
+	font-family: CenturyGothic;
+    src: url(GOTHICBI.TTF);
+    font-weight: italic,bold;
+}
+@font-face {
+	font-family: CenturyGothic;
+    src: url(GOTHICI.TTF);
+    font-weight: italic;
+}
+
+@font-face {
+	font-family: CenturyGothic;
+    src: url(GOTHIC.TTF);
+}
 
 body {
     font-family: CenturyGothic;

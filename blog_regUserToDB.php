@@ -1,7 +1,7 @@
 <?PHP
 
     require_once("blog_db.php");
-    $db = new DB("localhost", "root", "", "bloggportal");
+    $db = new DB("localhost", "root", "", "blog");
 
     $username = $_REQUEST["username"];
     $username = strtolower($username);
@@ -12,15 +12,15 @@
     $matrix = $db->getData($SQL);
 
     if(count($matrix)==0) {
-    
+
         $SQL = "insert into user(eMail, alias, password) values('$eMail', '$username', '$password')";
         $db->execute($SQL);
         echo("True");
-    
+
     } else {
 
         echo("This username/email is in use");
     }
-    
+
 
 ?>

@@ -1,12 +1,11 @@
 <?php
 require_once("blog_db.php");
-$db = new DB("localhost", "root", "", "bloggportal");
+$db = new DB("localhost", "root", "", "blog");
 
 session_start();
 
 $userID = $_SESSION["userID"];
 $blogID = $_SESSION["blogID"];
-$clientIP = $_SERVER['REMOTE_ADDR'];
 $postTitle = $_POST["postTitle"];
 $postText = $_POST["postText"];
 
@@ -18,7 +17,7 @@ $postLocationNR = ($matrix[0][0])+1;
 
 $postLocation = "blog/blog_".$blogID."/post_".$postLocationNR;
 
-$sql = "INSERT INTO post(title, textFile, IP, userID, bloggID) VALUES('$postTitle', '$postLocation', '$clientIP', '$userID', '$blogID')";
+$sql = "INSERT INTO post(title, textFile, userID, bloggID) VALUES('$postTitle', '$postLocation', '$userID', '$blogID')";
 
 $db->execute($sql);
 

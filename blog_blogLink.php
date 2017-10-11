@@ -4,9 +4,9 @@
 
 
   require_once("blog_db.php");
-  $db = new DB("localhost", "root", "", "bloggportal");
+  $db = new DB("localhost", "root", "", "blog");
 
-  $sql = "SELECT bloggID, name FROM blogg";
+  $sql = "SELECT blogID, blogTitle FROM blog";
   $matrix = $db->getData($sql);
 
   for($i = 0; $i<count($matrix); $i++)

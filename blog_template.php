@@ -1,3 +1,4 @@
+
 <html>
 	<head>
 		<link href="blog_style.css" media="screen" type="text/css" rel="stylesheet"/>
@@ -21,7 +22,7 @@
    <!--         <div id="sidebar_right">
 		-->
         </div>
-	
+
     </body>
 
 </html>

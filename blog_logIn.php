@@ -1,3 +1,4 @@
+//inloggningsfunktion
 <html>
 	<head>
 		<title>Logga in | Bloog</title>
@@ -24,7 +25,7 @@
                         </div></br>
                         Lösenord:</br>
                         <input type="password" class="formText" id="loginPassword" name="loginPassword" placeholder="Lösenord" required="required"/></br></br>
-                        
+
                         <input type="submit" class="formButton" value="Logga in"/>
                     </form>
                 </div>

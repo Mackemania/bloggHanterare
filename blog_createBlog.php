@@ -1,14 +1,14 @@
+
 <?php
 require_once("blog_db.php");
-$db = new DB("localhost", "root", "", "blog");
+$db = new DB();
 
 session_start();
 $blogOwner = $_SESSION["userID"];
-$clientIP = $_SERVER['REMOTE_ADDR'];
 $blogTitle = $_POST["blogTitle"];
 $blogDescription = $_POST["blogDescription"];
 
-$sql = "INSERT INTO blog(blogTitle, description, userID) VALUES('$blogTitle', '$blogDescription', '$blogOwner')";
+$sql = "INSERT INTO blog(blogTitle, blogDescription, css, userID) VALUES('$blogTitle', '$blogDescription', '1', '$blogOwner')";
 
 $db->execute($sql);
 
@@ -24,12 +24,6 @@ $blogphp = "<?php require_once('../../blog_postMaker.php');"." session_start(); 
 
 $blogSource = fopen("blog/".$blogLocation."/blog.php", "w");
 fwrite($blogSource, $blogphp);
-/*
-$postfile = fopen("blogg/".$blogg."/".$post."/post.php", "w");
-fwrite($postfile, $posttext);
 
-$commentfile = fopen("blogg/".$blogg."/".$post."/comment_".$counter.".txt", "w");
-fwrite($commentfile, $commenttext);
-*/
-header("index.php");
+header("location: index.php");
 ?>

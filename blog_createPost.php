@@ -1,6 +1,7 @@
+//skickar data till databasen vid skapning av nytt inlägg
 <?php
 require_once("blog_db.php");
-$db = new DB("localhost", "root", "", "blog");
+$db = new DB();
 
 session_start();
 
@@ -17,7 +18,7 @@ $postLocationNR = ($matrix[0][0])+1;
 
 $postLocation = "blog/blog_".$blogID."/post_".$postLocationNR;
 
-$sql = "INSERT INTO post(title, textFile, userID, bloggID) VALUES('$postTitle', '$postLocation', '$userID', '$blogID')";
+$sql = "INSERT INTO post(postTitle, source, userID, blogID) VALUES('$postTitle', '$postLocation', '$userID', '$blogID')";
 
 $db->execute($sql);
 
@@ -28,12 +29,6 @@ mkdir($postLocation);
 
 $postFile = fopen($postLocation."/post.php", "w");
 fwrite($postFile, $postText);
-/*
-$postfile = fopen("blogg/".$blogg."/".$post."/post.php", "w");
-fwrite($postfile, $posttext);
 
-$commentfile = fopen("blogg/".$blogg."/".$post."/comment_".$counter.".txt", "w");
-fwrite($commentfile, $commenttext);
-*/
-header($postLocation."../blog_+".$blogID.".php");
+header('location: '.$postLocation."/../blog.php");
 ?>

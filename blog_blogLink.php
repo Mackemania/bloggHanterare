@@ -4,7 +4,7 @@
 
 
   require_once("blog_db.php");
-  $db = new DB("localhost", "root", "", "blog");
+  $db = new DB();
 
   $sql = "SELECT blogID, blogTitle FROM blog";
   $matrix = $db->getData($sql);

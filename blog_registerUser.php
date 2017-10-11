@@ -15,7 +15,7 @@
 					<div id="closeDiv">
                         <span onclick="document.getElementById('register').style.display='none'" class="close" title="Stäng">&times;</span>
                     </div>
-					<h2>Registrera användare</h2>
+					<h2>Registrera användare</h2></br>
 					<form method="post" onsubmit="return blog_registerPasswordCheck();" action="javascript: blog_regUserToDB();">
 
 						Användarnamn:</br>

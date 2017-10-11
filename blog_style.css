@@ -1,22 +1,22 @@
 @font-face {
 	font-family: CenturyGothic;
-    src: url(GOTHICB.ttf);
+    src: url(GOTHICB.TTF);
     font-weight: bold;
 }
 @font-face {
 	font-family: CenturyGothic;
-    src: url(GOTHICBI.ttf);
+    src: url(GOTHICBI.TTF);
     font-weight: italic,bold;
 }
 @font-face {
 	font-family: CenturyGothic;
-    src: url(GOTHICI.ttf);
+    src: url(GOTHICI.TTF);
     font-weight: italic;
 }
 
 @font-face {
 	font-family: CenturyGothic;
-    src: url(GOTHIC.ttf);
+    src: url(GOTHIC.TTF);
 }
 
 /*

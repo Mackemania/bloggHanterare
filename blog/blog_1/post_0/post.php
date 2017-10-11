@@ -1,1 +1,0 @@
-ttt<? session_start(); $_SESSION['postID'] = 0 ?>

@@ -1,3 +1,11 @@
+/*
+    Colors to use:
+    Orange: rgb(253, 119, 66);
+    Border orange: rgb(253, 97, 35);
+    Blue: rgb(0, 162, 255);
+    Border blue: rgb(0, 119, 255);
+*/
+
 @font-face {
 	font-family: CenturyGothic;
     src: url(GOTHICB.TTF);
@@ -18,14 +26,6 @@
 	font-family: CenturyGothic;
     src: url(GOTHIC.TTF);
 }
-
-/*
-    Colors to use:
-    Orange: rgb(253, 119, 66);
-    Border orange: rgb(253, 97, 35);
-    Blue: rgb(0, 162, 255);
-    Border blue: rgb(0, 119, 255);
-*/
 
 body {
     font-family: CenturyGothic;

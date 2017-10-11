@@ -26,7 +26,8 @@
 
             } else {
 
-                echo('<li><a class="menuA" href="blog_userSettings.php" title="Ändra din profil och bloggar" data-toggle="popover" data-trigger="hover" data-content="Some content">Min profil</a></li>');
+                echo('<li><a class="menuA" href="blog_userBlogs.php" title="Se dina bloggar" data-toggle="popover" data-trigger="hover" data-content="Some content">Mina bloggar</a></li>');
+                echo('<li><a class="menuA" href="blog_userSettings.php" title="Inställningar för din profil och dina bloggar" data-toggle="popover" data-trigger="hover" data-content="Some content">Min profil</a></li>');
                 echo('<li><a class="menuA" href="blog_logout.php" title="Klicka här för att logga ut" data-toggle="popover" data-trigger="hover" data-content="Some content">Logga ut</a></li>');
 
             }

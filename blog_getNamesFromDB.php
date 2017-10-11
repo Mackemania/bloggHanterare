@@ -1,7 +1,7 @@
 <?PHP
     require_once("blog_db.php");
     session_start();
-    $db = new DB("localhost", "root", "", "bloggportal");
+    $db = new DB("localhost", "root", "", "blog");
 
     $data= "";
     $userID = $_SESSION["userID"];

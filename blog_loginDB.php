@@ -1,6 +1,7 @@
+//skickar loggin infomration till databasen och får ett svar.
 <?PHP
     require_once("blog_db.php");
-    $db = new DB("localhost", "root", "", "blog");
+    $db = new DB();
 
     $user = $_REQUEST["username"];
     $user = strtolower($user);

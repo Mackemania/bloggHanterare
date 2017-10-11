@@ -1,3 +1,4 @@
+//sida och form för att göra en ny användare.
 <html>
 	<head>
 		<title>Registrera | Bloog</title>
@@ -23,10 +24,10 @@
 
 						E-mail:</br>
 						<input type="email" id="eMail" name="eMail" class="formText" placeholder="T.ex: epost@mail.se" autocomplete="off" maxlength="50" required="required"/></br></br>
-						
+
 						Lösenord:</br>
 						<input type="password" id="regPassword" name="regPassword" class="formText" placeholder="Lösenord" autocomplete="off" maxlength="100" required="required"/></br></br>
-						
+
 						Upprepa lösenord</br>
 						<input type="password" id="regPassword2" name="regPassword2" class="formText" placeholder="Upprepa lösenord" autocomplete="off" maxlength="100" required="required"/>
 						<div id="regInfo" name="info">

@@ -1,3 +1,4 @@
+
 <?php
 require_once("blog_db.php");
 $db = new DB();
@@ -23,12 +24,6 @@ $blogphp = "<?php require_once('../../blog_postMaker.php');"." session_start(); 
 
 $blogSource = fopen("blog/".$blogLocation."/blog.php", "w");
 fwrite($blogSource, $blogphp);
-/*
-$postfile = fopen("blogg/".$blogg."/".$post."/post.php", "w");
-fwrite($postfile, $posttext);
 
-$commentfile = fopen("blogg/".$blogg."/".$post."/comment_".$counter.".txt", "w");
-fwrite($commentfile, $commenttext);
-*/
 header("location: index.php");
 ?>

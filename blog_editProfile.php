@@ -11,7 +11,7 @@
             <div id="editProfileContentPane">
                 Förnamn:</br>
                 <input type="text" id="editFirstName" name="editFirstName" class="formText" onkeyup="javascript: blog_enableEditButton();" placeholder="Förnamn" maxlength="30"/></br></br>
-                
+
                 Efternamn:</br>
                 <input type="text" id="editLastName" name="editLastName" class="formText" onkeyup="javascript: blog_enableEditButton();" placeholder="Efternamn" maxlength="30"/></br></br>
 
@@ -24,7 +24,7 @@
                 ?>
                 Ändra lösenord:</br>
                 <input type="password" id="editPassword" name="editPassword" class="formText" onkeyup="javascript: blog_enableEditButton();" placeholder="Nytt lösenord" maxlength="30"/></br></br>
-            
+
                 Upprepa lösenord:</br>
                 <input type="password" id="editPassword2" name="editPassword2" class="formText" onkeyup="javascript: blog_enableEditButton();" placeholder="Upprepa lösenord" maxlength="30"/></br></br>
 

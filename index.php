@@ -1,3 +1,4 @@
+//hemsidan där man börjar.
 <html>
 	<head>
 
@@ -10,7 +11,7 @@
         <script src="ajaxlib.js"></script>
 	</head>
 	<body>
-	
+
 		<?PHP
         	require_once("blog_menu.php");
         ?>

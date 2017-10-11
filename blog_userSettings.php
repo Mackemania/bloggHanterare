@@ -1,3 +1,4 @@
+//användarinställningar för den användare som är inloggad.
 <html lang="en">
 	<head>
 		<title>Min profil | Bloog</title>
@@ -17,7 +18,7 @@
                 <input type="button" id ="editProfileButton" value="Profilinställningar" class="button" onclick="javascript: blog_loadUserSettings('edit');"/>
             </div>
             <div id="userSettingsContent">
-                
+
             </div>
 		</div>
 	</body>

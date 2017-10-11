@@ -16,7 +16,7 @@
                     <div id="closeDiv">
                         <span onclick="document.getElementById('login').style.display='none'" class="close" title="Stäng">&times;</span>
                     </div>
-                    <h2>Logga In</h2>
+                    <h2>Logga In</h2></br>
                     <form method="post" action="javascript: blog_loginToDB();">
                         Användarnamn:</br>
                         <input type="text" class="formText" id="loginUsername" name="loginUsername" placeholder="Användarnamn" autocomplete="off" required="required"/>

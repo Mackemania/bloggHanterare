@@ -15,6 +15,7 @@
 
 <div id="menu">
     <ul>
+        <li><img src="graphics/logga.svg" class="menuLogo"/></li>
         <li><a class="menuA" href="index.php" title="KYS" data-toggle="popover" data-trigger="hover" data-content="Some content">Startsida</a></li>
 
         <?PHP

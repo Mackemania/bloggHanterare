@@ -1,7 +1,8 @@
+//skickar nya användare till databasen och kollar om det är korrekt.
 <?PHP
 
     require_once("blog_db.php");
-    $db = new DB("localhost", "root", "", "blog");
+    $db = new DB();
 
     $username = $_REQUEST["username"];
     $username = strtolower($username);

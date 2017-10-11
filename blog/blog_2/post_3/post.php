@@ -1,0 +1,1 @@
+asdfasdf<? session_start(); $_SESSION['postID'] = 3 ?>

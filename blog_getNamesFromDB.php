@@ -1,7 +1,8 @@
+//hämtar och skriver namn och födelsedatum på sig själv
 <?PHP
     require_once("blog_db.php");
     session_start();
-    $db = new DB("localhost", "root", "", "blog");
+    $db = new DB();
 
     $data= "";
     $userID = $_SESSION["userID"];

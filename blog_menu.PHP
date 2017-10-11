@@ -1,9 +1,9 @@
-
+//övre menyn högst upp på sidan som finns på varje sida.
 <?PHP
     session_start();
     require_once("blog_logIn.php");
     require_once("blog_registerUser.php");
-    
+
 ?>
 <head>
     <meta charset="utf-8">
@@ -23,14 +23,14 @@
                 echo(
                 '<li><a class="menuA" href="javascript: showModal(\'register\');">Registrera</a></li>
                 <li><a class="menuA" href="javascript: showModal(\'login\');">Logga in</a></li>');
-            
+
             } else {
 
                 echo('<li><a class="menuA" href="blog_userSettings.php" title="Ändra din profil och bloggar" data-toggle="popover" data-trigger="hover" data-content="Some content">Min profil</a></li>');
                 echo('<li><a class="menuA" href="blog_logout.php" title="Klicka här för att logga ut" data-toggle="popover" data-trigger="hover" data-content="Some content">Logga ut</a></li>');
 
             }
-            
+
         ?>
         <div id="searchbar">
             <span class="input-group-btn">

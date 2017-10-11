@@ -1,3 +1,4 @@
+//skapar en koppling och hanterar kommunikation med databasen.
 <?PHP
 class DB
 {

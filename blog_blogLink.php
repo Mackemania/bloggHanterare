@@ -1,3 +1,4 @@
+//gör en lista med alla bloggar.
 <?php
   $blogLink = "";
   $blogName = "";

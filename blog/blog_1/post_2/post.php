@@ -1,0 +1,1 @@
+qqq<? session_start(); $_SESSION['postID'] = 2 ?>

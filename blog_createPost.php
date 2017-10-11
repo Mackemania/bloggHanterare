@@ -1,3 +1,4 @@
+//skickar data till databasen vid skapning av nytt inlägg
 <?php
 require_once("blog_db.php");
 $db = new DB();
@@ -13,11 +14,7 @@ $sql = "SELECT postID FROM post ORDER BY postID DESC";
 
 $matrix = $db->getData($sql);
 
-if(isset($matrix[0][0]))
-{
-  $postLocationNR = ($matrix[0][0])+1;
-}
-else{$postLocationNR = 0;}
+$postLocationNR = ($matrix[0][0])+1;
 
 $postLocation = "blog/blog_".$blogID."/post_".$postLocationNR;
 
@@ -32,12 +29,6 @@ mkdir($postLocation);
 
 $postFile = fopen($postLocation."/post.php", "w");
 fwrite($postFile, $postText);
-/*
-$postfile = fopen("blogg/".$blogg."/".$post."/post.php", "w");
-fwrite($postfile, $posttext);
 
-$commentfile = fopen("blogg/".$blogg."/".$post."/comment_".$counter.".txt", "w");
-fwrite($commentfile, $commenttext);
-*/
 header('location: '.$postLocation."/../blog.php");
 ?>

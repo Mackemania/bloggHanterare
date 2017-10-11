@@ -1,3 +1,4 @@
+//gör en lista för alla inlägg på den bloggen du är på.
 <?php
   $postLink = "";
   $postName = "";

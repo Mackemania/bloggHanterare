@@ -1,3 +1,4 @@
+//loggar ut användaren och förstör sessionen.
 <?PHP
     session_start();
     session_unset();

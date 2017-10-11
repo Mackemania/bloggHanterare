@@ -1,10 +1,11 @@
+//gör om infomation om en användare i databasen.
 <?PHP
     session_start();
 
     $userID = $_SESSION["userID"];
 
     require_once("blog_db.php");
-    $db = new DB("localhost", "root", "", "blog");
+    $db = new DB();
 
     $firstName = $_REQUEST["firstName"];
 

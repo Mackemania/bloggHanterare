@@ -8,7 +8,7 @@ $blogOwner = $_SESSION["userID"];
 $blogTitle = $_POST["blogTitle"];
 $blogDescription = $_POST["blogDescription"];
 
-$sql = "INSERT INTO blog(blogTitle, blogDescription, css, userID) VALUES('$blogTitle', '$blogDescription', '1', $blogOwner)";
+$sql = "INSERT INTO blog(blogTitle, blogDescription, css, userID, permissionStatus) VALUES('$blogTitle', '$blogDescription', '1', $blogOwner, 0)";
 
 $db->execute($sql);
 

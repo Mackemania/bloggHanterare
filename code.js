@@ -193,7 +193,7 @@ function blog_regUserToDB() {
 function blog_userRegistered(id, request) {
     var text = request.responseText;
 
-    if(text == "True") {
+    if(text == 1) {
         alert("Du är nu registrerad!");
         location.replace("index.php");
 

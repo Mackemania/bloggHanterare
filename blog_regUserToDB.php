@@ -13,9 +13,9 @@
 
     if(count($matrix)==0) {
 
-        $SQL = "insert into user(eMail, alias, password) values('$eMail', '$username', '$password')";
+        $SQL = "insert into user(eMail, alias, password, admin) values('$eMail', '$username', '$password', 0)";
         $db->execute($SQL);
-        echo("True");
+        echo(1);
 
     } else {
 

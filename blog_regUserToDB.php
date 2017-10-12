@@ -1,6 +1,5 @@
-//skickar nya användare till databasen och kollar om det är korrekt.
 <?PHP
-
+    //skickar nya användare till databasen och kollar om det är korrekt.
     require_once("blog_db.php");
     $db = new DB();
 

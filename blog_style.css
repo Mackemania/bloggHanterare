@@ -46,9 +46,9 @@ input[type=date]::-webkit-inner-spin-button {
 textarea {
     font-family: CenturyGothic;
     resize: none;
-    border-radius: 15px;
     padding: 2%;
     outline: none;
+    margin-bottom: 5%;
 }
 button {
     font-family: CenturyGothic;
@@ -163,6 +163,13 @@ h2 {
     padding-top: 0.25%;
 }
 
+#blogContent {
+
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .form {
     width: 100%;
     text-align: center;
@@ -218,16 +225,42 @@ h2 {
     margin-right: auto;
     padding: 2%;
     background-color: rgb(255, 255, 255);
-    border-radius: 3%;
+    border-radius: 15px;
     box-shadow: 4px 6px 5px rgb(100, 100, 100);
 }
 
+.postModalContent {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 4px 6px 5px rgb(100, 100, 100);
+    margin-top: -1%;
+
+}
+
+.postClose {
+    position: relative;
+    float: right;
+    color: rgb(0,0,0);
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -3%;
+}
+.postClose:hover, .postClose:focus {
+
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+
+}
 
 .formText {
     width: 90%;
     min-height: 5%;
     font-size: 90%;
-    padding-top: 0%;
+    padding-top: 0;
     padding-bottom: 0%;
 
 }

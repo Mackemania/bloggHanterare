@@ -1,6 +1,7 @@
 var fName = "";
 var lName = "";
 var birthdate = "";
+var serverRootFolder = "";
 
 function blog_editProfileInDB() {
     var firstName = document.getElementById("editFirstName").value;
@@ -205,7 +206,7 @@ function blog_userRegistered(id, request) {
 
 
 function showModal(modalName) {
-    //console.log(modalName);
+    console.log(modalName);
     var infoDivs = document.getElementsByName("info");
     for(var i = 0; i<infoDivs.length; i++) {
         infoDivs[i].innerHTML = "";

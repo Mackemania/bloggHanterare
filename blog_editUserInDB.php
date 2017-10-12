@@ -1,5 +1,5 @@
-//gör om infomation om en användare i databasen.
 <?PHP
+    //gör om infomation om en användare i databasen.
     session_start();
 
     $userID = $_SESSION["userID"];

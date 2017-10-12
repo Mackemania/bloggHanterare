@@ -1,5 +1,6 @@
-//hämtar och skriver namn och födelsedatum på sig själv
 <?PHP
+    //hämtar och skriver namn och födelsedatum på sig själv
+    
     require_once("blog_db.php");
     session_start();
     $db = new DB();

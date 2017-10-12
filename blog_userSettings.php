@@ -1,10 +1,10 @@
-//användarinställningar för den användare som är inloggad.
-<html lang="en">
+<?PHP
+    //användarinställningar för den användare som är inloggad.
+?>
+    <html lang="en">
 	<head>
 		<title>Min profil | Bloog</title>
-		<link href="blog_style.css" media="screen" type="text/css" rel="stylesheet"/>
-        <script src="code.js"></script>
-        <script src="ajaxlib.js"></script>
+		
 	</head>
 	<body onload="javascript: blog_loadUserSettings('about');">
 		<?PHP

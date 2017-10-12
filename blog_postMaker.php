@@ -1,8 +1,24 @@
-//form för att göra ett nytt inlägg
-<form action='../../blog_createPost.php' method='post'>
-  Inläggets namn: <input type='text' name='postTitle'><br/>
-  Inlägget: <input type='text' name='postText'><br/>
-  <input type='submit' value='create post'><br/>
-</form>
-<?php
+<?PHP
+    //form för att göra ett nytt inlägg
 ?>
+<input type="button" class="button" onclick="javascript: showModal('createPost');" value="Gör inlägg">
+
+<div id ="createPost" class="modal form">
+    <div id="modalContent" class="postModalContent">
+        <div id="closeDiv">
+            <span onclick="document.getElementById('createPost').style.display='none'" class="postClose" title="Stäng">&times;</span>
+        </div>
+        <h2>Skriv inlägg</h2></br>
+        <form method="post" action="blog_postCreator.php">
+            
+            Inläggets namn:</br>
+            <input type='text' id="postTitle" name='postTitle' class="formText" maxlength="30"><br/><br/>
+
+            Inlägget:</br>
+            <textarea id="postText" name="postText" class="textarea" rows="10" placeholder="Skriv något!" autocomplete="off" required="required"></textarea>
+
+            <input type='submit' value='create post' class="formButton"><br/>
+
+        </form>
+    </div>
+</div>

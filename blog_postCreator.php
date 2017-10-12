@@ -1,37 +1,40 @@
 <?php
-require_once("blog_db.php");
-$db = new DB("localhost", "root", "", "bloggportal");
+    require_once("blog_db.php");
+    $db = new DB("localhost", "root", "", "bloggportal");
 
-session_start();
+    session_start();
 
-$userID = $_SESSION["userID"];
-$blogID = $_SESSION["blogID"];
-$clientIP = $_SERVER['REMOTE_ADDR'];
-$postTitle = $_POST["postTitle"];
-$postText = $_POST["postText"];
+    $userID = $_SESSION["userID"];
+    $blogID = $_SESSION["blogID"];
+    $postTitle = $_POST["postTitle"];
+    $postText = $_POST["postText"];
 
-$sql = "INSERT INTO blogg(title, textFile, IP, userID, bloggID) VALUES('$blogName', '$postLocation', '$clientIP', '$userID', '$blogID')";
+    $SQL = "SELECT postID FROM post ORDER BY postID DESC";
+    $matrix = $db->getData($SQL);
 
-$db->execute($sql);
+    if(isset($matrix[0][0])) {
+        $postID = $matrix[0][0]+1;
+    } else {
 
-$sql = "SELECT postID FROM post ORDER BY postID DESC";
+        $postID = 1;
+    }
 
-$matrix = $db->getData($sql);
+    $source = "blog/blog_$blogID/post_$postID/post.php";
 
-$postLocation = "post_".$matrix[0][0];
+    $SQL = "INSERT INTO post(postTitle, source, userID, blogID) VALUES('$postTitle', '$source', $userID, $blogID)";
+    $db->execute($SQL);
 
-$postText = $postText."<?php require_once('".$blogLocation."/../blog_postMaker.php');"." $"."_SESSION"."['blogID'] = ".$matrix[0][0]." ?>";
+    $source = str_replace("post.php", "", $source);
+    mkdir($source);
 
-mkdir($postLocation);
+    $postFile = fopen($source."/post.php", "w");
+    fwrite($postFile, $postText);
+    /*
+    $postfile = fopen("blogg/".$blogg."/".$post."/post.php", "w");
+    fwrite($postfile, $posttext);
 
-$postFile = fopen($postLocation."/post.php", "w");
-fwrite($postFile, $postText);
-/*
-$postfile = fopen("blogg/".$blogg."/".$post."/post.php", "w");
-fwrite($postfile, $posttext);
-
-$commentfile = fopen("blogg/".$blogg."/".$post."/comment_".$counter.".txt", "w");
-fwrite($commentfile, $commenttext);
-*/
-header($postLocation."/../blog.php");
+    $commentfile = fopen("blogg/".$blogg."/".$post."/comment_".$counter.".txt", "w");
+    fwrite($commentfile, $commenttext);
+    */
+    header("location: blog_blog.php?blogID=$blogID");
 ?>

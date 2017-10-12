@@ -206,7 +206,7 @@ function blog_userRegistered(id, request) {
 
 
 function showModal(modalName) {
-    //console.log(modalName);
+    console.log(modalName);
     var infoDivs = document.getElementsByName("info");
     for(var i = 0; i<infoDivs.length; i++) {
         infoDivs[i].innerHTML = "";

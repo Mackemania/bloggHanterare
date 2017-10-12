@@ -1,0 +1,1 @@
+HEJSHDA<?php require_once('/../blog_postMaker.php'); $_SESSION['blogID'] =  ?>

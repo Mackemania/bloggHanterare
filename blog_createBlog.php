@@ -20,14 +20,5 @@ $blogLocation = "blog_".$matrix[0][0];
 
 mkdir("blog/".$blogLocation);
 
-$blogphp = "<?php require_once('../../blog_postMaker.php');"." require_once('../../blog_menu.php'); $"."_SESSION"."['blogID'] = ".$matrix[0][0]."; require_once('../../blog_postLink.php'); ?>";
-
-$blogSource = fopen("blog/".$blogLocation."/blog.php", "w");
-fwrite($blogSource, $blogphp);
-fclose($blogSource);
-
-$blogLink = "blog/$blogLocation";
-copy("graphics", $blogLink);
-
 header("location: index.php");
 ?>

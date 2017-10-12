@@ -62,7 +62,7 @@ function blog_showName(id, request) {
 
 
 function blog_enableEditButton() {
-    console.log(this.lName);
+    //console.log(this.lName);
     if(document.getElementById("editFirstName").value != this.fName || document.getElementById("editLastName").value != this.lName || document.getElementById("editBirthDate").value != birthdate ||document.getElementById("editPassword").value != "") {
         document.getElementById("editButton").removeAttribute("disabled");
     } else {
@@ -124,7 +124,7 @@ function blog_loginToDB() {
     var password = document.getElementById("loginPassword").value;
 
     var data = "username="+username+"&password="+password;
-    console.log(data);
+    //console.log(data);
     sendData("login", "blog_loginDB.php", data, blog_loggedIn);
 
 }
@@ -133,7 +133,7 @@ function blog_loginToDB() {
 function blog_loggedIn(id, request) {
 
     var text = request.responseText;
-    console.log(text);
+    //console.log(text);
     if(text == true) {
         //alert("Du loggades in");
         document.getElementById("login").style.display = "none";
@@ -206,7 +206,7 @@ function blog_userRegistered(id, request) {
 
 
 function showModal(modalName) {
-    console.log(modalName);
+    //console.log(modalName);
     var infoDivs = document.getElementsByName("info");
     for(var i = 0; i<infoDivs.length; i++) {
         infoDivs[i].innerHTML = "";

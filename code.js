@@ -3,6 +3,57 @@ var lName = "";
 var birthdate = "";
 var serverRootFolder = "";
 
+function blog_getPostIDsFromDB() {
+
+    sendData("getPostIds", "blog_getPostIDsFromDB.php", "", blog_postIDs);
+}
+
+function blog_postIDs(id, request) {
+    var text = request.responseText;
+    
+    //console.log(text);
+
+    var posts = text.split("§");
+
+    var IDs = posts[1].split("&");
+    var postTitles = posts[2].split("&");
+    var postSources = posts[3].split("&");
+
+    //console.log(IDs, postTitles, postSources);
+
+    blog_getPostTextFromDB(postSources);
+    
+}
+
+function blog_getPostTextFromDB(source) {
+    
+    var data = "source=";
+    for(var i = 1; i<source.length; i++) {
+        data = data+","+source[i];
+
+    }
+
+    //console.log(data);
+    sendData("getPostTextFromServer", "blog_getPostTextFromServer.php", data, blog_serverPostText);
+
+}
+
+function blog_serverPostText(id, request) {
+    var text = request.responseText;
+    
+    var posts = text.split("&");
+    for(var i = 1; i<posts.length; i++) {
+        var content = document.getElementById("postTexts").innerHTML;
+        var div = document.createElement("div");
+        div.innerHTML = posts[i];
+        document.getElementById("postTexts").appendChild(div);
+        
+        
+    }
+    
+
+}
+
 function blog_editProfileInDB() {
     var firstName = document.getElementById("editFirstName").value;
     var lastName = document.getElementById("editLastName").value;

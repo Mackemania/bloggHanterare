@@ -18,7 +18,7 @@
     <?PHP
         echo("<link href='blog_style.css' media='screen' type='text/css' rel='stylesheet'/>");
     ?>
-    
+
     <script src="code.js"></script>
 </head>
 
@@ -29,7 +29,7 @@
                 <li><img src='graphics/logga.svg' class='menuLogo'/></li>
                 <li><a class='menuA' href='index.php' title='KYS' data-toggle='popover' data-trigger='hover' data-content='Some content'>Startsida</a></li>
             ");
-        
+
             if(!isset($_SESSION["userID"])) {
                 echo(
                 '<li><a class="menuA" href="javascript: showModal(\'register\');">Registrera</a></li>
@@ -44,11 +44,14 @@
             }
 
         ?>
+        <form action = "blog_search.php" method = "POST">
         <div id="searchbar">
             <span class="input-group-btn">
             <span class="glyphicon glyphicon-search"></span> Search
-            <input type="text" class="form-control" placeholder="Sök efter bloggar...">
+            <input type="text" class="form-control" name = "searchStuff" placeholder="Sök efter bloggar...">
+            <button class="btn btn-success" type="submit">Sök</button>
         </div>
+      </form>
     </ul>
 </div>
 

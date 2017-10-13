@@ -59,16 +59,9 @@ select {
 
 }
 
-ul {
-    font-family: CenturyGothic;
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    background-color: rgb(0, 162, 255);
-    position: fixed;
-    width: 100%;
-    max-height: 8%;
-    padding-left: 2%;
+li {
+    height: 100%;
+
 }
 a {
     text-decoration: none;
@@ -79,20 +72,28 @@ h2 {
     margin: 0%;
 }
 
+hr {
+
+    border-color: rgb(200, 200, 200);
+}
+
 #container {
     text-align: center;
     margin-top: 5%;
 }
 
 #menu {
+    max-height: 8%;
     position: fixed;
     width: 100%;
     text-align: center;
     top: 0;
     left: 0;
     font-size: 100%;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgb(0, 162, 255);
+    padding-left: 2%;
     color: rgb(255, 255, 255);
+    overflow: hidden;
     z-index: 1;
 }
 
@@ -178,12 +179,14 @@ h2 {
 }
 
 .menuA {
+    max-height: 100%;
+    font-size: 100%;
     color: rgb(255, 255, 255);
     text-decoration: none;
     text-align: center;
     display: block;
     float: left;
-    padding: 1% 2%
+    padding: 1% 2%;
 
 }
 
@@ -330,7 +333,7 @@ h2 {
     border-color: rgb(0, 119, 255);
     border-width: 1px;
     outline: none;
-    margin-bottom: 4%;
+    margin-bottom: 3%;
 }
 .selectedButton {
     float: left;
@@ -379,12 +382,27 @@ h2 {
 }
 
 .post {
+    width:100%;
+    float: left;
     border: solid;
     border-width: 1px;
     border-color: rgb(169, 169, 169);
     border-radius: 15px;
+    margin-bottom: 4%;
+    padding: 5%;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
 
 }
+
+.postH3 {
+    text-align: center;
+}
+
 #sidebar_left {
    
 }

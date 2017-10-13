@@ -16,7 +16,7 @@
     $password = $_REQUEST["password"];
 
     if($password != null) {
-        $SQL = "update user set firstName='$firstName', lastName='$lastName', password='$password, birthDate='$birthDate' where userID=$userID";
+        $SQL = "update user set firstName='$firstName', lastName='$lastName', password='$password', birthDate='$birthDate' where userID=$userID";
         $db->execute($SQL);
         echo("true");
 

@@ -2,6 +2,8 @@ var fName = "";
 var lName = "";
 var birthdate = "";
 var serverRootFolder = "";
+var postTitles;
+var postIDs;
 
 function blog_getPostIDsFromDB() {
 
@@ -15,8 +17,8 @@ function blog_postIDs(id, request) {
 
     var posts = text.split("§");
 
-    var IDs = posts[1].split("&");
-    var postTitles = posts[2].split("&");
+    this.postIDs = posts[1].split("&");
+    this.postTitles = posts[2].split("&");
     var postSources = posts[3].split("&");
 
     //console.log(IDs, postTitles, postSources);
@@ -33,7 +35,7 @@ function blog_getPostTextFromDB(source) {
 
     }
 
-    //console.log(data);
+    console.log(data);
     sendData("getPostTextFromServer", "blog_getPostTextFromServer.php", data, blog_serverPostText);
 
 }
@@ -43,13 +45,20 @@ function blog_serverPostText(id, request) {
     
     var posts = text.split("&");
     for(var i = 1; i<posts.length; i++) {
-        var content = document.getElementById("postTexts").innerHTML;
+        var title = this.postTitles[i];
+        var postID = this.postIDs[i];
+
+        var header = document.createElement("h3");
+        header.setAttribute("class", "postH3");
+        header.innerHTML = title+"</br><hr>";
         var div = document.createElement("div");
+        div.setAttribute("id", postID);
         div.setAttribute("class", "post");
-        div.innerHTML = posts[i];
-        
+        div.appendChild(header);
         document.getElementById("postTexts").appendChild(div);
-        
+
+        var content = document.getElementById(postID).innerHTML;
+        div.innerHTML = content+posts[i];
         
     }
     
@@ -194,7 +203,7 @@ function blog_loggedIn(id, request) {
 
     } else {
         //alert("Du loggades inte in");
-        document.getElementById("info").innerHTML = "Fel användarnamn eller lösenord!";
+        document.getElementById("info").innerHTML = text;
 
     }
 }

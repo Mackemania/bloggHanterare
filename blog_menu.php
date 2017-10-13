@@ -48,7 +48,7 @@
         <div id="searchbar">
             <span class="input-group-btn">
             <span class="glyphicon glyphicon-search"></span> Search
-            <input type="text" class="form-control" name = "searchStuff" placeholder="Sök efter bloggar...">
+            <input type="text" class="form-control" name = "searchStuff"     placeholder="Sök efter bloggar...">
             <button class="btn btn-success" type="submit">Sök</button>
         </div>
       </form>

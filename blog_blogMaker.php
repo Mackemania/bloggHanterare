@@ -4,10 +4,10 @@
 <form action='blog_createBlog.php' method='post'>
 
     Bloggens namn:</br>
-    <input type='text' name='blogTitle'><br/><br/>
+    <input type='text' name='blogTitle' required="required"><br/><br/>
 
     Beskrivning av bloggen:</br>
-    <input type='text' name='blogDescription'><br/><br/>
+    <input type='text' name='blogDescription' required="required"><br/><br/>
 
     <input type='submit' value='Skapa blog'>
 

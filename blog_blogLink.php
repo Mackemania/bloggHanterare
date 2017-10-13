@@ -9,6 +9,7 @@
 
     $userID = $_SESSION["userID"];
 
+
     $sql = "SELECT blogID, blogTitle FROM blog WHERE userID=$userID";
     $matrix = $db->getData($sql);
 

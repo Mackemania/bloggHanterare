@@ -1,1 +1,0 @@
-Skalla varenda en

@@ -2,7 +2,6 @@
 
     require_once("blog_db.php");
     $db = new DB();
-
     $blogID = $_REQUEST["blogID"];
     
     $SQL = "SELECT blogTitle FROM blog WHERE blogID=$blogID";
@@ -19,29 +18,20 @@
 
         ?>
     </head>
-	<body>
+	<body onload="javascript: blog_getPostIDsFromDB();">
         <div id="container">
             <div id="blogContent">
                 <?PHP
                     require_once("blog_menu.php");
-                    
+                    $_SESSION["blogID"] = $blogID;
                     require_once("blog_postMaker.php");
 
-                    $_SESSION["blogID"] = $blogID;
-                    
-                    $SQL = "SELECT postID, postTitle, source FROM post WHERE blogID=$blogID";
-                    $matrix = $db->getData($SQL);
-
-                    for($i = 0; $i<count($matrix); $i++) {
-                        $postIDs[$i] = $matrix[$i][0];
-                        $postTitles[$i] = $matrix[$i][1];
-                        $postSource[$i] = $matrix[$i][2];
-
-                    }
-
                 ?>
+
+                <div id="postTexts">
+                </div>
             </div>
-        <div id="container">
+        </div>
     </body>
 
 </html>

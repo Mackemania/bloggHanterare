@@ -6,7 +6,8 @@
     $user = $_REQUEST["username"];
     $user = strtolower($user);
     $password = $_REQUEST["password"];
-    $SQL = "select * from user where alias='$user' and password='$password'";
+    $SQL = "SELECT * FROM user WHERE alias='$user' AND password='$password' COLLATE latin1_bin";
+    //echo($SQL);
     $matrix = $db->getData($SQL);
     if(count($matrix) == 1) {
         $userId = $matrix[0][0];
@@ -19,7 +20,7 @@
 
     } else {
 
-        echo("False");
+        echo("Fel användarnamn/lösenord");
     }
 
 ?>

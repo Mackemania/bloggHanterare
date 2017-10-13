@@ -23,36 +23,35 @@
 </head>
 
 <div id="menu">
-    <ul>
-        <?PHP
-            echo("
-                <li><img src='graphics/logga.svg' class='menuLogo'/></li>
-                <li><a class='menuA' href='index.php' title='KYS' data-toggle='popover' data-trigger='hover' data-content='Some content'>Startsida</a></li>
-            ");
+    <?PHP
+        echo("
+            <img src='graphics/logga.svg' class='menuLogo'/>
+            <a class='menuA' href='index.php' title='KYS' data-toggle='popover' data-trigger='hover' data-content='Some content'>Startsida</a>
+        ");
 
-            if(!isset($_SESSION["userID"])) {
-                echo(
-                '<li><a class="menuA" href="javascript: showModal(\'register\');">Registrera</a></li>
-                <li><a class="menuA" href="javascript: showModal(\'login\');">Logga in</a></li>');
+        if(!isset($_SESSION["userID"])) {
+            echo(
+            '<a class="menuA" href="javascript: showModal(\'register\');">Registrera</a>
+            <a class="menuA" href="javascript: showModal(\'login\');">Logga in</a>');
 
-            } else {
+        } else {
 
-                echo("<li><a class='menuA' href='blog_userBlogs.php' title='Se dina bloggar' data-toggle='popover' data-trigger='hover' data-content='Some content'>Mina bloggar</a></li>");
-                echo("<li><a class='menuA' href='blog_userSettings.php' title='Inställningar för din profil och dina bloggar' data-toggle='popover' data-trigger='hover' data-content='Some content'>Min profil</a></li>");
-                echo("<li><a class='menuA' href='blog_logout.php' title='Klicka här för att logga ut' data-toggle='popover' data-trigger='hover' data-content='Some content'>Logga ut</a></li>");
+            echo("<a class='menuA' href='blog_userBlogs.php' title='Se dina bloggar' data-toggle='popover' data-trigger='hover' data-content='Some content'>Mina bloggar</a>");
+            echo("<a class='menuA' href='blog_userSettings.php' title='Inställningar för din profil och dina bloggar' data-toggle='popover' data-trigger='hover' data-content='Some content'>Min profil</a>");
+            echo("<a class='menuA' href='blog_logout.php' title='Klicka här för att logga ut' data-toggle='popover' data-trigger='hover' data-content='Some content'>Logga ut</a>");
 
-            }
+        }
 
-        ?>
-        <form action = "blog_search.php" method = "POST">
+    ?>
+
+    <form action = "blog_search.php" method = "POST">
         <div id="searchbar">
             <span class="input-group-btn">
             <span class="glyphicon glyphicon-search"></span> Search
             <input type="text" class="form-control" name = "searchStuff"     placeholder="Sök efter bloggar...">
             <button class="btn btn-success" type="submit">Sök</button>
         </div>
-      </form>
-    </ul>
+    </form>
 </div>
 
  <!--

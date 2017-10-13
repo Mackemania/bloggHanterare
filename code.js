@@ -5,6 +5,15 @@ var serverRootFolder = "";
 var postTitles;
 var postIDs;
 
+function blog_showCommentPost(postID) {
+
+    document.getElementById("commentContent").innerHTML = "";
+    var post = document.getElementById(postID);
+    var commentPost = post.cloneNode(true);
+    document.getElementById("commentContent").appendChild(commentPost);
+    showModal('comment');
+}
+
 function blog_getPostIDsFromDB() {
 
     sendData("getPostIds", "blog_getPostIDsFromDB.php", "", blog_postIDs);
@@ -50,7 +59,7 @@ function blog_serverPostText(id, request) {
 
         var header = document.createElement("h3");
         header.setAttribute("class", "postH3");
-        header.innerHTML = title+"</br><hr>";
+        header.innerHTML = title+"<hr>";
         var div = document.createElement("div");
         div.setAttribute("id", postID);
         div.setAttribute("class", "post");
@@ -59,6 +68,25 @@ function blog_serverPostText(id, request) {
 
         var content = document.getElementById(postID).innerHTML;
         div.innerHTML = content+posts[i];
+        
+        var commentReportArea = document.createElement("div");
+        var craID = "cra"+postID;
+        commentReportArea.setAttribute("id", craID);
+        commentReportArea.setAttribute("class", "CRA");
+        
+        var commentButton = document.createElement("button");
+        commentButton.setAttribute("class", "CRAButton");
+        commentButton.setAttribute("onclick", "javascript: blog_showCommentPost("+postID+");");
+        commentButton.setAttribute("value", postID);
+        commentButton.innerHTML = "<span class='material-icons'>insert_comment</span>";
+        commentReportArea.appendChild(commentButton);
+
+        var reportButton = document.createElement("button");
+        reportButton.setAttribute("onclick", "javascript: showModal('report')");
+        reportButton.setAttribute("class", "CRAButton");
+        reportButton.innerHTML = "<span class='material-icons'>flag</span>";
+        commentReportArea.appendChild(reportButton);
+        div.appendChild(commentReportArea);
         
     }
     

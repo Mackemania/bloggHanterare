@@ -32,6 +32,27 @@
                 </div>
             </div>
         </div>
+
+        <div id ="comment" class="modal comment form">
+            <div id="modalContent" class="postModalContent">
+                <div id="closeDiv">
+                    <span onclick="document.getElementById('comment').style.display='none'" class="postClose" title="Stäng">&times;</span>
+                </div>
+                <h2>Kommentera</h2></br>
+                <form method="post" action="javascript: blog_loginToDB();">
+                    <div id="commentContent">
+                    </div>
+                    </br>
+
+
+                    Kommentar:</br>
+                    <input type="text" class="formText" id="commentText" name="commentText" placeholder="Kommentar" required="required"/></br></br>
+
+                    <input type="submit" class="formButton" value="Kommentar"/>
+                </form>
+            </div>
+        </div>
+        
     </body>
 
 </html>

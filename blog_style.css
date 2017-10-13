@@ -83,7 +83,7 @@ hr {
 }
 
 #menu {
-    max-height: 8%;
+    max-height: 6%;
     position: fixed;
     width: 100%;
     text-align: center;
@@ -95,6 +95,9 @@ hr {
     color: rgb(255, 255, 255);
     overflow: hidden;
     z-index: 1;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(0, 119, 255);
 }
 
 #settingsMenu {
@@ -179,25 +182,28 @@ hr {
 }
 
 .menuA {
-    max-height: 100%;
-    font-size: 100%;
+    min-width: 10%;
+    background-color: rgb(0, 162, 255);
     color: rgb(255, 255, 255);
     text-decoration: none;
     text-align: center;
     display: block;
+    padding-top: 0.6%;
+    padding-bottom: 1%;
     float: left;
-    padding: 1% 2%;
 
 }
 
 .menuA:hover {
+    min-width: 10%;
     background-color: rgb(253, 119, 66);
     color: rgb(255, 255, 255);
     text-decoration: none;
     text-align: center;
     display: block;
+    padding-top: 0.6%;
+    padding-bottom: 1%;
     float: left;
-    padding: 1% 2%;
 }
 
 .menuLogo {
@@ -233,7 +239,7 @@ hr {
 }
 
 .postModalContent {
-    width: 50%;
+    width: 55%;
     margin-left: auto;
     margin-right: auto;
     padding: 2%;
@@ -241,6 +247,7 @@ hr {
     border-radius: 15px;
     box-shadow: 4px 6px 5px rgb(100, 100, 100);
     margin-top: -1%;
+    margin-bottom: 7%;
 
 }
 
@@ -299,13 +306,47 @@ hr {
     color: rgb(255, 255, 255);
     background-color: rgb(253, 119, 66);
     border: none;
-
 }
 
 .textarea {
     width: 90%;
     min-height: 5%;
     font-size: 90%;
+}
+
+.menuButton {
+
+    float: left;
+    width: 12%;
+    min-height: 55%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0.2%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    margin-top: 0.37%;
+    margin-left: 1%;
+    border-radius: 3px;
+}
+
+.menuButton:hover {
+    
+    float: left;
+    width: 12%;
+    min-height: 55%; 
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0.2%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 72, 0);
+    border-color: rgb(253, 119, 66);
+    border-width: 1px;
+    outline: none;
+    margin-top: 0.37%;
+    margin-left: 1%;
+    border-radius: 3px;
 }
 
 .button {
@@ -321,6 +362,20 @@ hr {
     border-width: 1px;
     outline: none;
 }
+
+.button:hover {
+    float: left;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+}
+
 .postButton {
     float: left;
     width: 100%;
@@ -335,6 +390,24 @@ hr {
     outline: none;
     margin-bottom: 3%;
 }
+
+.postButton:hover {
+
+    float: left;
+    width: 100%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
+    margin-bottom: 3%;
+
+}
+
 .selectedButton {
     float: left;
     width: 90%;
@@ -349,20 +422,6 @@ hr {
     outline: none;
     /*border-top-right-radius: 100%;
     border-bottom-right-radius: 100%;*/
-}
-
-.button:hover {
-    float: left;
-    width: 90%;
-    min-height: 5%;
-    font-size: 90%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(253, 119, 66);
-    border-color: rgb(253, 97, 35);
-    border-width: 1px;
-
 }
 
 .close {
@@ -403,12 +462,52 @@ hr {
     text-align: center;
 }
 
+.CRA {
+    margin-top: 10%;
+}
+
+.CRAButton {
+    float: left;
+    width: 5%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
+    border-width: 1px;
+    outline: none;
+}
+
+.CRAButton:hover, .CRAButton:focus{
+    float: left;
+    width: 5%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
+}
+
 #sidebar_left {
    
 }
 #searchbar {
     float: left;
-    margin-top: 0.6%;
+    margin-top: 0.3%;
     margin-left: 1%;
     text-decoration: none;
+    min-width: 30%;
+    height: 55%;
+}
+
+.input-group-btn {
+
+    width: 35%;
+    float: left;
 }

@@ -35,5 +35,13 @@ for ($i=0;$i<count($matrix);$i++){
 
     }
 
+/*    $sql = "SELECT blogID, blogTitle FROM blog WHERE blogTitle='$blogSearch'";
+    $matrix = $db->getData($sql);
+
+
+
+        echo("<a href='blog_blog.php?blogID=".$matrix[$i][0]."'>".$matrix[$i][1]."</a><br/>");
+
+*/
 }
  ?>

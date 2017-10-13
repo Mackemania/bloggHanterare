@@ -1,7 +1,7 @@
 <?PHP
     //form för att göra ett nytt inlägg
 ?>
-<input type="button" class="button" onclick="javascript: showModal('createPost');" value="Gör inlägg">
+<input type="button" class="postButton" onclick="javascript: showModal('createPost');" value="Gör inlägg">
 
 <div id ="createPost" class="modal form">
     <div id="modalContent" class="postModalContent">
@@ -17,7 +17,7 @@
             Inlägget:</br>
             <textarea id="postText" name="postText" class="textarea" rows="10" placeholder="Skriv något!" autocomplete="off" required="required"></textarea>
 
-            <input type='submit' value='create post' class="formButton"><br/>
+            <input type='submit' value='create post' class="formButton">
 
         </form>
     </div>

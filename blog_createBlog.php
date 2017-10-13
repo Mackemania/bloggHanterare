@@ -1,24 +1,29 @@
+<?PHP
+    //ini_set("display_errors", "on");
+    //error_reporting(-1);
+    require_once("blog_db.php");
+    $db = new DB();
 
-<?php
-require_once("blog_db.php");
-$db = new DB();
+    session_start();
+    $blogOwner = $_SESSION["userID"];
+    $blogTitle = $_POST["blogTitle"];
+    $blogDescription = $_POST["blogDescription"];
 
-session_start();
-$blogOwner = $_SESSION["userID"];
-$blogTitle = $_POST["blogTitle"];
-$blogDescription = $_POST["blogDescription"];
+    $SQL = "INSERT INTO blog(blogTitle, blogDescription, css, userID, permissionStatus) VALUES('$blogTitle', '$blogDescription', '1', $blogOwner, 0)";
+    //echo($SQL);
+    $db->execute($SQL);
 
-$sql = "INSERT INTO blog(blogTitle, blogDescription, css, userID, permissionStatus) VALUES('$blogTitle', '$blogDescription', '1', $blogOwner, 0)";
+    $SQL = "SELECT blogID FROM blog ORDER BY blogID DESC";
+    //echo($SQL);
+    $matrix = $db->getData($SQL);
 
-$db->execute($sql);
+    $blogLocation = "blog_".$matrix[0][0];
 
-$sql = "SELECT blogID FROM blog ORDER BY blogID DESC";
+    $old = umask(0);
+    
+    mkdir("blog/".$blogLocation);
+    
+    umask($old);
 
-$matrix = $db->getData($sql);
-
-$blogLocation = "blog_".$matrix[0][0];
-
-mkdir("blog/".$blogLocation);
-
-header("location: index.php");
+    header("location: index.php");
 ?>

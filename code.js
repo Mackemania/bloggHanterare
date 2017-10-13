@@ -45,7 +45,9 @@ function blog_serverPostText(id, request) {
     for(var i = 1; i<posts.length; i++) {
         var content = document.getElementById("postTexts").innerHTML;
         var div = document.createElement("div");
+        div.setAttribute("class", "post");
         div.innerHTML = posts[i];
+        
         document.getElementById("postTexts").appendChild(div);
         
         

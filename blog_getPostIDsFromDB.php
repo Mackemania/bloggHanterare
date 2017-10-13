@@ -8,6 +8,7 @@
     $db=new DB();
 
     $SQL = "SELECT postID, postTitle, source FROM post WHERE blogID=$blogID ORDER BY postID DESC";
+    //echo($SQL);
     $matrix = $db->getData($SQL);
     $postIDs = "§";
     $postTitles = "§";

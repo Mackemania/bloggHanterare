@@ -148,13 +148,20 @@ CREATE TABLE `user` (
   `eMail` varchar(50) NOT NULL,
   `birthDate` varchar(10) DEFAULT NULL,
   `admin` tinyint(1) NOT NULL,
-  `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `suspended` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Index för dumpade tabeller
 --
+
+CREATE TABLE `suspension`(
+  `suspensionID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `reason` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 --
 -- Index för tabell `blog`
@@ -327,3 +334,13 @@ ALTER TABLE `postversion`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+ALTER TABLE `suspension`
+  ADD PRIMARY KEY (`suspensionID`),
+  ADD KEY `userID` (`userID`);
+
+ALTER TABLE `suspension`
+  MODIFY `suspensionID` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `suspension`
+  ADD CONSTRAINT `suspension_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);

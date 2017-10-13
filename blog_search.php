@@ -30,8 +30,8 @@ for ($i=0;$i<count($matrix);$i++){
 
 
     for ($i=0;$i<count($matrix);$i++){
-      $blogSearch=$matrix[$i][1];
-      echo $blogSearch;
+      echo $matrix[$i][1]."<br/>";
+       
 
     }
 

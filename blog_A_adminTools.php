@@ -1,6 +1,5 @@
 <div id="adminTools" class="adminTools">
     <?PHP
-
         require_once("blog_db.php");
         $db = new DB();
 
@@ -12,7 +11,7 @@
         
         echo("<h2>Banna en användare</h2>");
 
-        echo "<br/><form action='blog_banUser.php' method='post'>Vem är det som ska bli bannad:</br>
+        echo "<br/><form action='blog_A_banUser.php' method='post'>Vem är det som ska bli bannad:</br>
         <select name='userID' id='userID' class='formText' required='required'>
         <option value=''>Välj en...</option>";
         
@@ -44,7 +43,7 @@
         <input type='submit' value='Banna en användare' class='formButton'>
         </form>";
 
-        echo "<br/><form action='blog_unBanUser.php' method='post'>";
+        echo "<br/><form action='blog_A_unBanUser.php' method='post'>";
         
         echo("<h2>Ta bort en bann</h2>");
         
@@ -67,5 +66,15 @@
 
         echo "<input type='submit' value='Ta bort bann' class='formButton'> </form>";
 
+        
+
+        echo "<br/><form action='blog_A_userBlogs.php' method='post'>vems bloggar?: <select name='userID' id='userID'>";
+        for($i = 0; $i<count($matrix); $i++)
+        {
+            echo "<option value='".$matrix[$i][0]."'>".$matrix[$i][1]."</option>";
+        }
+        echo "</select><br/>";
+        echo "<input type='submit' value='kolla användarens bloggar'> </form>";
     ?>
 </div>
+

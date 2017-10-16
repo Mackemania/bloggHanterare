@@ -120,6 +120,7 @@ function blog_profileEdited(id, request) {
     if(text == "true") {
 
         alert("Din profil har ändrats!");
+        location.reload();
     }
 }
 
@@ -144,9 +145,6 @@ function blog_showName(id, request) {
 
     document.getElementById("editBirthDate").value = names[2];
     this.birthdate = names[2];
-    
-    
-
     
 }
 

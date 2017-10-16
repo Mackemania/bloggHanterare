@@ -23,16 +23,18 @@
 
     $SQL = "INSERT INTO post(postTitle, source, userID, blogID) VALUES('$postTitle', '$source', $userID, $blogID)";
     $db->execute($SQL);
+    
+    $old = umask(0);
 
     $source = str_replace("post.php", "", $source);
     mkdir($source);
    
-    //$old = umask(0);
+    
     
     $postFile = fopen($source."/post.php", "w");
     fwrite($postFile, $postText);
     
-    //umask($old);
+    umask($old);
     
     /*
     $postfile = fopen("blogg/".$blogg."/".$post."/post.php", "w");

@@ -8,7 +8,7 @@ $date = date("Y-m-d");
 $SQL = "SELECT userID, alias, suspended FROM user WHERE admin != 1";
 
 $matrix = $db->getData($SQL);
-echo "<br/><form action='blog_banUser.php' method='post'>Vem är det som ska bli bannad: <select name='userID' id='userID'>";
+echo "<br/><form action='blog_A_banUser.php' method='post'>Vem är det som ska bli bannad: <select name='userID' id='userID'>";
 for($i = 0; $i<count($matrix); $i++)
 {
     echo "<option value='".$matrix[$i][0]."'>".$matrix[$i][1];
@@ -26,7 +26,7 @@ echo("<input type='date' id='suspendedUntil' name='suspendedUntil' class='formTe
 
 echo "Andledning till bann:<input type='text' name='reason' required='required'> <input type='submit' value='suspend user'> </form>";
 
-echo "<br/><form action='blog_unBanUser.php' method='post'>";
+echo "<br/><form action='blog_A_unBanUser.php' method='post'>";
 echo "<select name='userID' id='userID'>";
 for($i = 0; $i<count($matrix); $i++)
 {
@@ -41,4 +41,12 @@ echo "</select><br/>";
 echo "Andledning till borttagen bann:<input type='text' name='reason' required='required'><br/>";
 echo "<input type='submit' value='ta bort bann'> </form>";
 
+
+echo "<br/><form action='blog_A_userBlogs.php' method='post'>vems bloggar?: <select name='userID' id='userID'>";
+for($i = 0; $i<count($matrix); $i++)
+{
+    echo "<option value='".$matrix[$i][0]."'>".$matrix[$i][1]."</option>";
+}
+echo "</select><br/>";
+echo "<input type='submit' value='kolla användarens bloggar'> </form>";
 ?>

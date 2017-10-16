@@ -7,7 +7,7 @@
     require_once("blog_db.php");
     $db=new DB();
 
-    $SQL = "SELECT postID, postTitle, source FROM post WHERE blogID=$blogID ORDER BY postID DESC";
+    $SQL = "SELECT postID, postTitle, source FROM post WHERE blogID=8 ORDER BY postID DESC";
     //echo($SQL);
     $matrix = $db->getData($SQL);
     $postIDs = "§";

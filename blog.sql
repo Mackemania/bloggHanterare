@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 10 okt 2017 kl 15:09
+-- Tid vid skapande: 16 okt 2017 kl 09:30
 -- Serverversion: 10.1.19-MariaDB
 -- PHP-version: 7.0.13
 
@@ -47,7 +47,7 @@ CREATE TABLE `comment` (
   `OS` varchar(30) NOT NULL,
   `IP` varchar(15) NOT NULL,
   `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `source` varchar(30) NOT NULL,
+  `source` varchar(50) NOT NULL,
   `userID` int(11) NOT NULL,
   `postID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -74,6 +74,13 @@ CREATE TABLE `css` (
   `cssID` int(11) NOT NULL,
   `source` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumpning av Data i tabell `css`
+--
+
+INSERT INTO `css` (`cssID`, `source`) VALUES
+(1, '');
 
 -- --------------------------------------------------------
 
@@ -136,6 +143,18 @@ CREATE TABLE `postversion` (
 -- --------------------------------------------------------
 
 --
+-- Tabellstruktur `suspension`
+--
+
+CREATE TABLE `suspension` (
+  `suspensionID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `reason` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellstruktur `user`
 --
 
@@ -153,15 +172,15 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Index för dumpade tabeller
+-- Dumpning av Data i tabell `user`
 --
 
-CREATE TABLE `suspension`(
-  `suspensionID` int(11) NOT NULL,
-  `userID` int(11) NOT NULL,
-  `reason` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `user` (`userID`, `password`, `alias`, `firstName`, `lastName`, `eMail`, `birthDate`, `admin`, `createDate`, `suspended`) VALUES
+(1, '123', 'pjã¤r', NULL, NULL, 'pjaer@live.se', NULL, 0, '2017-10-16 07:23:16', NULL);
 
+--
+-- Index för dumpade tabeller
+--
 
 --
 -- Index för tabell `blog`
@@ -227,6 +246,13 @@ ALTER TABLE `postversion`
   ADD KEY `newID` (`newID`);
 
 --
+-- Index för tabell `suspension`
+--
+ALTER TABLE `suspension`
+  ADD PRIMARY KEY (`suspensionID`),
+  ADD KEY `userID` (`userID`);
+
+--
 -- Index för tabell `user`
 --
 ALTER TABLE `user`
@@ -240,7 +266,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT för tabell `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `blogID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `blogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT för tabell `comment`
 --
@@ -255,7 +281,7 @@ ALTER TABLE `commentversion`
 -- AUTO_INCREMENT för tabell `css`
 --
 ALTER TABLE `css`
-  MODIFY `cssID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cssID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT för tabell `flag`
 --
@@ -272,10 +298,15 @@ ALTER TABLE `post`
 ALTER TABLE `postversion`
   MODIFY `postVersion` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT för tabell `suspension`
+--
+ALTER TABLE `suspension`
+  MODIFY `suspensionID` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT för tabell `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Restriktioner för dumpade tabeller
 --
@@ -331,16 +362,12 @@ ALTER TABLE `postversion`
   ADD CONSTRAINT `postversion_ibfk_1` FOREIGN KEY (`oldID`) REFERENCES `post` (`postID`),
   ADD CONSTRAINT `postversion_ibfk_2` FOREIGN KEY (`newID`) REFERENCES `post` (`postID`);
 
+--
+-- Restriktioner för tabell `suspension`
+--
+ALTER TABLE `suspension`
+  ADD CONSTRAINT `suspension_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-ALTER TABLE `suspension`
-  ADD PRIMARY KEY (`suspensionID`),
-  ADD KEY `userID` (`userID`);
-
-ALTER TABLE `suspension`
-  MODIFY `suspensionID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `suspension`
-  ADD CONSTRAINT `suspension_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);

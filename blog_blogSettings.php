@@ -14,32 +14,26 @@
                     <div id="closeDiv">
                         <span onclick="document.getElementById('blogselect').style.display='none'" class="close" title="Stäng">&times;</span>
                     </div>
-                    <form>
-                        <select class="formText" required="required">
-                            <option value="blogselect">Välj en blogg...</option>
-                            <option value="fetchblogs"><?PHP require_once("blog_blogLink.php");?></option>
-                        </select></br></br>
-                        <input type="submit" value="Välj denna blogg" >
-                    </form>
+                        <?PHP require_once("blog_getBlogsFromUser.php");?>
                 </div>
             </div>
                 <form>
-                    Sätt behörighet på din/dina bloggar<br>
+                    Sätt behörighet på din/dina bloggar<br />
                     <select class="formText" required="required">
                         <option value="">Välj en...</option>
                         <option value="Admin">Endast inloggade</option>
                         <option value="Open">Öppen</option>
                         <option value="Private">Privat</option>
-                    </select></br></br>
+                    </select><br /><br />
                     <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Spara Behörighetsändring">
                 </form>
                 <form>
-                    Whitelista en person<br>
+                    Whitelista en person<br />
                     <select class="formText" required="required">
                         <option value="">Välj en...</option>
                         <option value="Admin">Administratör</option>
                         <option value="Readable">Läsbehörig</option>
-                    </select></br></br>
+                    </select><br /><br />
                     <input type="text" name="namn" required="required" placeholder="Namn" autocomplete="off"></br></br>
                     <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Whitelista Person">
                 </form>

@@ -11,5 +11,6 @@
 	<body>
 	    <h2>Om mig</h2>
 		  <textarea id="aboutMe" name="About Me" class="textarea" rows="15" cols="40"  placeholder="Jag heter..." autocomplete="off" maxlength="500" required="required"></textarea>
+		  <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Spara information">
 	</body>
 </html>

@@ -12,7 +12,6 @@
 		<?PHP
         	require_once("blog_menu.php");
 			require_once("blog_randomizer.php");
-			require_once("blog_adminTools.php");
         ?>
 
 		<div id="container">

@@ -184,6 +184,8 @@ function blog_loadUserSettings(page) {
         
         var button = document.getElementById("blogSettingsButton");
         button.setAttribute("class", "selectedButton");
+
+        sendData("loadUserSettings", "blog_blogSettings.php", "", blog_writeUserSettings);
     
     } else if(page == "edit") {
 

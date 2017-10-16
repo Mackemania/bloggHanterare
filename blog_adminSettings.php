@@ -15,7 +15,7 @@
         <div id="container">
             <?PHP
                 if($_SESSION["admin"] == 1) {
-                    require_once("blog_adminTools.php");
+                    require_once("blog_A_adminTools.php");
                 } else {
 
                     echo("<h1>Du har inte rättigheter att visa den här sidan!</h1>");

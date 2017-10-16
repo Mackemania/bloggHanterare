@@ -2,8 +2,8 @@
 
     require_once("blog_db.php");
     $db = new DB();
+
     $blogID = $_REQUEST["blogID"];
-    
     $SQL = "SELECT blogTitle FROM blog WHERE blogID=$blogID";
     $matrix = $db->getData($SQL);
     
@@ -38,20 +38,23 @@
                 <div id="closeDiv">
                     <span onclick="document.getElementById('comment').style.display='none'" class="postClose" title="Stäng">&times;</span>
                 </div>
+                
                 <h2>Kommentera</h2></br>
-                <form method="post" action="javascript: blog_addComment();">
+                <form method="post" action="blog_commentCreator.php">
                     <div id="commentContent">
                     </div>
                     </br>
+                    
+                    <div id="comments">
 
+                    </div></br>
+                    
                     Kommentera:</br>
                     <textarea id="commentArea" name="commentArea" class="textarea" rows="5" cols="40"  placeholder="Kommentar" autocomplete="off" required="required"></textarea>
 
                     <input type="submit" class="formButton" value="Kommentera"/>
                 </form>
-                <div id="comments">
-
-                </div>
+                
             </div>
         </div>
         

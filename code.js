@@ -4,6 +4,7 @@ var birthdate = "";
 var serverRootFolder = "";
 var postTitles;
 var postIDs;
+var commentIDs;
 
 function blog_showCommentPost(postID) {
 
@@ -12,25 +13,67 @@ function blog_showCommentPost(postID) {
     var commentPost = post.cloneNode(true);
     document.getElementById("commentContent").appendChild(commentPost);
     showModal('comment');
+    var data = "postID="+postID;
+    sendData("setPostIDOnComment", "blog_setPostID.php", data, blog_postIDIsSet);
+}
+
+function blog_postIDIsSet(id, request) {
+    var text = request.responseText;
+    //console.log(text);
+    document.getElementById("comments").innerHTML = "";
+    blog_getCommentIDsFromDB();
+}
+
+function blog_getCommentIDsFromDB() {
+
+    sendData("getPostIDs", "blog_getCommentIDsFromDB.php", "", blog_commentIDs);
+}
+
+function blog_commentIDs(id, request) {
+    var text = request.responseText;
+    
+    console.log(text);
+
+    var comments = text.split("§");
+    if(comments[1]!=null) {
+        this.commentIDs = comments[1].split("&");
+        var commentSources = comments[2].split("&");
+
+        //console.log(commentIDs, commentSources);
+
+        blog_getCommentTextFromDB(commentSources);
+    }
+}
+
+function blog_getCommentTextFromDB(source) {
+    
+    var data = "source=";
+    for(var i = 1; i<source.length; i++) {
+        data = data+","+source[i];
+
+    }
+
+    //console.log(data);
+    sendData("getCommentTextFromServer", "blog_getPostTextFromServer.php", data, blog_serverText);
+
 }
 
 function blog_getPostIDsFromDB() {
-
-    sendData("getPostIds", "blog_getPostIDsFromDB.php", "", blog_postIDs);
+    //alert("hej");
+    sendData("getPostIDs", "blog_getPostIDsFromDB.php", "", blog_postIDs);
 }
 
 function blog_postIDs(id, request) {
     var text = request.responseText;
-    
     //console.log(text);
-
+    
     var posts = text.split("§");
 
     this.postIDs = posts[1].split("&");
     this.postTitles = posts[2].split("&");
     var postSources = posts[3].split("&");
 
-    //console.log(IDs, postTitles, postSources);
+    //console.log(postIDs, postTitles, postSources);
 
     blog_getPostTextFromDB(postSources);
     
@@ -44,52 +87,72 @@ function blog_getPostTextFromDB(source) {
 
     }
 
-    console.log(data);
-    sendData("getPostTextFromServer", "blog_getPostTextFromServer.php", data, blog_serverPostText);
+    //console.log(data);
+    sendData("getPostTextFromServer", "blog_getPostTextFromServer.php", data, blog_serverText);
 
 }
 
-function blog_serverPostText(id, request) {
+function blog_serverText(id, request) {
     var text = request.responseText;
-    
-    var posts = text.split("&");
-    for(var i = 1; i<posts.length; i++) {
-        var title = this.postTitles[i];
-        var postID = this.postIDs[i];
+    //alert(id);
+    if(id=="getPostTextFromServer") {
 
-        var header = document.createElement("h3");
-        header.setAttribute("class", "postH3");
-        header.innerHTML = title+"<hr>";
-        var div = document.createElement("div");
-        div.setAttribute("id", postID);
-        div.setAttribute("class", "post");
-        div.appendChild(header);
-        document.getElementById("postTexts").appendChild(div);
+        var posts = text.split("&");
+        for(var i = 1; i<posts.length; i++) {
+            var title = this.postTitles[i];
+            var postID = this.postIDs[i];
 
-        var content = document.getElementById(postID).innerHTML;
-        div.innerHTML = content+posts[i];
-        
-        var commentReportArea = document.createElement("div");
-        var craID = "cra"+postID;
-        commentReportArea.setAttribute("id", craID);
-        commentReportArea.setAttribute("class", "CRA");
-        
-        var commentButton = document.createElement("button");
-        commentButton.setAttribute("class", "CRAButton");
-        commentButton.setAttribute("onclick", "javascript: blog_showCommentPost("+postID+");");
-        commentButton.setAttribute("value", postID);
-        commentButton.innerHTML = "<span class='material-icons'>insert_comment</span>";
-        commentReportArea.appendChild(commentButton);
+            var header = document.createElement("h3");
+            header.setAttribute("class", "postH3");
+            header.innerHTML = title+"<hr>";
+            var div = document.createElement("div");
+            div.setAttribute("id", postID);
+            div.setAttribute("class", "post");
+            div.appendChild(header);
+            document.getElementById("postTexts").appendChild(div);
 
-        var reportButton = document.createElement("button");
-        reportButton.setAttribute("onclick", "javascript: showModal('report')");
-        reportButton.setAttribute("class", "CRAButton");
-        reportButton.innerHTML = "<span class='material-icons'>flag</span>";
-        commentReportArea.appendChild(reportButton);
-        div.appendChild(commentReportArea);
+            var content = document.getElementById(postID).innerHTML;
+            div.innerHTML = content+posts[i];
+            
+            var commentReportArea = document.createElement("div");
+            var craID = "cra"+postID;
+            commentReportArea.setAttribute("id", craID);
+            commentReportArea.setAttribute("class", "CRA");
+            
+            var commentButton = document.createElement("button");
+            commentButton.setAttribute("class", "CRAButton");
+            commentButton.setAttribute("onclick", "javascript: blog_showCommentPost("+postID+");");
+            commentButton.setAttribute("value", postID);
+            commentButton.innerHTML = "<span class='material-icons'>insert_comment</span>";
+            commentReportArea.appendChild(commentButton);
+
+            var reportButton = document.createElement("button");
+            reportButton.setAttribute("onclick", "javascript: showModal('report')");
+            reportButton.setAttribute("class", "CRAButton");
+            reportButton.innerHTML = "<span class='material-icons'>flag</span>";
+            commentReportArea.appendChild(reportButton);
+            div.appendChild(commentReportArea);
+            
+        }
+
+    } else {
         
+        var comments = text.split("&");
+        for(var i = 1; i<comments.length; i++) {
+            var commentID = this.comments[i];
+
+            var div = document.createElement("div");
+            div.setAttribute("id", "comment"+commentID);
+            div.setAttribute("class", "comment");
+            document.getElementById("comments").appendChild(div);
+            var content = document.getElementById("comments").innerHTML;
+            div.innerHTML = content+comments[i];
+
+            console.log(comments[i]);
+            
+        }
+
     }
-    
 
 }
 

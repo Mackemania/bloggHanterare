@@ -13,7 +13,9 @@
 
         <div id="container">
             <?php require_once("blog_blogMaker.php");?>
-			<?php require_once("blog_blogLink.php");?>
+            <div class="contentPane">
+                <?php require_once("blog_blogLink.php");?>
+            <div>
         </div>
         
     </body>

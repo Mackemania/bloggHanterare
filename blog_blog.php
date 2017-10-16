@@ -39,17 +39,19 @@
                     <span onclick="document.getElementById('comment').style.display='none'" class="postClose" title="Stäng">&times;</span>
                 </div>
                 <h2>Kommentera</h2></br>
-                <form method="post" action="javascript: blog_loginToDB();">
+                <form method="post" action="javascript: blog_addComment();">
                     <div id="commentContent">
                     </div>
                     </br>
 
+                    Kommentera:</br>
+                    <textarea id="commentArea" name="commentArea" class="textarea" rows="5" cols="40"  placeholder="Kommentar" autocomplete="off" required="required"></textarea>
 
-                    Kommentar:</br>
-                    <input type="text" class="formText" id="commentText" name="commentText" placeholder="Kommentar" required="required"/></br></br>
-
-                    <input type="submit" class="formButton" value="Kommentar"/>
+                    <input type="submit" class="formButton" value="Kommentera"/>
                 </form>
+                <div id="comments">
+
+                </div>
             </div>
         </div>
         

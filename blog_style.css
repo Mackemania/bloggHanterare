@@ -50,6 +50,7 @@ textarea {
     outline: none;
     margin-bottom: 5%;
 }
+
 button {
     font-family: CenturyGothic;
 
@@ -312,6 +313,13 @@ hr {
     width: 90%;
     min-height: 5%;
     font-size: 90%;
+    border-radius: 15px;
+}
+
+.textarea::-webkit-scrollbar {
+
+    display: none;
+
 }
 
 .menuButton {

@@ -41,6 +41,13 @@
 
             echo("<a class='menuA' href='blog_userBlogs.php' title='Se dina bloggar' data-toggle='popover' data-trigger='hover' data-content='Some content'>Mina bloggar</a>");
             echo("<a class='menuA' href='blog_userSettings.php' title='Inställningar för din profil och dina bloggar' data-toggle='popover' data-trigger='hover' data-content='Some content'>Min profil</a>");
+            
+            if($_SESSION["admin"] == 1) {
+
+                echo("<a class='menuA' href='blog_adminSettings.php' title='Inställningar för alla användare och bloggar' data-toggle='popover' data-trigger='hover' data-content='Some content'>Adminverktyg</a>");
+                
+            }
+            
             echo("<a class='menuA' href='blog_logout.php' title='Klicka här för att logga ut' data-toggle='popover' data-trigger='hover' data-content='Some content'>Logga ut</a>");
 
         }

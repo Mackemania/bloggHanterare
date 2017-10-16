@@ -11,11 +11,13 @@
     src: url(GOTHICB.TTF);
     font-weight: bold;
 }
+
 @font-face {
 	font-family: CenturyGothic;
     src: url(GOTHICBI.TTF);
     font-weight: italic,bold;
 }
+
 @font-face {
 	font-family: CenturyGothic;
     src: url(GOTHICI.TTF);
@@ -27,6 +29,11 @@
     src: url(GOTHIC.TTF);
 }
 
+
+a {
+    text-decoration: none;
+}
+
 body {
     font-family: CenturyGothic;
     font-size: 140%;
@@ -34,6 +41,23 @@ body {
     padding: 0;
 
 }
+
+button {
+    font-family: CenturyGothic;
+
+}
+
+h2 {
+
+    margin: 0%;
+
+}
+
+hr {
+
+    border-color: rgb(200, 200, 200);
+}
+    
 input {
     font-family: CenturyGothic;
 }
@@ -41,6 +65,16 @@ input {
 input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
+}
+
+li {
+    height: 100%;
+
+}
+
+select {
+    font-family: CenturyGothic;
+
 }
 
 textarea {
@@ -51,76 +85,22 @@ textarea {
     margin-bottom: 5%;
 }
 
-button {
-    font-family: CenturyGothic;
 
+#blogContent {
+
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
 }
-select {
-    font-family: CenturyGothic;
+    
+#closeDiv {
+    margin-right: 0%;
 
-}
-
-li {
-    height: 100%;
-
-}
-a {
-    text-decoration: none;
-}
-
-h2 {
-
-    margin: 0%;
-}
-
-hr {
-
-    border-color: rgb(200, 200, 200);
 }
 
 #container {
     text-align: center;
     margin-top: 5%;
-}
-
-#menu {
-    max-height: 6%;
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    top: 0;
-    left: 0;
-    font-size: 100%;
-    background-color: rgb(0, 162, 255);
-    padding-left: 2%;
-    color: rgb(255, 255, 255);
-    overflow: hidden;
-    z-index: 1;
-    border: solid;
-    border-width: 1px;
-    border-color: rgb(0, 119, 255);
-}
-
-#settingsMenu {
-    float: left;
-    padding-top: 2.2%;
-    max-width: 15%;
-    border-collapse: collapse;
-    height: 85%;
-
-}
-
-#userSettingsContent {
-    min-width: 50%;
-    min-height: 55%;
-    float: left;
-}
-
-.userSettingsContentBorder {
-    border: solid;
-    border-width: 1px;
-    border-color: rgb(169, 169, 169);
-    border-radius: 15px;
 }
 
 #editProfileContent {
@@ -149,12 +129,44 @@ hr {
     color: rgb(255, 0, 0);
 }
 
+#menu {
+    max-height: 6%;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    font-size: 100%;
+    background-color: rgb(0, 162, 255);
+    padding-left: 2%;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    z-index: 1;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(0, 119, 255);
+}
+
 #regInfo {
     color: rgb(255, 0, 0);
 }
 
-#closeDiv {
-    margin-right: 0%;
+#searchbar {
+    float: left;
+    margin-top: 0.3%;
+    margin-left: 1%;
+    text-decoration: none;
+    min-width: 30%;
+    height: 55%;
+    padding-top: 0.25%;
+}
+
+#settingsMenu {
+    float: left;
+    padding-top: 2.2%;
+    max-width: 15%;
+    border-collapse: collapse;
+    height: 85%;
 
 }
 
@@ -163,16 +175,114 @@ hr {
     z-index: 2;
 }
 
-#searchbar {
-
-    padding-top: 0.25%;
+#userSettingsContent {
+    min-width: 50%;
+    min-height: 55%;
+    float: left;
 }
 
-#blogContent {
-
-    width: 50%;
+.adminTools {
+    width: 25%;
     margin-right: auto;
     margin-left: auto;
+
+}
+
+.blogDiv {
+    width: 25%;
+    margin-right: auto;
+    margin-left: auto;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+    margin-bottom: 4%;
+    padding: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+
+}
+
+.button {
+    float: left;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
+    border-width: 1px;
+    outline: none;
+}
+
+.button:hover, .button:focus {
+    float: left;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline:none;
+}
+
+.close {
+    position: relative;
+    float: right;
+    color: rgb(0,0,0);
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -5%;
+}
+
+.close:hover, .close:focus {
+
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+
+}
+
+.CRA {
+    margin-top: 10%;
+}
+
+.CRAButton {
+    float: left;
+    width: 5%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
+    border-width: 1px;
+    outline: none;
+}
+
+.CRAButton:hover, .CRAButton:focus{
+    float: left;
+    width: 5%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
 }
 
 .form {
@@ -182,6 +292,55 @@ hr {
     font-size: 100%
 }
 
+.formButton {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border: none;
+    outline:none;
+}
+
+.formButton:hover, .formButton:focus {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border: none;
+    outline: none;
+}
+
+.formButton:disabled, .formButton:hover:disabled {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(169, 169, 169);
+    border: none;
+}
+
+.formText {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0;
+    padding-bottom: 0%;
+
+}
+
+.input-group-btn {
+    width: 35%;
+    float: left;
+}
+    
 .menuA {
     min-width: 10%;
     background-color: rgb(0, 162, 255);
@@ -205,121 +364,6 @@ hr {
     padding-top: 0.6%;
     padding-bottom: 1%;
     float: left;
-}
-
-.menuLogo {
-    margin-top: 0.25%;
-    float: left;
-    height:85%;
-    margin-right: 1.5%;
-
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0, 0.4);
-    padding-top: 60px;
-
-}
-
-.modalContent {
-    width: 25%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2%;
-    background-color: rgb(255, 255, 255);
-    border-radius: 15px;
-    box-shadow: 4px 6px 5px rgb(100, 100, 100);
-}
-
-.postModalContent {
-    width: 55%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2%;
-    background-color: rgb(255, 255, 255);
-    border-radius: 15px;
-    box-shadow: 4px 6px 5px rgb(100, 100, 100);
-    margin-top: -1%;
-    margin-bottom: 7%;
-
-}
-
-.postClose {
-    position: relative;
-    float: right;
-    color: rgb(0,0,0);
-    font-size: 35px;
-    font-weight: bold;
-    margin-top: -3%;
-}
-.postClose:hover, .postClose:focus {
-
-    color: rgb(255, 0, 0);
-    cursor: pointer;
-
-}
-
-.formText {
-    width: 90%;
-    min-height: 5%;
-    font-size: 90%;
-    padding-top: 0;
-    padding-bottom: 0%;
-
-}
-
-.formButton {
-    width: 90%;
-    min-height: 5%;
-    font-size: 90%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 162, 255);
-    border: none;
-}
-
-.formButton:disabled, .formButton:hover:disabled {
-    width: 90%;
-    min-height: 5%;
-    font-size: 90%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(169, 169, 169);
-    border: none;
-}
-
-.formButton:hover {
-    width: 90%;
-    min-height: 5%;
-    font-size: 90%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(253, 119, 66);
-    border: none;
-}
-
-.textarea {
-    width: 90%;
-    min-height: 5%;
-    font-size: 90%;
-    border-radius: 15px;
-}
-
-.textarea::-webkit-scrollbar {
-
-    display: none;
-
 }
 
 .menuButton {
@@ -357,31 +401,54 @@ hr {
     border-radius: 3px;
 }
 
-.button {
+.menuLogo {
+    margin-top: 0.25%;
     float: left;
-    width: 90%;
-    min-height: 5%;
-    font-size: 90%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 162, 255);
-    border-color: rgb(0, 119, 255);
-    border-width: 1px;
-    outline: none;
+    height:85%;
+    margin-right: 1.5%;
+
 }
 
-.button:hover {
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0, 0.4);
+    padding-top: 60px;
+
+}
+
+.modalContent {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 4px 6px 5px rgb(100, 100, 100);
+}
+
+.post {
+    width:100%;
     float: left;
-    width: 90%;
-    min-height: 5%;
-    font-size: 90%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(253, 119, 66);
-    border-color: rgb(253, 97, 35);
+    border: solid;
     border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+    margin-bottom: 4%;
+    padding: 5%;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+
 }
 
 .postButton {
@@ -416,6 +483,39 @@ hr {
 
 }
 
+.postClose {
+    position: relative;
+    float: right;
+    color: rgb(0,0,0);
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -3%;
+}
+
+.postClose:hover, .postClose:focus {
+
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+
+}
+
+.postH3 {
+    text-align: center;
+}
+
+.postModalContent {
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 4px 6px 5px rgb(100, 100, 100);
+    margin-top: -1%;
+    margin-bottom: 7%;
+
+}
+
 .selectedButton {
     float: left;
     width: 90%;
@@ -432,90 +532,22 @@ hr {
     border-bottom-right-radius: 100%;*/
 }
 
-.close {
-    position: relative;
-    float: right;
-    color: rgb(0,0,0);
-    font-size: 35px;
-    font-weight: bold;
-    margin-top: -5%;
+.textarea {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    border-radius: 15px;
 }
 
-.close:hover, .close:focus {
+.textarea::-webkit-scrollbar {
 
-    color: rgb(255, 0, 0);
-    cursor: pointer;
+    display: none;
 
 }
 
-.post {
-    width:100%;
-    float: left;
+.userSettingsContentBorder {
     border: solid;
     border-width: 1px;
     border-color: rgb(169, 169, 169);
     border-radius: 15px;
-    margin-bottom: 4%;
-    padding: 5%;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
-    text-align: left;
-
-}
-
-.postH3 {
-    text-align: center;
-}
-
-.CRA {
-    margin-top: 10%;
-}
-
-.CRAButton {
-    float: left;
-    width: 5%;
-    min-height: 4%;
-    font-size: 90%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 162, 255);
-    border-color: rgb(0, 119, 255);
-    border-width: 1px;
-    outline: none;
-}
-
-.CRAButton:hover, .CRAButton:focus{
-    float: left;
-    width: 5%;
-    min-height: 4%;
-    font-size: 90%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(253, 119, 66);
-    border-color: rgb(253, 97, 35);
-    border-width: 1px;
-    outline: none;
-}
-
-#sidebar_left {
-   
-}
-#searchbar {
-    float: left;
-    margin-top: 0.3%;
-    margin-left: 1%;
-    text-decoration: none;
-    min-width: 30%;
-    height: 55%;
-}
-
-.input-group-btn {
-
-    width: 35%;
-    float: left;
 }

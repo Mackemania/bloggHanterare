@@ -11,5 +11,5 @@
 
     $db->execute($SQL);
 
-    header("location: index.php");
+    header("location: blog_adminSettings.php");
 ?>

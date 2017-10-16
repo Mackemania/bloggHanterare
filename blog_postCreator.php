@@ -28,8 +28,6 @@
 
     $source = str_replace("post.php", "", $source);
     mkdir($source);
-   
-    
     
     $postFile = fopen($source."/post.php", "w");
     fwrite($postFile, $postText);

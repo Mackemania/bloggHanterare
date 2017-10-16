@@ -12,7 +12,7 @@
 		<?PHP
         	require_once("blog_menu.php");
 			require_once("blog_randomizer.php");
-			require_once("blog_A_adminTools.php");
+			
         ?>
 
 		<div id="container">

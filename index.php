@@ -1,18 +1,23 @@
+<?PHP
+//hemsidan där man börjar.
+?>
 <html>
 	<head>
-		<title>Startsida | Bibliotekssystem</title>
-		<link href="blog_style.css" media="screen" type="text/css" rel="stylesheet"/>
-        <script src="code.js"></script>
-        <script src="ajaxlib.js"></script>
+
+		<title>Startsida | Bloog</title>
+
 	</head>
 	<body>
+
 		<?PHP
         	require_once("blog_menu.php");
+			require_once("blog_randomizer.php");
+			require_once("blog_A_adminTools.php");
         ?>
 
 		<div id="container">
 
-				</div>
+		</div>
 	</body>
 
 </html>

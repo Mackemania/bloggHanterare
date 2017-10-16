@@ -4,7 +4,7 @@
     */
 ?>
 
-<html lang="en">
+<html>
     <body>
         <h2>Profilinställningar</h2>
         <div id="editProfileContent">

@@ -4,7 +4,10 @@
     $db = new DB();
 
     $user = $_REQUEST["username"];
+    $user = utf8_decode($user);
     $user = strtolower($user);
+    $user = utf8_encode($user);
+    
     $password = $_REQUEST["password"];
     $SQL = "SELECT * FROM user WHERE alias='$user' AND password='$password' COLLATE latin1_bin";
     //echo($SQL);

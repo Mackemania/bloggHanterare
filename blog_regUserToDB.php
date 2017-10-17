@@ -5,9 +5,7 @@
 
     $username = $_REQUEST["username"];
     //echo($username);
-    $username = utf8_decode($username);
-    $username = strtolower($username);
-    $username = utf8_encode($username);
+    $username = mb_strtolower($username, "UTF-8");
     $eMail = $_REQUEST["eMail"];
     $password = $_REQUEST["password"];
     $SQL = "select * from user where alias='$username' or eMail='$eMail'";
@@ -24,6 +22,5 @@
 
         echo("This username/email is in use");
     }
-
 
 ?>

@@ -334,9 +334,9 @@ function blog_regUserToDB() {
     var username = document.getElementById("regUsername").value;
     var email = document.getElementById("eMail").value;
     var password = document.getElementById("regPassword").value;
-
+    
     var data = "username="+username+"&eMail="+email+"&password="+password;
-
+    //alert(data);
     sendData("regUserToDB", "blog_regUserToDB.php", data, blog_userRegistered);
 
 }

@@ -6,6 +6,11 @@ var postTitles;
 var postIDs;
 var commentIDs;
 
+function blog_sendToReport(postID) {
+
+    location.replace("blog_flagReport.php?postID="+postID);
+}
+
 function blog_showCommentPost(postID) {
 
     document.getElementById("commentContent").innerHTML = "";
@@ -20,7 +25,6 @@ function blog_showCommentPost(postID) {
 function blog_postIDIsSet(id, request) {
     var text = request.responseText;
     //console.log(text);
-    document.getElementById("comments").innerHTML = "";
     blog_getCommentIDsFromDB();
 }
 
@@ -93,6 +97,7 @@ function blog_getPostTextFromDB(source) {
 }
 
 function blog_serverText(id, request) {
+    document.getElementById("comments").innerHTML = "";
     var text = request.responseText;
     //alert(id);
     if(id=="getPostTextFromServer") {
@@ -127,7 +132,7 @@ function blog_serverText(id, request) {
             commentReportArea.appendChild(commentButton);
 
             var reportButton = document.createElement("button");
-            reportButton.setAttribute("onclick", "javascript: showModal('report')");
+            reportButton.setAttribute("onclick", "javascript: blog_sendToReport("+postID+")");
             reportButton.setAttribute("class", "CRAButton");
             reportButton.innerHTML = "<span class='material-icons'>flag</span>";
             commentReportArea.appendChild(reportButton);
@@ -139,16 +144,15 @@ function blog_serverText(id, request) {
         
         var comments = text.split("&");
         for(var i = 1; i<comments.length; i++) {
-            var commentID = this.comments[i];
+            
+            var commentID = this.commentIDs[i];
 
             var div = document.createElement("div");
             div.setAttribute("id", "comment"+commentID);
             div.setAttribute("class", "comment");
             document.getElementById("comments").appendChild(div);
             var content = document.getElementById("comments").innerHTML;
-            div.innerHTML = content+comments[i];
-
-            console.log(comments[i]);
+            div.innerHTML = comments[i];
             
         }
 
@@ -335,9 +339,9 @@ function blog_regUserToDB() {
     var username = document.getElementById("regUsername").value;
     var email = document.getElementById("eMail").value;
     var password = document.getElementById("regPassword").value;
-
+    
     var data = "username="+username+"&eMail="+email+"&password="+password;
-
+    //alert(data);
     sendData("regUserToDB", "blog_regUserToDB.php", data, blog_userRegistered);
 
 }

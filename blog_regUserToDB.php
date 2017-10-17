@@ -4,15 +4,18 @@
     $db = new DB();
 
     $username = $_REQUEST["username"];
+    //echo($username);
+    $username = utf8_decode($username);
     $username = strtolower($username);
+    $username = utf8_encode($username);
     $eMail = $_REQUEST["eMail"];
     $password = $_REQUEST["password"];
-
     $SQL = "select * from user where alias='$username' or eMail='$eMail'";
+    //echo($SQL);
     $matrix = $db->getData($SQL);
 
     if(count($matrix)==0) {
-
+        
         $SQL = "insert into user(eMail, alias, password, admin) values('$eMail', '$username', '$password', 0)";
         $db->execute($SQL);
         echo(1);

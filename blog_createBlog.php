@@ -13,17 +13,19 @@
     //echo($SQL);
     $db->execute($SQL);
 
+
     $SQL = "SELECT blogID FROM blog ORDER BY blogID DESC";
     //echo($SQL);
     $matrix = $db->getData($SQL);
 
     $blogLocation = "blog_".$matrix[0][0];
-
+    $blogID = $matrix[0][0];
     $old = umask(0);
     
     mkdir("blog/".$blogLocation);
     
     umask($old);
 
-    header("location: index.php");
+    
+    header("location: blog_blog.php?blogID=$blogID");
 ?>

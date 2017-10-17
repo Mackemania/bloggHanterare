@@ -46,7 +46,6 @@
         echo "<br/><form action='blog_A_unBanUser.php' method='post'>";
         
         echo("<h2>Ta bort en bann</h2>");
-        
         echo "<select name='userID' id='userID' class='formText'></br>
         <option value=''>Välj en...</option>";
         
@@ -61,7 +60,7 @@
         }
         echo "</select><br/><br/>";
 
-        echo "Andledning till borttagen bann:</br>
+        echo "Anledning till borttagen bann:</br>
         <input type='text' name='reason' class='formText' placeholder='Skriv anledningen' required='required'><br/></br>";
 
         echo "<input type='submit' value='Ta bort bann' class='formButton'> </form>";

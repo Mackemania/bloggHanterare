@@ -26,6 +26,8 @@
                     $_SESSION["blogID"] = $blogID;
                     require_once("blog_postMaker.php");
 
+                    echo("<h2>$name</h2></br>");
+
                 ?>
 
                 <div id="postTexts">

@@ -175,9 +175,6 @@ CREATE TABLE `user` (
 -- Dumpning av Data i tabell `user`
 --
 
-INSERT INTO `user` (`userID`, `password`, `alias`, `firstName`, `lastName`, `eMail`, `birthDate`, `admin`, `createDate`, `suspended`) VALUES
-(1, '123', 'pjã¤r', NULL, NULL, 'pjaer@live.se', NULL, 0, '2017-10-16 07:23:16', NULL);
-
 --
 -- Index för dumpade tabeller
 --
@@ -266,7 +263,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT för tabell `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `blogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `blogID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT för tabell `comment`
 --
@@ -281,7 +278,7 @@ ALTER TABLE `commentversion`
 -- AUTO_INCREMENT för tabell `css`
 --
 ALTER TABLE `css`
-  MODIFY `cssID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cssID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT för tabell `flag`
 --
@@ -306,7 +303,7 @@ ALTER TABLE `suspension`
 -- AUTO_INCREMENT för tabell `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Restriktioner för dumpade tabeller
 --

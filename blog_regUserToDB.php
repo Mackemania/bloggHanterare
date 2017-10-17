@@ -1,11 +1,15 @@
 <?PHP
     //skickar nya användare till databasen och kollar om det är korrekt.
+    //ini_set("display_errors", "on");
+    //error_reporting(-1);
     require_once("blog_db.php");
     $db = new DB();
 
     $username = $_REQUEST["username"];
     //echo($username);
-    $username = mb_strtolower($username, "UTF-8");
+    $username = utf8_decode($username);
+    $username = strtolower($username);
+    $username = utf8_encode($username);
     $eMail = $_REQUEST["eMail"];
     $password = $_REQUEST["password"];
     $SQL = "select * from user where alias='$username' or eMail='$eMail'";

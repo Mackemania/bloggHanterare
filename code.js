@@ -6,6 +6,11 @@ var postTitles;
 var postIDs;
 var commentIDs;
 
+function blog_sendToReport(postID) {
+
+    location.replace("blog_flagReport.php?postID="+postID);
+}
+
 function blog_showCommentPost(postID) {
 
     document.getElementById("commentContent").innerHTML = "";
@@ -127,7 +132,7 @@ function blog_serverText(id, request) {
             commentReportArea.appendChild(commentButton);
 
             var reportButton = document.createElement("button");
-            reportButton.setAttribute("onclick", "javascript: showModal('report')");
+            reportButton.setAttribute("onclick", "javascript: blog_sendToReport("+postID+")");
             reportButton.setAttribute("class", "CRAButton");
             reportButton.innerHTML = "<span class='material-icons'>flag</span>";
             commentReportArea.appendChild(reportButton);

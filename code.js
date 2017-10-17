@@ -5,6 +5,8 @@ var serverRootFolder = "";
 var postTitles;
 var postIDs;
 var commentIDs;
+var commentDates;
+var commentUsers;
 
 function blog_sendToReport(postID) {
 
@@ -36,12 +38,14 @@ function blog_getCommentIDsFromDB() {
 function blog_commentIDs(id, request) {
     var text = request.responseText;
     
-    console.log(text);
+    //console.log(text);
 
     var comments = text.split("§");
     if(comments[1]!=null) {
         this.commentIDs = comments[1].split("&");
         var commentSources = comments[2].split("&");
+        this.commentDates = comments[3].split("&");
+        this.commentUsers = comments[4].split("&");
 
         //console.log(commentIDs, commentSources);
 
@@ -146,13 +150,15 @@ function blog_serverText(id, request) {
         for(var i = 1; i<comments.length; i++) {
             
             var commentID = this.commentIDs[i];
+            var user = this.commentUsers[i];
+            var date = this.commentDates[i];
 
             var div = document.createElement("div");
             div.setAttribute("id", "comment"+commentID);
             div.setAttribute("class", "comment");
             document.getElementById("comments").appendChild(div);
             var content = document.getElementById("comments").innerHTML;
-            div.innerHTML = comments[i];
+            div.innerHTML = comments[i]+"<hr><span class='commentName'>"+user+"</br>"+date+"</span>";
             
         }
 

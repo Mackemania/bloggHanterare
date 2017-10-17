@@ -1,1 +1,0 @@
-idag bwsökte jag italien dit vare rilgit

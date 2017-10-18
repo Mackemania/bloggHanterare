@@ -17,7 +17,7 @@
                         <option value="Open">Öppen</option>
                         <option value="Private">Privat</option>
                     </select><br /><br />
-                    <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Spara Behörighetsändring">
+                        <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Spara Behörighetsändring">
                 </form>
                 <form>
                     Välj whitelistad persons roll.<br />
@@ -26,12 +26,12 @@
                         <option value="Admin">Administratör</option>
                         <option value="Readable">Läsbehörig</option>
                     </select><br />
-                    </form>
+                </form>
                     <?PHP require("blog_getBlogsFromUser.php");?><br />
-                    <form>
+                <form>
                     Skriv personens namn.<br /> 
-                    <input type="text" name="namn" required="required" placeholder="Namn" autocomplete="off"></br></br>
-                    <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Whitelista Person">
+                        <input type="text" name="namn" required="required" placeholder="Namn" autocomplete="off"></br></br>
+                        <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Whitelista Person">
                 </form>
             </div>
         </div>

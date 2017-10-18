@@ -6,8 +6,7 @@ $db = new DB();
 $SQL = "SELECT blogID, blogTitle, createDate FROM blog WHERE userID=".$_SESSION['userID'];
 $matrix = $db->getData($SQL);
 
-echo "<form action='blog_userSettings.php?page=settings' method='post'>
-Vilken blogg vill du ändra? 
+echo "Vilken blogg vill du ändra? 
 <select name='blogID' id='blogID' class='formText' required='required'>";
 
 for($i = 0; $i<count($matrix); $i++)

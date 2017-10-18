@@ -7,7 +7,7 @@
 		<title>Startsida | Bloog</title>
 
 	</head>
-	<body>
+	<body onload="javascript: blog_loadAdminSettings('ban');">
 		<?PHP
             require_once("blog_menu.php");
         ?>
@@ -23,10 +23,17 @@
 
             </div>
             <?PHP
-                if($_SESSION["admin"] == 1) {
-                    require_once("blog_A_adminTools.php");
-                } else {
+                if(isset($_SESSION["admin"])) {
+                    if($_SESSION["admin"] == 1) {
 
+
+                    } else {
+                    
+                    echo("<h1>Du har inte rättigheter att visa den här sidan!</h1>");
+                    
+                    }
+                } else {
+                    
                     echo("<h1>Du har inte rättigheter att visa den här sidan!</h1>");
                 }
             ?>

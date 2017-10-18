@@ -248,7 +248,7 @@ function blog_loadAdminSettings(page) {
             var button = document.getElementById("banButton");
             button.setAttribute("class", "selectedButton");
     
-            sendData("loadUserSettings", "blog_banUser.php", "", blog_writeAdminSettings);
+            sendData("loadUserSettings", "blog_A_banUser.php", "", blog_writeAdminSettings);
             
     
         } else if(page == "unBan") {
@@ -256,14 +256,14 @@ function blog_loadAdminSettings(page) {
             var button = document.getElementById("unBanButton");
             button.setAttribute("class", "selectedButton");
     
-            sendData("loadUserSettings", "blog_unBanUser.php", "", blog_writeAdminSettings);
+            sendData("loadUserSettings", "blog_A_unBanUser.php", "", blog_writeAdminSettings);
         
         } else if(page == "admins") {
     
             var button = document.getElementById("admins");
             button.setAttribute("class", "selectedButton");
     
-            sendData("loadUserSettings", "blog_admins.php", "", blog_writeAdminSettings);
+            sendData("loadUserSettings", "blog_A_admins.php", "", blog_writeAdminSettings);
         }
     
     }

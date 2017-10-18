@@ -1,5 +1,7 @@
 <?PHP
     //skickar nya användare till databasen och kollar om det är korrekt.
+    //ini_set("display_errors", "on");
+    //error_reporting(-1);
     require_once("blog_db.php");
     $db = new DB();
 
@@ -24,6 +26,5 @@
 
         echo("This username/email is in use");
     }
-
 
 ?>

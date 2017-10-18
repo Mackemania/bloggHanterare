@@ -1,3 +1,17 @@
+<?php
+
+require_once("blog_db.php");
+session_start();
+$db = new DB();
+$userID = $_SESSION["userID"];
+
+$getAboutMe = "SELECT aboutMe from user where userID=$userID";
+
+$matrix = $db->getData($getAboutMe);
+
+$printAboutMe = $matrix[0][0];
+
+?>
 <html>
 	<head>
 	    <meta charset="utf-8">
@@ -10,7 +24,12 @@
 	</head>
 	<body>
 	    <h2>Om mig</h2>
-		  <textarea id="aboutMe" name="About Me" class="textarea" rows="15" cols="40"  placeholder="Jag heter..." autocomplete="off" maxlength="500" required="required"></textarea>
-		  <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Spara information">
+
+		<form method="post" action="blog_sendAboutMeToDB.php">
+
+		<textarea id="aboutMe" name="aboutMe" class="textarea" rows="15" cols="40" placeholder="Jag gillar..." autocomplete="off" maxlength="500" ><?php echo "$printAboutMe"?></textarea>
+		<input type="submit" id="editButton" name="editButton" class="formButton" value="Spara information">
+
+		</form>
 	</body>
 </html>

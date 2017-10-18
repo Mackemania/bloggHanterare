@@ -41,7 +41,7 @@
                     <span onclick="document.getElementById('comment').style.display='none'" class="postClose" title="Stäng">&times;</span>
                 </div>
                 
-                <h2>Kommentera</h2></br>
+                
                 <form method="post" action="blog_commentCreator.php">
                     <div id="commentContent">
                     </div>

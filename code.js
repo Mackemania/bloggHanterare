@@ -158,7 +158,13 @@ function blog_serverText(id, request) {
             div.setAttribute("class", "comment");
             document.getElementById("comments").appendChild(div);
             var content = document.getElementById("comments").innerHTML;
-            div.innerHTML = comments[i]+"<hr><span class='commentName'>"+user+"</br>"+date+"</span>";
+            div.innerHTML = comments[i]+"<hr><span class='commentName'>"+user+"</br>"+date+"</span></br>";
+
+            var reportButton = document.createElement("button");
+            reportButton.setAttribute("onclick", "javascript: blog_sendToReport("+postID+")");
+            reportButton.setAttribute("class", "commentReportButton");
+            reportButton.innerHTML = "<span class='material-icons'>flag</span>";
+            div.appendChild(reportButton);
             
         }
 

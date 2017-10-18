@@ -8,7 +8,7 @@
         <h2>Blogginställingar</h2>
         <div id="editProfileContent">
             <div id="editProfileContentPane">
-                        <?PHP require("blog_getBlogsFromUser.php");?><br />
+                    <?PHP require("blog_getBlogsFromUser.php");?><br />
                 <form>
                     Sätt behörighet på din/dina bloggar<br />
                     <select class="formText" required="required">

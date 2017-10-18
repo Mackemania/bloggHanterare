@@ -1,15 +1,22 @@
 <?PHP
-    require_once("blog_db.php");
+    session_start();
 
-    $db = new DB();
-    
-    $SQL = "UPDATE user SET suspended='".$_POST['suspendedUntil']."' WHERE userID=".$_POST['userID'];
+    if($_SESSION["admin"] == 1) {
+        require_once("blog_db.php");
 
-    $db->execute($SQL);
-    
-    $SQL = "INSERT INTO suspension(userID, reason) values(".$_POST['userID'].", '".$_POST['reason']."')";
+        $db = new DB();
+        
+        $SQL = "UPDATE user SET suspended='".$_POST['suspendedUntil']."' WHERE userID=".$_POST['userID'];
 
-    $db->execute($SQL);
+        $db->execute($SQL);
+        
+        $SQL = "INSERT INTO suspension(userID, reason) values(".$_POST['userID'].", '".$_POST['reason']."')";
 
-    header("location: blog_adminSettings.php");
+        $db->execute($SQL);
+
+        header("location: blog_adminSettings.php");
+    } else {
+
+        header("location: index.php");
+    }
 ?>

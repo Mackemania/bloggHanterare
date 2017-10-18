@@ -8,15 +8,7 @@
         <h2>Blogginställingar</h2>
         <div id="editProfileContent">
             <div id="editProfileContentPane">
-            <button onclick="document.getElementById('blogselect').style.display='block'">Välj en blogg</button>
-            <div id ="blogselect" class="modal login form">
-                <div id="modalContent" class="modalContent">
-                    <div id="closeDiv">
-                        <span onclick="document.getElementById('blogselect').style.display='none'" class="close" title="Stäng">&times;</span>
-                    </div>
-                        <?PHP require_once("blog_getBlogsFromUser.php");?>
-                </div>
-            </div>
+                        <?PHP require("blog_getBlogsFromUser.php");?><br />
                 <form>
                     Sätt behörighet på din/dina bloggar<br />
                     <select class="formText" required="required">
@@ -28,12 +20,16 @@
                     <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Spara Behörighetsändring">
                 </form>
                 <form>
-                    Whitelista en person<br />
+                    Välj whitelistad persons roll.<br />
                     <select class="formText" required="required">
                         <option value="">Välj en...</option>
                         <option value="Admin">Administratör</option>
                         <option value="Readable">Läsbehörig</option>
-                    </select><br /><br />
+                    </select><br />
+                    </form>
+                    <?PHP require("blog_getBlogsFromUser.php");?><br />
+                    <form>
+                    Skriv personens namn.<br /> 
                     <input type="text" name="namn" required="required" placeholder="Namn" autocomplete="off"></br></br>
                     <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Whitelista Person">
                 </form>

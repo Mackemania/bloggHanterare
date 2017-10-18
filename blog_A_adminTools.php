@@ -75,10 +75,10 @@
             }
             echo "</select><br/>";
             echo "<input type='submit' value='kolla användarens bloggar'> </form>";
+        
         } else {
 
             header("location: index.php");
         }
     ?>
 </div>
-

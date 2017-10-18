@@ -233,7 +233,52 @@ function blog_enableEditButton() {
     }
 
 }
-
+function blog_loadAdminSettings(page) {
+    
+    
+        var buttons = document.getElementsByClassName("selectedButton")
+        for(var i = 0; i<buttons.length; i++) {
+            buttons[i].setAttribute("class", "button");
+    
+        }
+        document.getElementById("userSettingsContent").innerHTML ="";
+    
+        if(page == "ban") {
+            
+            var button = document.getElementById("aboutButton");
+            button.setAttribute("class", "selectedButton");
+    
+            sendData("loadUserSettings", "blog_aboutMe.php", "", blog_writeAdminSettings);
+            
+    
+        } else if(page == "unBan") {
+            
+            var button = document.getElementById("blogSettingsButton");
+            button.setAttribute("class", "selectedButton");
+    
+            sendData("loadUserSettings", "blog_blogSettings.php", "", blog_writeAdminSettings);
+        
+        } else if(page == "admins") {
+    
+            var button = document.getElementById("editProfileButton");
+            button.setAttribute("class", "selectedButton");
+    
+            sendData("loadUserSettings", "blog_editProfile.php", "", blog_writeAdminSettings);
+        }
+    
+    }
+    
+    
+    function blog_writeAdminSettings(id, request) {
+    
+        document.getElementById("userSettingsContent").innerHTML = request.responseText;
+    
+        if(request.responseText.includes("Profil")) {
+            
+            blog_getNamesFromDB();
+        }
+    
+    }
 
 function blog_loadUserSettings(page) {
 

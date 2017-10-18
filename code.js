@@ -241,37 +241,37 @@ function blog_loadAdminSettings(page) {
             buttons[i].setAttribute("class", "button");
     
         }
-        document.getElementById("userSettingsContent").innerHTML ="";
+        document.getElementById("adminSettingsContent").innerHTML ="";
     
         if(page == "ban") {
             
-            var button = document.getElementById("aboutButton");
+            var button = document.getElementById("banButton");
             button.setAttribute("class", "selectedButton");
     
-            sendData("loadUserSettings", "blog_aboutMe.php", "", blog_writeAdminSettings);
+            sendData("loadUserSettings", "blog_banUser.php", "", blog_writeAdminSettings);
             
     
         } else if(page == "unBan") {
             
-            var button = document.getElementById("blogSettingsButton");
+            var button = document.getElementById("unBanButton");
             button.setAttribute("class", "selectedButton");
     
-            sendData("loadUserSettings", "blog_blogSettings.php", "", blog_writeAdminSettings);
+            sendData("loadUserSettings", "blog_unBanUser.php", "", blog_writeAdminSettings);
         
         } else if(page == "admins") {
     
-            var button = document.getElementById("editProfileButton");
+            var button = document.getElementById("admins");
             button.setAttribute("class", "selectedButton");
     
-            sendData("loadUserSettings", "blog_editProfile.php", "", blog_writeAdminSettings);
+            sendData("loadUserSettings", "blog_admins.php", "", blog_writeAdminSettings);
         }
     
     }
     
     
     function blog_writeAdminSettings(id, request) {
-    
-        document.getElementById("userSettingsContent").innerHTML = request.responseText;
+        console.log(request.responseText);
+        document.getElementById("adminSettingsContent").innerHTML = request.responseText;
     
         if(request.responseText.includes("Profil")) {
             

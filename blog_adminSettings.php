@@ -19,7 +19,7 @@
                     <input type="button" id ="unBanButton" value="Ångra portning" class="button" onclick="javascript: blog_loadAdminSettings('unBan');"/>
                     <input type="button" id ="accessButton" value="Administratörer" class="button" onclick="javascript: blog_loadAdminSettings('admins');"/>
                 </div>
-            <div id="userSettingsContent">
+            <div id="adminSettingsContent">
 
             </div>
             <?PHP

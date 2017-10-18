@@ -6,7 +6,20 @@
 		<title>Min profil | Bloog</title>
 		
 	</head>
-	<body onload="javascript: blog_loadUserSettings('about');">
+    <?PHP
+
+        if(isset($_REQUEST["page"])) {
+
+            $page = $_REQUEST["page"];
+    
+        } else {
+
+            $page = "about";
+        }
+
+        echo("<body onload='javascript: blog_loadUserSettings(\"$page\");'>");
+    ?>
+	
 		<?PHP
         	require_once("blog_menu.php");
         ?>

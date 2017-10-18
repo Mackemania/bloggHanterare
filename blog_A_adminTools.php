@@ -1,5 +1,6 @@
 <div id="adminTools" class="adminTools">
     <?PHP
+        session_start();
         if($_SESSION["admin"] == 1) {
             require_once("blog_db.php");
             $db = new DB();
@@ -75,6 +76,10 @@
             }
             echo "</select><br/>";
             echo "<input type='submit' value='kolla användarens bloggar'> </form>";
+
+
+            echo"<a href='blog_A_viewFlags.php'>Kolla flaggor</a>";
+
         } else {
 
             header("location: index.php");

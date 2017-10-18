@@ -7,10 +7,9 @@
     <body>
         <h2>Blogginställingar</h2>
         <div id="editProfileContent">
-            <div id="editProfileContentPane">
-                    <?PHP require("blog_getBlogsFromUser.php");?><br />
-                <form>
-                    Sätt behörighet på din/dina bloggar<br />
+            <div id="editProfileContentPane">   
+                <?PHP require("blog_getBlogsFromUser.php");?><br />
+                    Sätt behörighet på din blogg<br />
                     <select class="formText" required="required">
                         <option value="">Välj en...</option>
                         <option value="Admin">Endast inloggade</option>

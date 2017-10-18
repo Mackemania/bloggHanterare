@@ -29,7 +29,7 @@
     <?PHP
         echo("
             <img src='graphics/logga.svg' class='menuLogo'/>
-            <a class='menuA' href='index.php' title='KYS' data-toggle='popover' data-trigger='hover' data-content='Some content'>Startsida</a>
+            <a class='menuA' href='index.php' title='Gå till startsidan' data-toggle='popover' data-trigger='hover' data-content='Some content'>Startsida</a>
         ");
 
         if(!isset($_SESSION["userID"])) {
@@ -58,7 +58,7 @@
         <div id="searchbar">
             <span class="input-group-btn">
                 <span class="glyphicon glyphicon-search"></span> Search
-                <input type="text" class="form-control" name = "searchStuff"     placeholder="Sök efter bloggar...">
+                <input type="text" class="form-control" name = "searchWord" placeholder="Sök efter bloggar...">
             </span>
             <input type="submit" class="menuButton" value="Sök"/>
         </div>

@@ -275,6 +275,32 @@ textarea {
 
     font-size: 60%;
 }
+.commentReportButton {
+    float: left;
+    width: 9%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
+    border-width: 1px;
+    outline: none;
+}
+.commentReportButton:hover, .commentReportButton:focus {
+    float: left;
+    width: 9%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
+}
 
 .contentPane {
     width: 30%;
@@ -289,7 +315,7 @@ textarea {
 
 .CRAButton {
     float: left;
-    width: 5%;
+    width: 6%;
     min-height: 4%;
     font-size: 90%;
     padding-top: 0%;
@@ -303,7 +329,7 @@ textarea {
 
 .CRAButton:hover, .CRAButton:focus{
     float: left;
-    width: 5%;
+    width: 6%;
     min-height: 4%;
     font-size: 90%;
     padding-top: 0%;

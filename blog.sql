@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 16 okt 2017 kl 09:30
+-- Tid vid skapande: 18 okt 2017 kl 14:31
 -- Serverversion: 10.1.19-MariaDB
 -- PHP-version: 7.0.13
 
@@ -95,10 +95,10 @@ CREATE TABLE `flag` (
   `OS` varchar(30) DEFAULT NULL,
   `reason` varchar(140) DEFAULT NULL,
   `IP` varchar(15) DEFAULT NULL,
-  `userID` int(11) NOT NULL,
-  `blogID` int(11) NOT NULL,
-  `commentID` int(11) NOT NULL,
-  `postID` int(11) NOT NULL
+  `userID` int(11) DEFAULT NULL,
+  `blogID` int(11) DEFAULT NULL,
+  `commentID` int(11) DEFAULT NULL,
+  `postID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -170,10 +170,6 @@ CREATE TABLE `user` (
   `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `suspended` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumpning av Data i tabell `user`
---
 
 --
 -- Index för dumpade tabeller
@@ -278,7 +274,7 @@ ALTER TABLE `commentversion`
 -- AUTO_INCREMENT för tabell `css`
 --
 ALTER TABLE `css`
-  MODIFY `cssID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cssID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT för tabell `flag`
 --

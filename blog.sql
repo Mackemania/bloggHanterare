@@ -9,6 +9,7 @@
 -- Serverversion: 10.1.19-MariaDB
 -- PHP-version: 7.0.13
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -23,6 +24,22 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+
+--
+--Ta bort alla tabeller i databasen
+--
+
+DROP TABLE commentversion;
+DROP TABLE postversion;
+DROP TABLE permission;
+DROP TABLE flag;
+DROP TABLE suspension;
+DROP TABLE comment;
+DROP TABLE post;
+DROP TABLE blog;
+DROP TABLE css;
+DROP TABLE user;
+
 
 --
 -- Tabellstruktur `blog`

@@ -5,9 +5,6 @@
     require_once("blog_db.php");
     $db = new DB();
 
-    $SQL = "select * from user where alias='$username' or eMail='$eMail'";
-    //echo($SQL);
-
     $username = $_REQUEST["username"];
     //echo($username);
 
@@ -17,6 +14,9 @@
     $eMail = $_REQUEST["eMail"];
     
     $password = $_REQUEST["password"];
+
+    $SQL = "select * from user where alias='$username' or eMail='$eMail'";
+    //echo($SQL);
 
     $matrix = $db->getData($SQL);
 

@@ -2,6 +2,13 @@
 
 
 session_start();
+$permission = 0;
+
+if(isset($_SESSION["userID"])) {
+  
+          $permission = 1;
+  
+      }
 
 if (isset($_POST['searchWord'])) {
 
@@ -13,9 +20,9 @@ $searchWord = $_POST['searchWord'];
 
 
 $selectUser = "SELECT userID, alias FROM user WHERE alias LIKE '%".$searchWord."%'";
-$selectBlogTitle = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE blogTitle LIKE '%".$searchWord."%'";
-$selectBlogDescription = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE blogDescription LIKE '%".$searchWord."%'";
-$selectPostTitle = "SELECT * FROM blog WHERE postTitle LIKE '%".$searchWord."%'";
+$selectBlogTitle = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE permissionStatus<=$permission AND blogTitle LIKE '%".$searchWord."%'";
+$selectBlogDescription = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE permissionStatus<=$permission AND blogDescription LIKE '%".$searchWord."%'";
+//$selectPostTitle = "SELECT * FROM blog WHERE postTitle LIKE '%".$searchWord."%'";
 
 
 //$matrix = $db->getData($selectUser);

@@ -8,9 +8,14 @@ var commentIDs;
 var commentDates;
 var commentUsers;
 
-function blog_sendToReport(postID) {
-
+function blog_sendToPostReport(postID) {
+    
     location.replace("blog_flagReport.php?postID="+postID);
+}
+
+function blog_sendToCommentReport(commentID) {
+    
+    location.replace("blog_flagReport.php?commentID="+commentID);
 }
 
 function blog_showCommentPost(postID) {
@@ -136,7 +141,7 @@ function blog_serverText(id, request) {
             commentReportArea.appendChild(commentButton);
 
             var reportButton = document.createElement("button");
-            reportButton.setAttribute("onclick", "javascript: blog_sendToReport("+postID+")");
+            reportButton.setAttribute("onclick", "javascript: blog_sendToPostReport("+postID+")");
             reportButton.setAttribute("class", "CRAButton");
             reportButton.innerHTML = "<span class='material-icons'>flag</span>";
             commentReportArea.appendChild(reportButton);
@@ -161,7 +166,7 @@ function blog_serverText(id, request) {
             div.innerHTML = comments[i]+"<hr><span class='commentName'>"+user+"</br>"+date+"</span></br>";
 
             var reportButton = document.createElement("button");
-            reportButton.setAttribute("onclick", "javascript: blog_sendToReport("+postID+")");
+            reportButton.setAttribute("onclick", "javascript: blog_sendToCommentReport("+commentID+")");
             reportButton.setAttribute("class", "commentReportButton");
             reportButton.innerHTML = "<span class='material-icons'>flag</span>";
             div.appendChild(reportButton);

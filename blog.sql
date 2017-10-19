@@ -25,10 +25,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
---Ta bort alla tabeller i databasen
---
-
 DROP TABLE commentversion;
 DROP TABLE postversion;
 DROP TABLE permission;
@@ -40,6 +36,7 @@ DROP TABLE blog;
 DROP TABLE css;
 DROP TABLE user;
 
+-- --------------------------------------------------------
 
 --
 -- Tabellstruktur `blog`

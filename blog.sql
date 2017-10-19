@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 16 okt 2017 kl 09:30
+-- Tid vid skapande: 19 okt 2017 kl 13:23
 -- Serverversion: 10.1.19-MariaDB
 -- PHP-version: 7.0.13
 
@@ -35,6 +35,10 @@ CREATE TABLE `blog` (
   `userID` int(11) NOT NULL,
   `css` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumpning av Data i tabell `blog`
+--
 
 -- --------------------------------------------------------
 
@@ -108,6 +112,7 @@ CREATE TABLE `flag` (
 --
 
 CREATE TABLE `permission` (
+  `permissionID` int(11) NOT NULL,
   `level` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
   `blogID` int(11) NOT NULL
@@ -127,6 +132,10 @@ CREATE TABLE `post` (
   `userID` int(11) NOT NULL,
   `blogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumpning av Data i tabell `post`
+--
 
 -- --------------------------------------------------------
 
@@ -168,7 +177,8 @@ CREATE TABLE `user` (
   `birthDate` varchar(10) DEFAULT NULL,
   `admin` tinyint(1) NOT NULL,
   `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `suspended` varchar(10) DEFAULT NULL
+  `suspended` varchar(10) DEFAULT NULL,
+  `aboutMe` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -223,6 +233,7 @@ ALTER TABLE `flag`
 -- Index för tabell `permission`
 --
 ALTER TABLE `permission`
+  ADD PRIMARY KEY (`permissionID`),
   ADD KEY `userID` (`userID`),
   ADD KEY `blogID` (`blogID`);
 
@@ -278,12 +289,17 @@ ALTER TABLE `commentversion`
 -- AUTO_INCREMENT för tabell `css`
 --
 ALTER TABLE `css`
-  MODIFY `cssID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cssID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT för tabell `flag`
 --
 ALTER TABLE `flag`
   MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT för tabell `permission`
+--
+ALTER TABLE `permission`
+  MODIFY `permissionID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT för tabell `post`
 --

@@ -3,7 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
+
 -- Tid vid skapande: 19 okt 2017 kl 13:23
+
 -- Serverversion: 10.1.19-MariaDB
 -- PHP-version: 7.0.13
 
@@ -31,7 +33,7 @@ CREATE TABLE `blog` (
   `blogTitle` varchar(30) NOT NULL,
   `blogDescription` varchar(140) DEFAULT NULL,
   `permissionStatus` int(11) NOT NULL,
-  `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `userID` int(11) NOT NULL,
   `css` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -99,10 +101,10 @@ CREATE TABLE `flag` (
   `OS` varchar(30) DEFAULT NULL,
   `reason` varchar(140) DEFAULT NULL,
   `IP` varchar(15) DEFAULT NULL,
-  `userID` int(11) NOT NULL,
-  `blogID` int(11) NOT NULL,
-  `commentID` int(11) NOT NULL,
-  `postID` int(11) NOT NULL
+  `userID` int(11) DEFAULT NULL,
+  `blogID` int(11) DEFAULT NULL,
+  `commentID` int(11) DEFAULT NULL,
+  `postID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -184,6 +186,9 @@ CREATE TABLE `user` (
 --
 -- Dumpning av Data i tabell `user`
 --
+
+INSERT INTO `user` (`userID`, `password`, `alias`, `firstName`, `lastName`, `eMail`, `birthDate`, `admin`, `createDate`, `suspended`) VALUES
+(1, 'q', 'q', NULL, NULL, 'q@q.q', NULL, 1, '2017-10-18 12:33:38', NULL);
 
 --
 -- Index för dumpade tabeller
@@ -274,7 +279,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT för tabell `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `blogID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `blogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT för tabell `comment`
 --
@@ -319,7 +324,7 @@ ALTER TABLE `suspension`
 -- AUTO_INCREMENT för tabell `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Restriktioner för dumpade tabeller
 --

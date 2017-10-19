@@ -3,29 +3,54 @@
     require_once("blog_db.php");
     $db = new DB();
 
-    $user = $_REQUEST["username"];
-    $user = utf8_decode($user);
-    $user = strtolower($user);
-    $user = utf8_encode($user);
     
-    $password = $_REQUEST["password"];
-    $SQL = "SELECT * FROM user WHERE alias='$user' AND password='$password' COLLATE latin1_bin";
-    //echo($SQL);
-    $matrix = $db->getData($SQL);
-    if(count($matrix) == 1) {
-        $userId = $matrix[0][0];
-        $admin = $matrix[0][7];
+    
+    $dbCon= $db->getCon();
 
-        session_start();
-        $_SESSION["userID"] = $userId;
-        $_SESSION["user"] = $user;
-        $_SESSION["admin"] = $admin;
-
-        echo(true);
+    $SQL = "SELECT userID, admin FROM user WHERE alias=? AND password=?";
+    $statement = $dbCon->prepare($SQL);
+    
+    if($statement == false) {
+        
+        echo("Fel användarnamn/lösenord");
 
     } else {
 
-        echo("Fel användarnamn/lösenord");
+        $statement->bind_param("ss", $user, $password);
+        
+        $user = $_REQUEST["username"];
+        $user = utf8_decode($user);
+        $user = strtolower($user);
+        $user = utf8_encode($user);
+        
+        $password = $_REQUEST["password"];
+        $statement->execute();
+        $statement->bind_result($userID, $admin);
+        
+        $matrix = array();
+
+        while($statement->fetch()) {
+            $value[0] = $userID;
+            $value[1] = $admin;
+
+            array_push($matrix, $value);
+        }
+
+        if(count($matrix) == 1) {
+            $userID = $matrix[0][0];
+            $admin = $matrix[0][1];
+
+            session_start();
+            $_SESSION["userID"] = $userID;
+            $_SESSION["user"] = $user;
+            $_SESSION["admin"] = $admin;
+
+            echo(true);
+
+        } else {
+
+            echo("Fel användarnamn/lösenord");
+        }
     }
 
 ?>

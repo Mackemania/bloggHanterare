@@ -4,10 +4,11 @@
     $db = new DB();
 
     $blogID = $_REQUEST["blogID"];
-    $SQL = "SELECT blogTitle FROM blog WHERE blogID=$blogID";
+    $SQL = "SELECT blogTitle, userID FROM blog WHERE blogID=$blogID";
     $matrix = $db->getData($SQL);
     
     $name = $matrix[0][0];
+    $owner = $matrix[0][1];
 
 ?>
 <html>
@@ -24,7 +25,40 @@
                 <?PHP
                     require_once("blog_menu.php");
                     $_SESSION["blogID"] = $blogID;
-                    require_once("blog_postMaker.php");
+                    
+                    if(isset($_SESSION["userID"])) {
+
+                        $userID = $_SESSION["userID"];
+
+                        if($userID != $owner) {
+                            $SQL = "SELECT level FROM permission WHERE userID=$userID AND blogID=$blogID";
+                            //echo($SQL);
+                            $matrix = $db->getData($SQL);
+
+                            if(!isset($matrix[0][0])) {
+                                $accessLevel = 0;
+                            } else {
+                                
+                            $accessLevel = $matrix[0][0];
+                            
+                            }
+                        } else {
+                            $accessLevel = 10;
+                        }
+                    
+                    } else {
+                        
+                        $accessLevel=0;
+                    
+                    }
+
+                    if($accessLevel>=2) {
+                    
+                        require_once("blog_postMaker.php");
+                    
+                    } else if($accessLevel>=1) {
+                        
+                    }
 
                     echo("<h2>$name</h2></br>");
 

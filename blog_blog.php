@@ -68,13 +68,34 @@
                 </div>
             </div>
         </div>
+        <div id ="editPost" class="modal editPost form">
+            <div id="modalContent" class="postModalContent">
+                <div id="closeDiv">
+                    <span onclick="document.getElementById('editPost').style.display='none'" class="postClose" title="Stäng">&times;</span>
+                </div>
+                
+                <div id="postContent">
+                </div></br>
+                <form method="post" action="blog_editPost.php">
+                    <h3>Redigera inlägg</h3>
+                    Inläggets titel:</br>
+                    <input type="text" id="editPostTitle" name="editPostTitle" class="formTest" required="required"/>
+                    </br></br>
+
+                    Inlägget:</br>
+                    <textarea id="editPostText" name="editPostText" class="textarea" rows="5" cols="40"></textarea>
+                    </br></br>
+                    <input type="submit" id="editPostButton" name="editPostButton" class="formButton" value="Redigera inlägg"/>
+                </form>
+                
+            </div>
+        </div>
 
         <div id ="comment" class="modal comment form">
             <div id="modalContent" class="postModalContent">
                 <div id="closeDiv">
                     <span onclick="document.getElementById('comment').style.display='none'" class="postClose" title="Stäng">&times;</span>
                 </div>
-                
                 
                 <form method="post" action="blog_commentCreator.php">
                     <div id="commentContent">

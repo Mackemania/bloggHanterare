@@ -8,6 +8,27 @@ var commentIDs;
 var commentDates;
 var commentUsers;
 
+function blog_showEditPost(postID) {
+    
+        var post = document.getElementById(postID);
+        var nodes = post.childNodes;
+        var header = nodes[0].innerHTML;
+        var content = nodes[2].textContent;
+        //console.log(nodes[2].innerHTML);
+        document.getElementById("postContent").innerHTML = "";
+        document.getElementById("editPostTitle").value = header;
+        document.getElementById("editPostText").innerHTML = content;
+        showModal('editPost');
+        var data = "postID="+postID;
+        sendData("setPostOnEdit", "blog_setPostID.php", data, blog_editPostIsShowing);
+    }
+
+    function blog_editPostIsShowing(id, request) {
+        
+        var text = request.responseText;
+
+    }
+
 function blog_sendToPostReport(postID) {
     
     location.replace("blog_flagReport.php?postID="+postID);
@@ -118,11 +139,13 @@ function blog_serverText(id, request) {
 
             var header = document.createElement("h3");
             header.setAttribute("class", "postH3");
-            header.innerHTML = title+"<hr>";
+            header.innerHTML = title;
             var div = document.createElement("div");
             div.setAttribute("id", postID);
             div.setAttribute("class", "post");
             div.appendChild(header);
+            var divContent = div.innerHTML;
+            div.innerHTML = divContent+"<hr>";
             document.getElementById("postTexts").appendChild(div);
 
             var content = document.getElementById(postID).innerHTML;
@@ -145,6 +168,13 @@ function blog_serverText(id, request) {
             reportButton.setAttribute("class", "CRAButton");
             reportButton.innerHTML = "<span class='material-icons'>flag</span>";
             commentReportArea.appendChild(reportButton);
+            div.appendChild(commentReportArea);
+            
+            var editButton = document.createElement("button");
+            editButton.setAttribute("onclick", "javascript: blog_showEditPost("+postID+")");
+            editButton.setAttribute("class", "CRAButton");
+            editButton.innerHTML = "<span class='material-icons'>edit</span>";
+            commentReportArea.appendChild(editButton);
             div.appendChild(commentReportArea);
             
         }

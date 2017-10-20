@@ -25,7 +25,7 @@
 						<input type="text"  id="regUsername" name="regUsername" class="formText" placeholder="Användarnamn" autocomplete="off" maxlength="30" required="required"/></br></br>
 
 						E-mail:</br>
-						<input type="email" id="eMail" name="eMail" class="formText" placeholder="T.ex: epost@mail.se" autocomplete="off" maxlength="50" required="required"/></br></br>
+						<input type="email" id="eMail" name="eMail" class="formText" placeholder="T.ex: epost@mail.se" maxlength="50" required="required"/></br></br>
 
 						Lösenord:</br>
 						<input type="password" id="regPassword" name="regPassword" class="formText" placeholder="Lösenord" autocomplete="off" maxlength="100" required="required"/></br></br>

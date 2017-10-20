@@ -3,12 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
-
--- Tid vid skapande: 19 okt 2017 kl 13:23
-
+-- Tid vid skapande: 20 okt 2017 kl 08:29
 -- Serverversion: 10.1.19-MariaDB
 -- PHP-version: 7.0.13
-
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +20,6 @@ SET time_zone = "+00:00";
 -- Databas: `blog`
 --
 
--- --------------------------------------------------------
 
 DROP TABLE commentversion;
 DROP TABLE postversion;
@@ -51,10 +47,6 @@ CREATE TABLE `blog` (
   `userID` int(11) NOT NULL,
   `css` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumpning av Data i tabell `blog`
---
 
 -- --------------------------------------------------------
 
@@ -149,10 +141,6 @@ CREATE TABLE `post` (
   `blogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumpning av Data i tabell `post`
---
-
 -- --------------------------------------------------------
 
 --
@@ -194,12 +182,8 @@ CREATE TABLE `user` (
   `admin` tinyint(1) NOT NULL,
   `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `suspended` varchar(10) DEFAULT NULL,
-  `aboutMe` varchar(500) NOT NULL
+  `aboutMe` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumpning av Data i tabell `user`
---
 
 --
 -- Index för dumpade tabeller

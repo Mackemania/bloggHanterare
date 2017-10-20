@@ -76,7 +76,7 @@
                 
                 <div id="postContent">
                 </div></br>
-                <form method="post" action="blog_editPost.php">
+                <?PHP echo "<form method='post' action='blog_editPost.php'>";?>
                     <h3>Redigera inlägg</h3>
                     Inläggets titel:</br>
                     <input type="text" id="editPostTitle" name="editPostTitle" class="formTest" required="required"/>

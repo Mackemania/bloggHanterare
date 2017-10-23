@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 20 okt 2017 kl 08:29
+-- Tid vid skapande: 23 okt 2017 kl 09:18
 -- Serverversion: 10.1.19-MariaDB
 -- PHP-version: 7.0.13
 
@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 -- Databas: `blog`
 --
 
+-- --------------------------------------------------------
 
 DROP TABLE commentversion;
 DROP TABLE postversion;
@@ -31,9 +32,6 @@ DROP TABLE post;
 DROP TABLE blog;
 DROP TABLE css;
 DROP TABLE user;
-
--- --------------------------------------------------------
-
 --
 -- Tabellstruktur `blog`
 --
@@ -48,6 +46,10 @@ CREATE TABLE `blog` (
   `css` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumpning av Data i tabell `blog`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -56,13 +58,17 @@ CREATE TABLE `blog` (
 
 CREATE TABLE `comment` (
   `commentID` int(11) NOT NULL,
-  `OS` varchar(30) NOT NULL,
-  `IP` varchar(15) NOT NULL,
+  `OS` varchar(30) DEFAULT NULL,
+  `IP` varchar(15) DEFAULT NULL,
   `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `source` varchar(50) NOT NULL,
   `userID` int(11) NOT NULL,
   `postID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumpning av Data i tabell `comment`
+--
 
 -- --------------------------------------------------------
 
@@ -141,6 +147,10 @@ CREATE TABLE `post` (
   `blogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumpning av Data i tabell `post`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -184,6 +194,10 @@ CREATE TABLE `user` (
   `suspended` varchar(10) DEFAULT NULL,
   `aboutMe` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumpning av Data i tabell `user`
+--
 
 --
 -- Index för dumpade tabeller

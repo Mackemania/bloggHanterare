@@ -153,6 +153,7 @@ function blog_getPostIDsFromDB() {
 
 function blog_postIDs(id, request) {
     var text = request.responseText;
+    console.log(text);
     var posts = text.split("§");
     this.postIDs = posts[1].split("&");
     this.postTitles = posts[2].split("&");

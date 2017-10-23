@@ -91,20 +91,41 @@
             </div>
         </div>
 
+        <div id ="editComment" class="modal editComment form">
+            <div id="modalContent" class="postModalContent">
+                <div id="closeDiv">
+                    <span onclick="document.getElementById('editComment').style.display='none'" class="postClose" title="Stäng">&times;</span>
+                </div>
+                
+                <div id="editCommentContent">
+                </div></br>
+                <form method="post" action="blog_editPost.php">
+                    <h3>Redigera kommentar</h3>
+
+                    Kommentar:</br>
+                    <textarea id="editCommentText" name="editCommentText" class="textarea" rows="5" cols="40"></textarea>
+                    </br></br>
+                    
+                    <input type="submit" id="editCommentButton" name="editCommentButton" class="formButton" value="Redigera kommentar"/>
+                </form>
+            </div>
+        </div>
+
         <div id ="comment" class="modal comment form">
             <div id="modalContent" class="postModalContent">
                 <div id="closeDiv">
                     <span onclick="document.getElementById('comment').style.display='none'" class="postClose" title="Stäng">&times;</span>
                 </div>
-                
-                <form method="post" action="blog_commentCreator.php">
-                    <div id="commentContent">
+
+                <div id="commentContent">
                     </div>
                     </br>
                     
                     <div id="comments">
 
-                    </div></br>
+                </div></br>
+                    
+                <form method="post" action="blog_commentCreator.php">
                     
                     Kommentera:</br>
                     <textarea id="commentArea" name="commentArea" class="textarea" rows="5" cols="40"  placeholder="Kommentar" autocomplete="off" required="required"></textarea>

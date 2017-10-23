@@ -8,8 +8,56 @@ var commentIDs;
 var commentDates;
 var commentUsers;
 
-function blog_showEditPost(postID) {
+function blog_showEditCommentIfAllowed(commentID) {
+
+    var data = "commentID="+commentID;
+    sendData("isEditPostAllowed", "blog_getOwnerFromDB.php", data, blog_showEditComment);
+
+}
+
+function blog_showEditComment(id, request) {
+
+    var modals = document.getElementsByClassName("modal");
     
+    for(var i = 0; i<modals.length; i++)  {
+        modals[i].style.display='none';
+    }
+
+    var text = request.responseText;
+    //console.log(text);
+    var returningValue = text.split("&");
+    
+    if(returningValue[0] == 1) {
+        var commentID = returningValue[1];
+        var comment = document.getElementById("comment"+commentID);
+        var nodes = comment.childNodes;
+        var content = nodes[0].textContent;
+        //console.log(nodes[2].innerHTML);
+        document.getElementById("editCommentContent").innerHTML = "";
+        document.getElementById("editCommentText").innerHTML = content;
+        showModal('editComment');
+
+    } else {
+
+        alert("det här är inte ditt inlägg!");
+
+    }
+}
+
+function blog_showEditPostIfAllowed(postID) {
+
+    var data = "postID="+postID;
+    sendData("isEditPostAllowed", "blog_getOwnerFromDB.php", data, blog_showEditPost);
+}
+
+function blog_showEditPost(id, request) {
+
+    var text = request.responseText;
+    //console.log(text);
+    var returningValue = text.split("&");
+    
+    if(returningValue[0] == 1) {
+        var postID = returningValue[1];
         var post = document.getElementById(postID);
         var nodes = post.childNodes;
         var header = nodes[0].innerHTML;
@@ -21,13 +69,18 @@ function blog_showEditPost(postID) {
         showModal('editPost');
         var data = "postID="+postID;
         sendData("setPostOnEdit", "blog_setPostID.php", data, blog_editPostIsShowing);
-    }
+    } else {
 
-    function blog_editPostIsShowing(id, request) {
-        
-        var text = request.responseText;
+        alert("det här är inte ditt inlägg!");
 
     }
+}
+
+function blog_editPostIsShowing(id, request) {
+    
+    var text = request.responseText;
+
+}
 
 function blog_sendToPostReport(postID) {
     
@@ -86,6 +139,7 @@ function blog_getCommentTextFromDB(source) {
         data = data+","+source[i];
 
     }
+    data = data+"&type=comment";
 
     //console.log(data);
     sendData("getCommentTextFromServer", "blog_getPostTextFromServer.php", data, blog_serverText);
@@ -117,7 +171,7 @@ function blog_getPostTextFromDB(source) {
         data = data+","+source[i];
 
     }
-
+    data = data+"&type=post";
     //console.log(data);
     sendData("getPostTextFromServer", "blog_getPostTextFromServer.php", data, blog_serverText);
 
@@ -126,11 +180,17 @@ function blog_getPostTextFromDB(source) {
 function blog_serverText(id, request) {
     document.getElementById("comments").innerHTML = "";
     var text = request.responseText;
-    console.log(text);
+
+    //console.log(text);
+
     //alert(id);
     if(id=="getPostTextFromServer") {
 
-        var posts = text.split("&");
+        var dataArray = text.split("§");
+
+        var posts = dataArray[0].split("&");
+        var isUserCreator = dataArray[1].split("&");
+
         for(var i = 1; i<posts.length; i++) {
             var title = this.postTitles[i];
             var postID = this.postIDs[i];
@@ -168,18 +228,23 @@ function blog_serverText(id, request) {
             commentReportArea.appendChild(reportButton);
             div.appendChild(commentReportArea);
             
-            var editButton = document.createElement("button");
-            editButton.setAttribute("onclick", "javascript: blog_showEditPost("+postID+")");
-            editButton.setAttribute("class", "CRAButton");
-            editButton.innerHTML = "<span class='material-icons'>edit</span>";
-            commentReportArea.appendChild(editButton);
-            div.appendChild(commentReportArea);
+            if(isUserCreator[i] == 1) {
+                var editButton = document.createElement("button");
+                editButton.setAttribute("onclick", "javascript: blog_showEditPostIfAllowed("+postID+")");
+                editButton.setAttribute("class", "CRAButton");
+                editButton.innerHTML = "<span class='material-icons'>edit</span>";
+                commentReportArea.appendChild(editButton);
+                div.appendChild(commentReportArea);
+            }
             
         }
 
     } else {
         
-        var comments = text.split("&");
+        var dataArray = text.split("§");
+        var comments = dataArray[0].split("&");
+        var isUserCreator = dataArray[1].split("&");
+
         for(var i = 1; i<comments.length; i++) {
             
             var commentID = this.commentIDs[i];
@@ -198,6 +263,15 @@ function blog_serverText(id, request) {
             reportButton.setAttribute("class", "commentReportButton");
             reportButton.innerHTML = "<span class='material-icons'>flag</span>";
             div.appendChild(reportButton);
+            
+            if(isUserCreator[i] == 1) {
+                var editButton = document.createElement("button");
+                editButton.setAttribute("onclick", "javascript: blog_showEditCommentIfAllowed("+commentID+")");
+                editButton.setAttribute("class", "commentReportButton");
+                editButton.innerHTML = "<span class='material-icons'>edit</span>";
+                div.appendChild(editButton);
+            }
+            
             
         }
 

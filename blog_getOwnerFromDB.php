@@ -35,7 +35,8 @@
     } else if(isset($_REQUEST["commentID"])) {
         
         $commentID = $_REQUEST["commentID"];
-        
+        $_SESSION["commentID"] = $commentID;
+
         $SQL = "SELECT userID FROM comment WHERE commentID=$commentID";
         $matrix = $db->getData($SQL);
 

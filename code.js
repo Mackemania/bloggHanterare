@@ -117,7 +117,7 @@ function blog_getCommentIDsFromDB() {
 function blog_commentIDs(id, request) {
     var text = request.responseText;
     
-    //console.log(text);
+    console.log(text);
 
     var comments = text.split("§");
     if(comments[1]!=null) {
@@ -153,7 +153,7 @@ function blog_getPostIDsFromDB() {
 
 function blog_postIDs(id, request) {
     var text = request.responseText;
-    console.log(text);
+    //console.log(text);
     var posts = text.split("§");
     this.postIDs = posts[1].split("&");
     this.postTitles = posts[2].split("&");

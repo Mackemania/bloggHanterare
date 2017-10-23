@@ -5,6 +5,7 @@
 
     $blogID = $_REQUEST["blogID"];
     $SQL = "SELECT blogTitle, userID FROM blog WHERE blogID=$blogID";
+    echo($SQL);
     $matrix = $db->getData($SQL);
     
     $name = $matrix[0][0];
@@ -99,7 +100,7 @@
                 
                 <div id="editCommentContent">
                 </div></br>
-                <form method="post" action="blog_editPost.php">
+                <form method="post" action="blog_editComment.php">
                     <h3>Redigera kommentar</h3>
 
                     Kommentar:</br>

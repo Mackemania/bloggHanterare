@@ -7,11 +7,10 @@
     
     $dbCon= $db->getCon();
 
-    $SQL = "SELECT userID, admin FROM user WHERE alias=? AND password=?";
+    $SQL = "SELECT userID, admin FROM user WHERE alias=? AND BINARY password=?";
     $statement = $dbCon->prepare($SQL);
     
     if($statement == false) {
-        
         echo("Fel användarnamn/lösenord");
 
     } else {

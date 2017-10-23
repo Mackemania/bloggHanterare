@@ -5,9 +5,9 @@ session_start();
 
 if(isset($_POST["alias"]))
 {
-    
+
     $SQL = "SELECT userID FROM user WHERE alias='".$_POST['alias']."'";
-    
+
     $matrix = $db->getData($SQL);
 
     $permission = $_POST["permission"];

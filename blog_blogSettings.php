@@ -14,8 +14,8 @@
                     <select id="accesBlog" name ="accessBlog" class="formText"  required="required">
 
                        <option value=''>Välj en...</option>
-                       <option value='1'>Endast inloggade</option>
                        <option value='0'>Öppen</option>
+                       <option value='1'>Endast inloggade</option>
                        <option value='2'>Privat</option>
 
                     </select><br /><br />

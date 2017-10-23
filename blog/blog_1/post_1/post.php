@@ -1,1 +1,0 @@
-gör man när man e fjoll

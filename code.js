@@ -384,7 +384,7 @@ function blog_loadAdminSettings(page) {
     
     
     function blog_writeAdminSettings(id, request) {
-        console.log(request.responseText);
+        //console.log(request.responseText);
         document.getElementById("adminSettingsContent").innerHTML = request.responseText;
     
         if(request.responseText.includes("Profil")) {

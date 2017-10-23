@@ -76,15 +76,20 @@
                 $temp = $postCurrentIDsArray[$k+1];
                 $postCurrentIDsArray[$k+1] = $postCurrentIDsArray[$k];
                 $postCurrentIDsArray[$k] = $temp;
+                
                                
             }
-
+           
         } 
     }
     
+    $postIDs = "§";
+    $postTitles = "§";
+    $postSource = "§";
 
     for($i = 1; $i<count($postCurrentIDsArray); $i++)
     {
+        //echo($postCurrentIDsArray[$i]."\n");
         $SQL = "SELECT postID, postTitle, source FROM post WHERE postID=".$postCurrentIDsArray[$i]."";
         //echo($SQL);
         $matrix = $db->getData($SQL);
@@ -95,7 +100,6 @@
 
 
     $data = $postIDs.$postTitles.$postSource;
-
     echo($data);
 
 ?>

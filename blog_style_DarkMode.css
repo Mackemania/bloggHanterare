@@ -1,0 +1,664 @@
+/*
+    Colors to use:
+    Orange: rgb(253, 119, 66);
+    Border orange: rgb(253, 97, 35);
+    Blue: rgb(0, 162, 255);
+    Border blue: rgb(0, 119, 255);
+*/
+
+@font-face {
+	font-family: CenturyGothic;
+    src: url(GOTHICB.TTF);
+    font-weight: bold;
+}
+
+@font-face {
+	font-family: CenturyGothic;
+    src: url(GOTHICBI.TTF);
+    font-weight: italic,bold;
+}
+
+@font-face {
+	font-family: CenturyGothic;
+    src: url(GOTHICI.TTF);
+    font-weight: italic;
+}
+
+@font-face {
+	font-family: CenturyGothic;
+    src: url(GOTHIC.TTF);
+}
+
+
+a {
+    text-decoration: none;
+    color: rgb(253, 119, 66);
+}
+
+body {
+    font-family: CenturyGothic;
+    font-size: 140%;
+    margin: 0;
+    padding: 0;
+    background-color: #3F3F3F;
+    color: white;   
+}
+
+button {
+    font-family: CenturyGothic;
+
+}
+
+h2 {
+
+    margin: 0%;
+}
+
+hr {
+
+    border-color: rgb(200, 200, 200);
+}
+    
+input {
+    font-family: CenturyGothic;
+
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+li {
+    height: 100%;
+
+}
+
+select {
+    font-family: CenturyGothic;
+
+}
+
+textarea {
+    font-family: CenturyGothic;
+    resize: none;
+    padding: 2%;
+    outline: none;
+    margin-bottom: 5%;
+}
+
+
+#blogContent {
+
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+    
+#closeDiv {
+    margin-right: 0%;
+
+}
+
+#comments {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#container {
+    text-align: center;
+    margin-top: 5%;
+}
+
+#editProfileContent {
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#editProfileContentPane {
+
+    padding: 2%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#info {
+    color: rgb(255, 0, 0);
+}
+
+#menu {
+    max-height: 6%;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    font-size: 100%;
+    background-color: rgb(253, 119, 66);
+    padding-left: 2%;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    z-index: 1;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(253, 119, 66);
+    box-shadow: 0px 6px 5px rgba(243, 243, 243);
+}
+
+#regInfo {
+    color: rgb(255, 0, 0);
+}
+
+#searchbar {
+    float: left;
+    margin-top: 0.3%;
+    margin-left: 1%;
+    text-decoration: none;
+    min-width: 30%;
+    height: 55%;
+    padding-top: 0.25%;
+}
+
+#settingsMenu {
+    float: left;
+    padding-top: 2.2%;
+    max-width: 15%;
+    border-collapse: collapse;
+    height: 85%;
+
+}
+
+#userPanel {
+    float: right;
+    z-index: 2;
+}
+
+#userSettingsContent {
+    min-width: 50%;
+    min-height: 55%;
+    float: left;
+}
+
+.adminTools {
+    width: 25%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.blogDiv {
+    min-width: 33%;
+    max-width: 100%;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+    margin-bottom: 5%;
+    padding: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.button {
+    float: left;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
+}
+
+.button:hover, .button:focus {
+    float: left;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
+    border-width: 1px;
+    outline:none;
+}
+
+.close {
+    position: relative;
+    float: right;
+    color: rgb(0,0,0);
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -5%;
+}
+
+.close:hover, .close:focus {
+
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+
+}
+
+.comment {
+    width: 100%;
+    margin-left:auto;
+    float: left;
+    font-size: 100%;
+    border-radius: 15px;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+    padding: 3% 10%;
+    margin-bottom: 3%;
+    text-align: left;
+
+}
+
+.commentName {
+
+    font-size: 60%;
+}
+
+.commentReportButton {
+    float: left;
+    width: 9%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
+    border-width: 1px;
+    outline: none;
+}
+
+.commentReportButton:hover, .commentReportButton:focus {
+    float: left;
+    width: 9%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
+}
+
+.contentPane {
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.CRA {
+    margin-top: 10%;
+}
+
+.CRAButton {
+    float: left;
+    width: 6%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
+    border-width: 1px;
+    outline: none;
+}
+
+.CRAButton:hover, .CRAButton:focus{
+    float: left;
+    width: 6%;
+    min-height: 4%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
+}
+
+.form {
+    width: 100%;
+    text-align: center;
+    float: left;
+    font-size: 100%
+}
+
+.formButton {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border: none;
+    outline:none;
+}
+
+.formButton:hover, .formButton:focus {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 97, 35);
+    border: none;
+    outline: none;
+}
+
+.formButton:disabled, .formButton:hover:disabled {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(169, 169, 169);
+    border: none;
+}
+
+.formText {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0;
+    padding-bottom: 0%;
+
+}
+
+.input-group-btn {
+    width: 35%;
+    float: left;
+}
+
+.menuA {
+    min-width: 10%;
+    background-color: rgb(253, 119, 66);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding-top: 0.6%;
+    padding-bottom: 1%;
+    float: left;
+
+}
+
+.menuA:hover, .menuA:focus {
+    min-width: 10%;
+    background-color: rgb(253, 97, 35);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding-top: 0.6%;
+    padding-bottom: 1%;
+    float: left;
+}
+
+.menuButton {
+
+    float: left;
+    width: 12%;
+    min-height: 55%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0.2%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    margin-top: 0.37%;
+    margin-left: 1%;
+    border-radius: 3px;
+}
+
+.menuButton:hover, .menuButton:focus {
+    
+    float: left;
+    width: 12%;
+    min-height: 55%; 
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0.2%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 72, 0);
+    border-color: rgb(253, 119, 66);
+    border-width: 1px;
+    outline: none;
+    margin-top: 0.37%;
+    margin-left: 1%;
+    border-radius: 3px;
+}
+
+.menuLogo {
+    margin-top: 0.25%;
+    float: left;
+    height:85%;
+    margin-right: 1.5%;
+
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0, 0.4);
+    padding-top: 60px;
+
+}
+
+.modalContent {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 4px 6px 5px rgb(231, 231, 231);
+}
+
+.post {
+    width:100%;
+    float: left;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+    margin-bottom: 4%;
+    padding: 4.5%;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+
+}
+
+.postButton {
+    float: left;
+    width: 100%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
+    border-width: 1px;
+    outline: none;
+    margin-bottom: 3%;
+}
+
+.postButton:hover, .postButton:focus {
+
+    float: left;
+    width: 100%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
+    margin-bottom: 3%;
+
+}
+
+.postClose {
+    position: relative;
+    float: right;
+    color: rgb(0,0,0);
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -3%;
+}
+
+.postClose:hover, .postClose:focus {
+
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+
+}
+
+.postH3 {
+    text-align: center;
+}
+
+.postModalContent {
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 4px 6px 5px rgb(231, 231, 231);
+    margin-top: -1%;
+    margin-bottom: 7%;
+
+}
+
+.randomBlog {
+    width: 29.33%;
+    height: 30%;
+    float: left;
+    margin: 2%;
+    padding: 2%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    text-align: left;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.selectedButton {
+    float: left;
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    outline: none;
+    /*border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;*/
+}
+
+.textarea {
+    width: 90%;
+    min-height: 5%;
+    font-size: 90%;
+    border-radius: 15px;
+}
+
+.textarea::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+.userSettingsContentBorder {
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+}
+
+
+/*
+float: left;
+width: 12%;
+min-height: 55%; 
+font-size: 90%;
+padding-top: 0%;
+padding-bottom: 0.2%;
+color: rgb(255, 255, 255);
+background-color: rgb(255, 72, 0);
+border-color: rgb(253, 119, 66);
+border-width: 1px;
+outline: none;
+margin-top: 0.37%;
+margin-left: 1%;
+border-radius: 3px;
+
+    float: right;
+    margin-right: 1%;
+    width: 2%;
+    margin-bottom: 10%;
+    min-height: 5%;
+    font-size: 25%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    text-decoration: none;
+    outline: none;
+    border-radius: 3px;
+*/

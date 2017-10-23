@@ -629,7 +629,24 @@ textarea {
     border-radius: 15px;
 }
 
-
+.userTheme
+{
+    float: right;
+    width: 2%;
+    margin-right: 2%;
+    margin-top: -0.275%;
+    min-height: 55%;
+    font-size: 90%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    text-decoration: none;
+    outline: none;
+    border-radius: 3px;
+}
 /*
 float: left;
 width: 12%;

@@ -153,6 +153,7 @@ function blog_getPostIDsFromDB() {
 
 function blog_postIDs(id, request) {
     var text = request.responseText;
+    console.log(text);
     var posts = text.split("§");
     this.postIDs = posts[1].split("&");
     this.postTitles = posts[2].split("&");
@@ -383,7 +384,7 @@ function blog_loadAdminSettings(page) {
     
     
     function blog_writeAdminSettings(id, request) {
-        console.log(request.responseText);
+        //console.log(request.responseText);
         document.getElementById("adminSettingsContent").innerHTML = request.responseText;
     
         if(request.responseText.includes("Profil")) {

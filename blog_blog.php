@@ -5,7 +5,7 @@
 
     $blogID = $_REQUEST["blogID"];
     $SQL = "SELECT blogTitle, userID FROM blog WHERE blogID=$blogID";
-    echo($SQL);
+    //echo($SQL);
     $matrix = $db->getData($SQL);
     
     $name = $matrix[0][0];

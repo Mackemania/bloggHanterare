@@ -8,9 +8,21 @@
     $blogID = $_SESSION['blogID'];
     $oldPostID = $_SESSION['postID'];
     $userID = $_SESSION['userID'];
-    $postTitle = $_POST['editPostTitle'];
-    $postText = $_POST['editPostText'];
 
+    $postTitle = $_REQUEST['editPostTitle'];
+    $postText = $_REQUEST['editPostText'];
+    //echo("text".$postTitle."mertext");
+
+    $deletePost = false;
+    
+    if($postTitle == " " && $postText == " ") {
+        $postTitle = " ";
+        $postText = " ";
+        $deletePost = true;
+    }
+
+        
+    
 
     $SQL = "SELECT postID FROM post ORDER BY postID DESC";
     $matrix = $db->getData($SQL);
@@ -48,5 +60,7 @@
 
     umask($old);
 
-    header("location: blog_blog.php?blogID=$blogID");
+    if(!$deletePost) {
+        header("location: blog_blog.php?blogID=$blogID");
+    }
 ?>

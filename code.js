@@ -8,6 +8,19 @@ var commentIDs;
 var commentDates;
 var commentUsers;
 
+function blog_showDeleteCommentIfAllowed(commentID) {
+
+    var data = "commentID="+commentID;
+    sendData("isEditPostAllowed", "blog_getOwnerFromDB.php", data, blog_showDeleteComment);
+
+}
+
+function blog_showDeleteComment(id, request) {
+    var text = request.responseText;
+    console.log(text);
+
+}
+
 function blog_showEditCommentIfAllowed(commentID) {
 
     var data = "commentID="+commentID;
@@ -18,7 +31,6 @@ function blog_showEditCommentIfAllowed(commentID) {
 function blog_showEditComment(id, request) {
 
     var modals = document.getElementsByClassName("modal");
-    
     for(var i = 0; i<modals.length; i++)  {
         modals[i].style.display='none';
     }
@@ -39,9 +51,47 @@ function blog_showEditComment(id, request) {
 
     } else {
 
-        alert("det här är inte ditt inlägg!");
+        alert("Det här är inte ditt inlägg!");
 
     }
+}
+
+function blog_showDeletePostIfAllowed(postID) {
+
+    var data = "postID="+postID;
+    sendData("isEditPostAllowed", "blog_getOwnerFromDB.php", data, blog_showDeletePost);
+
+}
+
+function blog_showDeletePost(id, request) {
+    var text = request.responseText;
+    
+    var returningValue = text.split("&");
+
+    if(returningValue[0] == 1) {
+        if(confirm("Vill du verkligen ta bort det här inlägget?!")) {
+            
+            postID = returningValue[1];
+            var data = "editPostTitle= &editPostText= ";
+            sendData("deletePost", "blog_editPost.php", data, blog_isDeleted);
+
+        } else {
+
+        }
+
+    } else {
+
+        alert("Det här är inte ditt inlägg!");
+
+    }
+
+}
+
+function blog_isDeleted(id, request) {
+    var text = request.responseText;
+    console.log(text);
+    alert("HEJ");
+
 }
 
 function blog_showEditPostIfAllowed(postID) {
@@ -62,7 +112,7 @@ function blog_showEditPost(id, request) {
         var nodes = post.childNodes;
         var header = nodes[0].innerHTML;
         var content = nodes[2].textContent;
-        //console.log(nodes[2].innerHTML);
+        //console.log(nodes);
         document.getElementById("postContent").innerHTML = "";
         document.getElementById("editPostTitle").value = header;
         document.getElementById("editPostText").innerHTML = content;
@@ -117,7 +167,7 @@ function blog_getCommentIDsFromDB() {
 function blog_commentIDs(id, request) {
     var text = request.responseText;
     
-    console.log(text);
+    //console.log(text);
 
     var comments = text.split("§");
     if(comments[1]!=null) {
@@ -195,49 +245,67 @@ function blog_serverText(id, request) {
         for(var i = 1; i<posts.length; i++) {
             var title = this.postTitles[i];
             var postID = this.postIDs[i];
-
-            var header = document.createElement("h3");
-            header.setAttribute("class", "postH3");
-            header.innerHTML = title;
-            var div = document.createElement("div");
-            div.setAttribute("id", postID);
-            div.setAttribute("class", "post");
-            div.appendChild(header);
-            var divContent = div.innerHTML;
-            div.innerHTML = divContent+"<hr>";
-            document.getElementById("postTexts").appendChild(div);
-
-            var content = document.getElementById(postID).innerHTML;
-            div.innerHTML = content+posts[i];
+            console.log(title, posts[i]);
+            if(title != " " && posts[i] != " ") {
+                
+                var header = document.createElement("h3");
+                header.setAttribute("class", "postH3");
+                header.innerHTML = title;
+                var div = document.createElement("div");
+                div.setAttribute("id", postID);
+                div.setAttribute("class", "post");
+                div.appendChild(header);
+                var divContent = div.innerHTML;
+                div.innerHTML = divContent+"<hr>";
+                console.log(title, posts[i]);
             
-            var commentReportArea = document.createElement("div");
-            var craID = "cra"+postID;
-            commentReportArea.setAttribute("id", craID);
-            commentReportArea.setAttribute("class", "CRA");
-            
-            var commentButton = document.createElement("button");
-            commentButton.setAttribute("class", "CRAButton");
-            commentButton.setAttribute("onclick", "javascript: blog_showCommentPost("+postID+");");
-            commentButton.setAttribute("value", postID);
-            commentButton.innerHTML = "<span class='material-icons'>insert_comment</span>";
-            commentReportArea.appendChild(commentButton);
+                document.getElementById("postTexts").appendChild(div);
 
-            var reportButton = document.createElement("button");
-            reportButton.setAttribute("onclick", "javascript: blog_sendToPostReport("+postID+")");
-            reportButton.setAttribute("class", "CRAButton");
-            reportButton.innerHTML = "<span class='material-icons'>flag</span>";
-            commentReportArea.appendChild(reportButton);
-            div.appendChild(commentReportArea);
-            
-            if(isUserCreator[i] == 1) {
-                var editButton = document.createElement("button");
-                editButton.setAttribute("onclick", "javascript: blog_showEditPostIfAllowed("+postID+")");
-                editButton.setAttribute("class", "CRAButton");
-                editButton.innerHTML = "<span class='material-icons'>edit</span>";
-                commentReportArea.appendChild(editButton);
+                
+                var content = document.getElementById(postID).innerHTML;
+
+                var postTextDiv = document.createElement("div");
+                postTextDiv.innerHTML = posts[i];
+
+                div.innerHTML = content+postTextDiv.innerHTML;
+                
+                var commentReportArea = document.createElement("div");
+                var craID = "cra"+postID;
+                commentReportArea.setAttribute("id", craID);
+                commentReportArea.setAttribute("class", "CRA");
+                
+                var commentButton = document.createElement("button");
+                commentButton.setAttribute("class", "CRAButton");
+                commentButton.setAttribute("onclick", "javascript: blog_showCommentPost("+postID+");");
+                commentButton.setAttribute("value", postID);
+                commentButton.innerHTML = "<span class='material-icons'>insert_comment</span>";
+                commentReportArea.appendChild(commentButton);
+
+                var reportButton = document.createElement("button");
+                reportButton.setAttribute("onclick", "javascript: blog_sendToPostReport("+postID+")");
+                reportButton.setAttribute("class", "CRAButton");
+                reportButton.innerHTML = "<span class='material-icons'>flag</span>";
+                commentReportArea.appendChild(reportButton);
                 div.appendChild(commentReportArea);
+                
+                if(isUserCreator[i] == 1) {
+                    var editButton = document.createElement("button");
+                    editButton.setAttribute("onclick", "javascript: blog_showEditPostIfAllowed("+postID+")");
+                    editButton.setAttribute("class", "CRAButton");
+                    editButton.innerHTML = "<span class='material-icons'>edit</span>";
+                    commentReportArea.appendChild(editButton);
+                    div.appendChild(commentReportArea);
+
+                    
+                    var deleteButton = document.createElement("button");
+                    deleteButton.setAttribute("onclick", "javascript: blog_showDeletePostIfAllowed("+postID+")");
+                    deleteButton.setAttribute("class", "CRAButton");
+                    deleteButton.innerHTML = "<span class='material-icons'>delete</span>";
+                    commentReportArea.appendChild(deleteButton);
+                    div.appendChild(commentReportArea);
+                    
+                }
             }
-            
         }
 
     } else {

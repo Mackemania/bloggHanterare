@@ -83,13 +83,15 @@ function blog_editPostIsShowing(id, request) {
 }
 
 function blog_sendToPostReport(postID) {
-    
-    location.replace("blog_flagReport.php?postID="+postID);
+    //alert("hej1");
+    showModal("flagPost");
+    //location.replace("blog_flagReport.php?postID="+postID);
 }
 
 function blog_sendToCommentReport(commentID) {
-    
-    location.replace("blog_flagReport.php?commentID="+commentID);
+    //alert("hej2");
+    showModal("flagComment");
+    //location.replace("blog_flagReport.php?commentID="+commentID);
 }
 
 function blog_showCommentPost(postID) {

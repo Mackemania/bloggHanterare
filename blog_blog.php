@@ -68,6 +68,7 @@
                 </div>
             </div>
         </div>
+
         <div id ="editPost" class="modal editPost form">
             <div id="modalContent" class="postModalContent">
                 <div id="closeDiv">
@@ -88,26 +89,6 @@
                     <input type="submit" id="editPostButton" name="editPostButton" class="formButton" value="Redigera inlägg"/>
                 </form>
                 
-            </div>
-        </div>
-
-        <div id ="editComment" class="modal editComment form">
-            <div id="modalContent" class="postModalContent">
-                <div id="closeDiv">
-                    <span onclick="document.getElementById('editComment').style.display='none'" class="postClose" title="Stäng">&times;</span>
-                </div>
-                
-                <div id="editCommentContent">
-                </div></br>
-                <form method="post" action="blog_editPost.php">
-                    <h3>Redigera kommentar</h3>
-
-                    Kommentar:</br>
-                    <textarea id="editCommentText" name="editCommentText" class="textarea" rows="5" cols="40"></textarea>
-                    </br></br>
-                    
-                    <input type="submit" id="editCommentButton" name="editCommentButton" class="formButton" value="Redigera kommentar"/>
-                </form>
             </div>
         </div>
 
@@ -136,6 +117,80 @@
             </div>
         </div>
         
+        <div id ="editComment" class="modal editComment form">
+            <div id="modalContent" class="postModalContent">
+                <div id="closeDiv">
+                    <span onclick="document.getElementById('editComment').style.display='none'" class="postClose" title="Stäng">&times;</span>
+                </div>
+                
+                <div id="editCommentContent">
+                </div></br>
+                <form method="post" action="blog_editPost.php">
+                    <h3>Redigera kommentar</h3>
+
+                    Kommentar:</br>
+                    <textarea id="editCommentText" name="editCommentText" class="textarea" rows="5" cols="40"></textarea>
+                    </br></br>
+                    
+                    <input type="submit" id="editCommentButton" name="editCommentButton" class="formButton" value="Redigera kommentar"/>
+                </form>
+            </div>
+        </div>
+
+        <div id ="flagPost" class="modal flagPost form">
+            <div id="modalContent" class="postModalContent">
+                <div id="closeDiv">
+                    <span onclick="document.getElementById('flagPost').style.display='none'" class="postClose" title="Stäng">&times;</span>
+                </div>
+                
+                <div id="flagContent">
+                </div><br />
+                <?PHP echo "<form method='post' action='blog_flagReport.php'>";?>
+                    <h3>Rapportera inlägg</h3><br /><br />
+                    <select id="flagPost" name "flagPost" class="formText"  required="required">
+
+                       <option value=''>Välj en...</option>
+                       <option value='1'>Spam</option>
+                       <option value='2'>Förtal</option>
+                       <option value='3'>Pornografi</option>
+                       <option value='4'>Anstötligt uppförande</option>
+
+                    </select><br /><br />
+
+                    Övrig andledning:</br>
+                    <textarea id="flagPostText" name="flagPostText" class="textarea" rows="5" cols="40"></textarea>
+                    </br></br>
+                    <input type="submit" id="flagPostButton" name="flagPostButton" class="formButton" value="Rapportera problem"/>
+                </form>
+            </div>
+        </div>
+        <div id ="flagComment" class="modal flagComment form">
+            <div id="modalContent" class="postModalContent">
+                <div id="closeDiv">
+                    <span onclick="document.getElementById('flagComment').style.display='none'" class="postClose" title="Stäng">&times;</span>
+                </div>
+                
+                <div id="flagContent">
+                </div><br />
+                <?PHP echo "<form method='post' action='blog_flagReport.php'>";?>
+                    <h3>Rapportera kommentar</h3><br /><br />
+                    <select id="flagComment" name "flagComment" class="formText"  required="required">
+
+                    <option value=''>Välj en...</option>
+                    <option value='1'>Spam</option>
+                    <option value='2'>Förtal</option>
+                    <option value='3'>Pornografi</option>
+                    <option value='4'>Anstötligt uppförande</option>
+
+                    </select><br /><br />
+
+                    Övrig andledning:</br>
+                    <textarea id="flagCommentText" name="flagCommentText" class="textarea" rows="5" cols="40"></textarea>
+                    </br></br>
+                    <input type="submit" id="flagCommentButton" name="flagCommentButton" class="formButton" value="Rapportera problem"/>
+                </form>
+            </div>
+        </div>
     </body>
 
 </html>

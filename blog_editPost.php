@@ -15,16 +15,14 @@
 
     $deletePost = false;
     
-    if($postTitle == " " && $postText == " ") {
+    if($postTitle == "' '" && $postText == "' '") {
         $postTitle = " ";
         $postText = " ";
         $deletePost = true;
     }
 
-        
-    
-
     $SQL = "SELECT postID FROM post ORDER BY postID DESC";
+    //echo($SQL."\n");
     $matrix = $db->getData($SQL);
 
     $postID = $matrix[0][0]+1;
@@ -32,12 +30,13 @@
     $source = "blog/blog_$blogID/post_$postID/post.php";
 
     $SQL = "INSERT INTO post(postTitle, source, userID, blogID) VALUES('$postTitle', '$source', $userID, $blogID)";
+    //echo($SQL."\n");
     $db->execute($SQL);
-    echo $SQL;
-
+    
+    //echo($oldPostID." ".$postID);
     $SQL = "INSERT INTO postversion(oldID, newID) VALUES($oldPostID, $postID)";
     $db->execute($SQL);
-    echo $SQL;
+    //echo $SQL."\n";
     $old = umask(0);
 
     $source = str_replace("post.php", "", $source);

@@ -16,7 +16,7 @@
     if(isset($_REQUEST["postID"])) {
         
         $postID = $_REQUEST["postID"];
-
+        $_SESSION["postID"] = $postID;
         $SQL = "SELECT userID FROM post WHERE postID=$postID";
         $matrix = $db->getData($SQL);
 
@@ -52,10 +52,5 @@
         
         }
     }
-
-
-    
-    
-
     
 ?>

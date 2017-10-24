@@ -10,6 +10,12 @@
     $oldCommentID = $_SESSION['commentID'];
     $userID = $_SESSION['userID'];
     $commentText = $_POST['editCommentText'];
+    $commentEdited = false;
+
+    if($commentText == "' '") {
+        $commentText = " ";
+        $commentEdited = true;
+    }
 
 
     $SQL = "SELECT commentID FROM comment ORDER BY commentID DESC";
@@ -39,5 +45,8 @@
 
     umask($old);
 
-    header("location: blog_blog.php?blogID=$blogID");
+    if(!$commentEdited) {
+        header("location: blog_blog.php?blogID=$blogID");
+    }
+
 ?>

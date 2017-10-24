@@ -650,3 +650,10 @@ textarea {
     outline: none;
     border-radius: 3px;
 }
+
+
+
+
+.VIDEO {
+    display:none;
+}

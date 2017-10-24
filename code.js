@@ -8,6 +8,17 @@ var commentIDs;
 var commentDates;
 var commentUsers;
 
+function blog_getUsersFromDB() {
+
+    var searchPhrase = document.getElementById("adminUsers").value;
+
+    var data="search="+searchPhrase;
+
+    sendData("searchAdminUser", "blog_A_searchAdminUsers.php");
+
+
+}
+
 function blog_showDeleteCommentIfAllowed(commentID) {
 
     var data = "commentID="+commentID;
@@ -284,6 +295,9 @@ function blog_serverText(id, request) {
 
         var posts = dataArray[0].split("&");
         var isUserCreator = dataArray[1].split("&");
+        var creatorAlias = dataArray[2].split("&");
+        var createDate = dataArray[3].split("&");
+        var editedArray = dataArray[4].split("&");
 
         for(var i = 1; i<posts.length; i++) {
             var title = this.postTitles[i];
@@ -304,7 +318,6 @@ function blog_serverText(id, request) {
             
                 document.getElementById("postTexts").appendChild(div);
 
-                
                 var content = document.getElementById(postID).innerHTML;
 
                 var postTextDiv = document.createElement("div");
@@ -316,6 +329,28 @@ function blog_serverText(id, request) {
                 var craID = "cra"+postID;
                 commentReportArea.setAttribute("id", craID);
                 commentReportArea.setAttribute("class", "CRA");
+
+                var creatorSpan = document.createElement("span");
+                creatorSpan.setAttribute("class", "commentName");
+                if(editedArray[i] == "1") {
+                    creatorSpan.innerHTML = creatorAlias[i]+"</br>"+createDate[i]+"</br>";
+                } else {
+                    creatorSpan.innerHTML = creatorAlias[i]+"</br>"+createDate[i]+"</br>";
+                }
+                commentReportArea.appendChild(creatorSpan);
+
+
+                var creatorAnchor = document.createElement("a");
+                creatorAnchor.setAttribute("class", "commentName");
+                creatorAnchor.setAttribute("href", "blog_history.php?postID="+postID);
+                
+                if(editedArray[i] == "1") {
+                    
+                    creatorAnchor.innerHTML = "Redigerat: Visa historik för inlägget</br>";
+                
+                }
+                commentReportArea.appendChild(creatorAnchor);
+
                 
                 var commentButton = document.createElement("button");
                 commentButton.setAttribute("class", "CRAButton");
@@ -470,7 +505,7 @@ function blog_enableEditButton() {
 function blog_loadAdminSettings(page) {
     
     
-        var buttons = document.getElementsByClassName("selectedButton")
+        var buttons = document.getElementsByClassName("selectedButton");
         for(var i = 0; i<buttons.length; i++) {
             buttons[i].setAttribute("class", "button");
     

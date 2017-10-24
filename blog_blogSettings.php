@@ -34,7 +34,7 @@
                     Välj personens roll.<br />
                     <select id="userAccess" name ="userAccess" class="formText" required="required">
                         <option value=''>Välj en...</option>
-                        <option value='2'>Skrivbehörig</option>
+                        <option value='2'>Skriv & läsbehörig</option>
                         <option value='1'>Läsbehörig</option>
                         <option value='0'>Obehörig</option>
                     </select><br /><br />

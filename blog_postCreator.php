@@ -6,9 +6,19 @@
 
     $userID = $_SESSION["userID"];
     $blogID = $_SESSION["blogID"];
-    $postTitle = $_POST["postTitle"];
-    $postText = $_POST["postText"];
+    $postTitle = $db->getCon()->real_escape_string($_POST["postTitle"]);
+    $postText = $db->getCon()->real_escape_string($_POST["postText"]);
 
+     
+    if (preg_match("/[\\\*\/<>%]/", $postTitle)){
+
+        header("location: blog_userBlogs.php?ogiltig=1");
+}
+        elseif (preg_match("/[\\\*\/<>%]/", $postText)){
+            
+            header("location: blog_userBlogs.php?ogiltig=1");
+
+}else{ 
     $SQL = "SELECT postID FROM post ORDER BY postID DESC";
     $matrix = $db->getData($SQL);
 
@@ -42,4 +52,5 @@
     fwrite($commentfile, $commenttext);
     */
     header("location: blog_blog.php?blogID=$blogID");
+}
 ?>

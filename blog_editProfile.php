@@ -22,14 +22,19 @@
                     <input type='date' id='editBirthDate' name='editBirthDate' class='formText' onkeyup='javascript: blog_enableEditButton();' onchange='javascript: blog_enableEditButton();' max='$date'/></br></br>
                 ");
                 ?>
+
                 Ändra lösenord:</br>
                 <input type="password" id="editPassword" name="editPassword" class="formText" onkeyup="javascript: blog_enableEditButton();" placeholder="Nytt lösenord" maxlength="30"/></br></br>
 
                 Upprepa lösenord:</br>
                 <input type="password" id="editPassword2" name="editPassword2" class="formText" onkeyup="javascript: blog_enableEditButton();" placeholder="Upprepa lösenord" maxlength="30"/></br></br>
 
-                <div id="editInfo" name="info">
+                <div id="editInfo" name="info" class="info">
                 </div>
+
+                </br>
+                Bekräfta ändringar med ditt lösenord:</br>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="formText" onkeyup="javascript: blog_enableEditButton();" placeholder="Bekräfta ändringar" maxlength="30"/></br></br>
 
                 <input type="button" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Spara ändringar" disabled="disabled">
 

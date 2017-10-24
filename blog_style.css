@@ -396,6 +396,10 @@ textarea {
 
 }
 
+.info {
+    color: rgb(255, 0, 0);
+}
+
 .input-group-btn {
     width: 35%;
     float: left;

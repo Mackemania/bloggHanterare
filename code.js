@@ -288,6 +288,7 @@ function blog_editProfileInDB() {
     var birthdate = document.getElementById("editBirthDate").value;
     var password1 = document.getElementById("editPassword").value;
     var password2 = document.getElementById("editPassword2").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
     var data = "";
 
     if(password1 != null && password2 != null) {
@@ -298,7 +299,7 @@ function blog_editProfileInDB() {
 
     }
     
-    data = data+"&firstName="+firstName+"&lastName="+lastName+"&birthdate="+birthdate;
+    data = data+"&firstName="+firstName+"&lastName="+lastName+"&birthdate="+birthdate+"&confirmPassword="+confirmPassword;
     //alert(data);
     sendData("editUserInDB", "blog_editUserInDB.php", data, blog_profileEdited);
     
@@ -310,6 +311,9 @@ function blog_profileEdited(id, request) {
 
         alert("Din profil har ändrats!");
         location.reload();
+    } else {
+
+        document.getElementById("editInfo").innerHTML = text;
     }
 }
 

@@ -12,9 +12,19 @@
         ?>
 
         <div id="container">
-            <?php require_once("blog_blogMaker.php");?>
+            <?PHP 
+                require_once("blog_blogMaker.php");
+                if(isset($_REQUEST["ogiltig"])) {
+                    echo("<div class='info'>Du använde förbjudna tecken t.ex. /, < eller ></div>");
+                }
+            ?>
+            
             <div class="contentPane">
-                <?php require_once("blog_blogLink.php");?>
+                
+                <?PHP 
+                    require_once("blog_blogLink.php");
+                ?>
+            
             <div>
         </div>
         

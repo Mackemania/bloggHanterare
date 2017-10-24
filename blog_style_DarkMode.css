@@ -32,6 +32,7 @@
 
 a {
     text-decoration: none;
+    color: rgb(253, 119, 66);
 }
 
 body {
@@ -39,7 +40,8 @@ body {
     font-size: 140%;
     margin: 0;
     padding: 0;
-
+    background-color: #3F3F3F;
+    color: white;   
 }
 
 button {
@@ -50,7 +52,6 @@ button {
 h2 {
 
     margin: 0%;
-
 }
 
 hr {
@@ -60,6 +61,7 @@ hr {
     
 input {
     font-family: CenturyGothic;
+
 }
 
 input[type=date]::-webkit-inner-spin-button {
@@ -143,15 +145,15 @@ textarea {
     top: 0;
     left: 0;
     font-size: 100%;
-    background-color: rgb(0, 162, 255);
+    background-color: rgb(253, 119, 66);
     padding-left: 2%;
     color: rgb(255, 255, 255);
     overflow: hidden;
     z-index: 1;
     border: solid;
     border-width: 1px;
-    border-color: rgb(0, 119, 255);
-    box-shadow: 0px 6px 5px rgba(100, 100, 100, 0.5);
+    border-color: rgb(253, 119, 66);
+    box-shadow: 0px 6px 5px rgba(243, 243, 243);
 }
 
 #regInfo {
@@ -188,7 +190,6 @@ textarea {
     float: left;
 }
 
-
 .adminTools {
     width: 25%;
     margin-right: auto;
@@ -221,8 +222,8 @@ textarea {
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
-    background-color: rgb(0, 162, 255);
-    border-color: rgb(0, 119, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
     border-width: 1px;
     outline: none;
 }
@@ -235,8 +236,8 @@ textarea {
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
-    background-color: rgb(253, 119, 66);
-    border-color: rgb(253, 97, 35);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
     border-width: 1px;
     outline:none;
 }
@@ -359,7 +360,7 @@ textarea {
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
-    background-color: rgb(0, 162, 255);
+    background-color: rgb(253, 119, 66);
     border: none;
     outline:none;
 }
@@ -371,7 +372,7 @@ textarea {
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
-    background-color: rgb(253, 119, 66);
+    background-color: rgb(253, 97, 35);
     border: none;
     outline: none;
 }
@@ -400,10 +401,10 @@ textarea {
     width: 35%;
     float: left;
 }
-    
+
 .menuA {
     min-width: 10%;
-    background-color: rgb(0, 162, 255);
+    background-color: rgb(253, 119, 66);
     color: rgb(255, 255, 255);
     text-decoration: none;
     text-align: center;
@@ -416,7 +417,7 @@ textarea {
 
 .menuA:hover, .menuA:focus {
     min-width: 10%;
-    background-color: rgb(253, 119, 66);
+    background-color: rgb(253, 97, 35);
     color: rgb(255, 255, 255);
     text-decoration: none;
     text-align: center;
@@ -490,7 +491,7 @@ textarea {
     padding: 2%;
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
-    box-shadow: 4px 6px 5px rgb(100, 100, 100);
+    box-shadow: 4px 6px 5px rgb(231, 231, 231);
 }
 
 .post {
@@ -570,7 +571,7 @@ textarea {
     padding: 2%;
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
-    box-shadow: 4px 6px 5px rgb(100, 100, 100);
+    box-shadow: 4px 6px 5px rgb(231, 231, 231);
     margin-top: -1%;
     margin-bottom: 7%;
 
@@ -646,3 +647,35 @@ textarea {
     outline: none;
     border-radius: 3px;
 }
+/*
+float: left;
+width: 12%;
+min-height: 55%; 
+font-size: 90%;
+padding-top: 0%;
+padding-bottom: 0.2%;
+color: rgb(255, 255, 255);
+background-color: rgb(255, 72, 0);
+border-color: rgb(253, 119, 66);
+border-width: 1px;
+outline: none;
+margin-top: 0.37%;
+margin-left: 1%;
+border-radius: 3px;
+
+    float: right;
+    margin-right: 1%;
+    width: 2%;
+    margin-bottom: 10%;
+    min-height: 5%;
+    font-size: 25%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
+    border-width: 1px;
+    text-decoration: none;
+    outline: none;
+    border-radius: 3px;
+*/

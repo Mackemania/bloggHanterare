@@ -11,7 +11,7 @@
                 <form action='blog_sendPermissionsToDB.php' method='post'>
                     <?PHP require("blog_getBlogsFromUser.php");?><br />
                     Sätt behörighet på din blogg<br />
-                    <select id="accesBlog" name ="accessBlog" class="formText"  required="required">
+                    <select id="accessBlog" name ="accessBlog" class="formText"  required="required">
 
                        <option value=''>Välj en...</option>
                        <option value='0'>Öppen</option>

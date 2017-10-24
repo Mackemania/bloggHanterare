@@ -14,7 +14,6 @@ if(isset($_REQUEST["postID"])) {
 }
 
 
-
 if(isset($_REQUEST["commentID"])) {
     $commentID = $_REQUEST["commentID"];
     $reportFlag = "INSERT INTO flag(userID, blogID, commentID) VALUES ($userID, $blogID, $commentID)";

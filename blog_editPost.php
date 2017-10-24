@@ -8,11 +8,21 @@
     $blogID = $_SESSION['blogID'];
     $oldPostID = $_SESSION['postID'];
     $userID = $_SESSION['userID'];
-    $postTitle = $_POST['editPostTitle'];
-    $postText = $_POST['editPostText'];
 
+    $postTitle = $_REQUEST['editPostTitle'];
+    $postText = $_REQUEST['editPostText'];
+    //echo("text".$postTitle."mertext");
+
+    $deletePost = false;
+    
+    if($postTitle == "' '" && $postText == "' '") {
+        $postTitle = " ";
+        $postText = " ";
+        $deletePost = true;
+    }
 
     $SQL = "SELECT postID FROM post ORDER BY postID DESC";
+    //echo($SQL."\n");
     $matrix = $db->getData($SQL);
 
     $postID = $matrix[0][0]+1;
@@ -20,12 +30,13 @@
     $source = "blog/blog_$blogID/post_$postID/post.php";
 
     $SQL = "INSERT INTO post(postTitle, source, userID, blogID) VALUES('$postTitle', '$source', $userID, $blogID)";
+    //echo($SQL."\n");
     $db->execute($SQL);
-    echo $SQL;
-
+    
+    //echo($oldPostID." ".$postID);
     $SQL = "INSERT INTO postversion(oldID, newID) VALUES($oldPostID, $postID)";
     $db->execute($SQL);
-    echo $SQL;
+    //echo $SQL."\n";
     $old = umask(0);
 
     $source = str_replace("post.php", "", $source);
@@ -48,5 +59,7 @@
 
     umask($old);
 
-    header("location: blog_blog.php?blogID=$blogID");
+    if(!$deletePost) {
+        header("location: blog_blog.php?blogID=$blogID");
+    }
 ?>

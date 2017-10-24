@@ -1,4 +1,4 @@
-<?php
+<?PHP
 
 require_once("blog_db.php");
 session_start();

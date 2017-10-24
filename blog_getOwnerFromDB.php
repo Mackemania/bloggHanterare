@@ -16,7 +16,7 @@
     if(isset($_REQUEST["postID"])) {
         
         $postID = $_REQUEST["postID"];
-
+        $_SESSION["postID"] = $postID;
         $SQL = "SELECT userID FROM post WHERE postID=$postID";
         $matrix = $db->getData($SQL);
 
@@ -35,7 +35,8 @@
     } else if(isset($_REQUEST["commentID"])) {
         
         $commentID = $_REQUEST["commentID"];
-        
+        $_SESSION["commentID"] = $commentID;
+
         $SQL = "SELECT userID FROM comment WHERE commentID=$commentID";
         $matrix = $db->getData($SQL);
 
@@ -51,10 +52,5 @@
         
         }
     }
-
-
-    
-    
-
     
 ?>

@@ -76,7 +76,7 @@ function blog_showDeleteCommentIfAllowed(commentID) {
 
 function blog_showDeleteComment(id, request) {
     var text = request.responseText;
-    
+    console.log(text);
     var returningValue = text.split("&");
 
     if(returningValue[0] == 1) {
@@ -288,8 +288,6 @@ function blog_serverText(id, request) {
     document.getElementById("comments").innerHTML = "";
     var text = request.responseText;
 
-    //console.log(text);
-
     //alert(id);
     if(id=="getPostTextFromServer") {
 
@@ -339,11 +337,8 @@ function blog_serverText(id, request) {
 
                 var creatorSpan = document.createElement("span");
                 creatorSpan.setAttribute("class", "commentName");
-                if(editedArray[i] == "1") {
-                    creatorSpan.innerHTML = creatorAlias[i]+"</br>"+createDate[i]+"</br>";
-                } else {
-                    creatorSpan.innerHTML = creatorAlias[i]+"</br>"+createDate[i]+"</br>";
-                }
+                creatorSpan.innerHTML = creatorAlias[i]+"</br>"+createDate[i]+"</br>";
+                
                 commentReportArea.appendChild(creatorSpan);
 
 
@@ -393,29 +388,49 @@ function blog_serverText(id, request) {
         }
 
     } else {
-        
+        console.log(text);
         var dataArray = text.split("§");
         var comments = dataArray[0].split("&");
         var isUserCreator = dataArray[1].split("&");
+        var editedArray = dataArray[4].split("&");
         
         for(var i = 1; i<comments.length; i++) {
             if(comments[i] != " ") {
                 var commentID = this.commentIDs[i];
                 var user = this.commentUsers[i];
                 var date = this.commentDates[i];
-
+                var edited = editedArray[i];
+                console.log(edited);
                 var div = document.createElement("div");
                 div.setAttribute("id", "comment"+commentID);
                 div.setAttribute("class", "comment");
                 document.getElementById("comments").appendChild(div);
                 var content = document.getElementById("comments").innerHTML;
-                div.innerHTML = comments[i]+"<hr><span class='commentName'>"+user+"</br>"+date+"</span></br>";
+                
+                var creatorSpan = document.createElement("span");
+                creatorSpan.setAttribute("class", "commentName");
+                creatorSpan.innerHTML = "<hr>"+user+"</br>"+date+"</br>"
+                div.innerHTML = comments[i];
+                div.appendChild(creatorSpan);
+
+                var creatorAnchor = document.createElement("a");
+                creatorAnchor.setAttribute("class", "commentName");
+                creatorAnchor.setAttribute("href", "blog_history.php?commentID="+commentID);
+                
+                if(edited == "1") {
+                    
+                    creatorAnchor.innerHTML = "Redigerat: Visa historik</br>";
+                    console.log(creatorAnchor.innerHTML);
+                    div.appendChild(creatorAnchor);
+                
+                }
 
                 var reportButton = document.createElement("button");
                 reportButton.setAttribute("onclick", "javascript: blog_sendToCommentReport("+commentID+")");
                 reportButton.setAttribute("class", "commentReportButton");
                 reportButton.innerHTML = "<span class='material-icons'>flag</span>";
                 div.appendChild(reportButton);
+
                 
                 if(isUserCreator[i] == 1) {
                     var editButton = document.createElement("button");

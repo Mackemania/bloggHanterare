@@ -163,7 +163,9 @@ function blog_showEditPost(id, request) {
         var post = document.getElementById(postID);
         var nodes = post.childNodes;
         var header = nodes[0].innerHTML;
-        var content = nodes[2].textContent;
+        console.log(nodes[2]);
+        var content = nodes[2].innerHTML;
+        content = content.replace(/<br>/g, "\r\n");
         //console.log(nodes);
         document.getElementById("postContent").innerHTML = "";
         document.getElementById("editPostTitle").value = header;
@@ -318,12 +320,17 @@ function blog_serverText(id, request) {
             
                 document.getElementById("postTexts").appendChild(div);
 
+                var postTextDiv = document.createElement("div");
+                var post = posts[i];
+                post = post.replace(/\\r\\n/g, "</br>");
+                //console.log(post);
+                postTextDiv.innerHTML = post;
+
+                div.appendChild(postTextDiv);
+
                 var content = document.getElementById(postID).innerHTML;
 
-                var postTextDiv = document.createElement("div");
-                postTextDiv.innerHTML = posts[i];
-
-                div.innerHTML = content+postTextDiv.innerHTML;
+                div.innerHTML = content+"</br><div class='CRAHr'><hr></div>";
                 
                 var commentReportArea = document.createElement("div");
                 var craID = "cra"+postID;
@@ -346,7 +353,7 @@ function blog_serverText(id, request) {
                 
                 if(editedArray[i] == "1") {
                     
-                    creatorAnchor.innerHTML = "Redigerat: Visa historik för inlägget</br>";
+                    creatorAnchor.innerHTML = "Redigerat: Visa historik</br>";
                 
                 }
                 commentReportArea.appendChild(creatorAnchor);
@@ -356,13 +363,13 @@ function blog_serverText(id, request) {
                 commentButton.setAttribute("class", "CRAButton");
                 commentButton.setAttribute("onclick", "javascript: blog_showCommentPost("+postID+");");
                 commentButton.setAttribute("value", postID);
-                commentButton.innerHTML = "<span class='material-icons'>insert_comment</span>";
+                commentButton.innerHTML = "<span class='material-icons CRAIcons'>insert_comment</span>";
                 commentReportArea.appendChild(commentButton);
 
                 var reportButton = document.createElement("button");
                 reportButton.setAttribute("onclick", "javascript: blog_sendToPostReport("+postID+")");
                 reportButton.setAttribute("class", "CRAButton");
-                reportButton.innerHTML = "<span class='material-icons'>flag</span>";
+                reportButton.innerHTML = "<span class='material-icons CRAIcons'>flag</span>";
                 commentReportArea.appendChild(reportButton);
                 div.appendChild(commentReportArea);
                 
@@ -370,14 +377,14 @@ function blog_serverText(id, request) {
                     var editButton = document.createElement("button");
                     editButton.setAttribute("onclick", "javascript: blog_showEditPostIfAllowed("+postID+")");
                     editButton.setAttribute("class", "CRAButton");
-                    editButton.innerHTML = "<span class='material-icons'>edit</span>";
+                    editButton.innerHTML = "<span class='material-icons CRAIcons'>edit</span>";
                     commentReportArea.appendChild(editButton);
                     div.appendChild(commentReportArea);
 
                     var deleteButton = document.createElement("button");
                     deleteButton.setAttribute("onclick", "javascript: blog_showDeletePostIfAllowed("+postID+")");
                     deleteButton.setAttribute("class", "CRAButton");
-                    deleteButton.innerHTML = "<span class='material-icons'>delete</span>";
+                    deleteButton.innerHTML = "<span class='material-icons CRAIcons'>delete</span>";
                     commentReportArea.appendChild(deleteButton);
                     div.appendChild(commentReportArea);
                     

@@ -36,7 +36,7 @@
 
         $source = str_replace("post.php", "", $source);
         mkdir($source);
-        
+        echo($postText);
         $postFile = fopen($source."/post.php", "w");
         fwrite($postFile, $postText);
         
@@ -49,6 +49,6 @@
         $commentfile = fopen("blogg/".$blogg."/".$post."/comment_".$counter.".txt", "w");
         fwrite($commentfile, $commenttext);
         */
-        header("location: blog_blog.php?blogID=$blogID");
+        //header("location: blog_blog.php?blogID=$blogID");
     }
 ?>

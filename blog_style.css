@@ -210,7 +210,7 @@ textarea {
     text-align: left;
     margin-right: auto;
     margin-left: auto;
-
+    overflow-wrap: break-word;
 }
 
 .button {
@@ -314,14 +314,18 @@ textarea {
 }
 
 .CRA {
-    margin-top: 10%;
+    margin-top: 0%;
+}
+
+.CRAHr {
+    text-align: left;
+    width: 17.5%;
 }
 
 .CRAButton {
     float: left;
-    width: 6%;
-    min-height: 4%;
-    font-size: 90%;
+    width: 4.5%;
+    min-height: 3.5%;
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
@@ -333,9 +337,8 @@ textarea {
 
 .CRAButton:hover, .CRAButton:focus{
     float: left;
-    width: 6%;
-    min-height: 4%;
-    font-size: 90%;
+    width: 4.5%;
+    min-height: 3.5%;
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
@@ -343,6 +346,12 @@ textarea {
     border-color: rgb(253, 97, 35);
     border-width: 1px;
     outline: none;
+}
+
+.CRAIcons{
+    font-size: 100%;
+    margin-top: 5%;
+
 }
 
 .form {
@@ -506,11 +515,7 @@ textarea {
     border-radius: 15px;
     margin-bottom: 4%;
     padding: 4.5%;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
     text-align: left;
 
 }
@@ -594,6 +599,7 @@ textarea {
     border-color: rgb(169, 169, 169);
     border-radius: 15px;
     overflow: hidden;
+    overflow-wrap: break-word;
 }
 
 .selectedButton {
@@ -649,11 +655,4 @@ textarea {
     text-decoration: none;
     outline: none;
     border-radius: 3px;
-}
-
-
-
-
-.VIDEO {
-    display:none;
 }

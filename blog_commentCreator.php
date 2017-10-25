@@ -8,20 +8,13 @@
     $postID = $_SESSION["postID"];
     $commentText = $db->getCon()->real_escape_string($_POST["commentArea"]);
 
-    
-    if (preg_match("/[\\\*\/<>%]/", $commentText)){
-        
-        header("location: blog_blog.php?blogID=$blogID");
-        echo "do over uu shit";
-        die();
-}
-
     $SQL = "SELECT commentID FROM comment ORDER BY commentID DESC";
     $matrix = $db->getData($SQL);
 
-
     if(isset($matrix[0][0])) {
+        
         $commentID = $matrix[0][0]+1;
+    
     } else {
 
         $commentID = 1;
@@ -85,4 +78,5 @@
     fwrite($commentfile, $commenttext);
     */
     header("location: blog_blog.php?blogID=$blogID");
+
 ?>

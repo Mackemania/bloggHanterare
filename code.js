@@ -28,7 +28,7 @@ function blog_showDeleteCommentIfAllowed(commentID) {
 
 function blog_showDeleteComment(id, request) {
     var text = request.responseText;
-    console.log(text);
+    //console.log(text);
 
 }
 
@@ -76,7 +76,7 @@ function blog_showDeleteCommentIfAllowed(commentID) {
 
 function blog_showDeleteComment(id, request) {
     var text = request.responseText;
-    console.log(text);
+    //console.log(text);
     var returningValue = text.split("&");
 
     if(returningValue[0] == 1) {
@@ -163,7 +163,7 @@ function blog_showEditPost(id, request) {
         var post = document.getElementById(postID);
         var nodes = post.childNodes;
         var header = nodes[0].innerHTML;
-        console.log(nodes[2]);
+        //console.log(nodes[2]);
         var content = nodes[2].innerHTML;
         content = content.replace(/<br>/g, "\r\n");
         //console.log(nodes);
@@ -388,19 +388,20 @@ function blog_serverText(id, request) {
         }
 
     } else {
-        console.log(text);
+        //console.log(text);
         var dataArray = text.split("§");
         var comments = dataArray[0].split("&");
         var isUserCreator = dataArray[1].split("&");
         var editedArray = dataArray[4].split("&");
         
         for(var i = 1; i<comments.length; i++) {
+            
             if(comments[i] != " ") {
                 var commentID = this.commentIDs[i];
                 var user = this.commentUsers[i];
                 var date = this.commentDates[i];
                 var edited = editedArray[i];
-                console.log(edited);
+                //console.log(edited);
                 var div = document.createElement("div");
                 div.setAttribute("id", "comment"+commentID);
                 div.setAttribute("class", "comment");
@@ -420,7 +421,7 @@ function blog_serverText(id, request) {
                 if(edited == "1") {
                     
                     creatorAnchor.innerHTML = "Redigerat: Visa historik</br>";
-                    console.log(creatorAnchor.innerHTML);
+                    //console.log(creatorAnchor.innerHTML);
                     div.appendChild(creatorAnchor);
                 
                 }

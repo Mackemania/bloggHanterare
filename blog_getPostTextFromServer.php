@@ -61,6 +61,10 @@
                 $edited = $edited."&0";
             }
 
+            $SQL = "SELECT admin FROM user WHERE userID=$userID";
+            $temp = $db->getData($SQL);
+            $admin = $temp[0][0];
+
         } else if( $type == "comment") {
 
             $SQL = "SELECT userID, postID, commentID FROM comment WHERE source='$src'";
@@ -92,11 +96,15 @@
 
                 $edited = $edited."&0";
             }
+
+            $SQL = "SELECT admin FROM user WHERE userID=$userID";
+            $temp = $db->getData($SQL);
+            $admin = $temp[0][0];
         
         }
         //echo("userID: ".$userID."\n");
         //echo("creator:".$creator."\n");
-        if($creator != 0 && $userID == $creator || $owner == $userID) {
+        if($creator != 0 && $userID == $creator || $owner == $userID || $admin == 1) {
             
             $isUserCreator = $isUserCreator."&1";
         

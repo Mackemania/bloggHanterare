@@ -27,8 +27,12 @@
         $matrix = $db->getData($SQL);
 
         $owner = $matrix[0][0];
+
+        $SQL = "SELECT admin FROM user WHERE userID=$userID";
+        $matrix = $db->getData($SQL);
+        $admin = $matrix[0][0];
         
-        if($creator == $userID || $owner == $userID) {
+        if($creator == $userID || $owner == $userID || $admin==1) {
             
             echo("1&".$postID);
         
@@ -58,8 +62,11 @@
 
         $owner = $matrix[0][0];
         
+        $SQL = "SELECT admin FROM user WHERE userID=$userID";
+        $matrix = $db->getData($SQL);
+        $admin = $matrix[0][0];
         
-        if($userID == $creator || $userID == $owner) {
+        if($userID == $creator || $userID == $owner || $admin == 1) {
             
             echo("1&".$commentID);
         

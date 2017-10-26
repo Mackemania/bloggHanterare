@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 25 okt 2017 kl 13:58
+-- Tid vid skapande: 26 okt 2017 kl 10:46
 -- Serverversion: 10.1.19-MariaDB
 -- PHP-version: 7.0.13
 
@@ -67,6 +67,10 @@ CREATE TABLE `comment` (
   `postID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumpning av Data i tabell `comment`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -116,6 +120,10 @@ CREATE TABLE `flag` (
   `postID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumpning av Data i tabell `flag`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -128,10 +136,6 @@ CREATE TABLE `permission` (
   `userID` int(11) NOT NULL,
   `blogID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumpning av Data i tabell `permission`
---
 
 -- --------------------------------------------------------
 
@@ -164,6 +168,10 @@ CREATE TABLE `postversion` (
   `newID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumpning av Data i tabell `postversion`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -192,7 +200,7 @@ CREATE TABLE `user` (
   `birthDate` varchar(10) DEFAULT NULL,
   `admin` tinyint(1) NOT NULL,
   `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `suspended` varchar(10) DEFAULT NULL,
+  `suspended` date DEFAULT NULL,
   `aboutMe` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -334,7 +342,7 @@ ALTER TABLE `suspension`
 -- AUTO_INCREMENT för tabell `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- Restriktioner för dumpade tabeller
 --

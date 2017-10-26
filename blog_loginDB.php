@@ -39,12 +39,17 @@
             $userID = $matrix[0][0];
             $admin = $matrix[0][1];
 
+            if($userID != 0) {
             session_start();
-            $_SESSION["userID"] = $userID;
-            $_SESSION["user"] = $user;
-            $_SESSION["admin"] = $admin;
+                $_SESSION["userID"] = $userID;
+                $_SESSION["user"] = $user;
+                $_SESSION["admin"] = $admin;
 
-            echo(true);
+                echo(true);
+            } else {
+    
+                echo("Fel användarnamn/lösenord");
+            }
 
         } else {
 

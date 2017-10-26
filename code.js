@@ -458,6 +458,16 @@ function blog_serverText(id, request) {
 
     }
 
+    var link = window.location.href;
+    if(link.includes("#")) {
+        
+        var postID = link.substring(link.lastIndexOf("#")+1, link.length);
+        console.log(postID);
+        var offset = $("#"+postID).offset();
+        window.scrollTo(0, (offset.top-80));
+
+    }
+
 }
 
 function blog_editProfileInDB() {
@@ -562,6 +572,14 @@ function blog_loadAdminSettings(page) {
             button.setAttribute("class", "selectedButton");
     
             sendData("loadUserSettings", "blog_A_admins.php", "", blog_writeAdminSettings);
+        
+        } else if (page = "flags") {
+
+            var button = document.getElementById("flags");
+            button.setAttribute("class", "selectedButton");
+    
+            sendData("loadUserSettings", "blog_A_viewFlags.php", "", blog_writeAdminSettings);
+
         }
     
     }

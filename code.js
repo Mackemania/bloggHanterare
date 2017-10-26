@@ -188,13 +188,19 @@ function blog_editPostIsShowing(id, request) {
 
 function blog_sendToPostReport(postID) {
     //alert("hej1");
+
     showModal("flagPost");
+    var data = "postID="+postID;
+    sendData("setPostID", "blog_setPostID.php", data, "");
+    
     //location.replace("blog_flagReport.php?postID="+postID);
 }
 
 function blog_sendToCommentReport(commentID) {
     //alert("hej2");
     showModal("flagComment");
+    var data = "commentID="+commentID;
+    sendData("setCommentID", "blog_setCommentID.php", data, "");
     //location.replace("blog_flagReport.php?commentID="+commentID);
 }
 

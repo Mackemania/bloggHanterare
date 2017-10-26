@@ -69,13 +69,19 @@
 
             
 
-            echo "<br/><form action='blog_A_userBlogs.php' method='post'>vems bloggar?: <select name='userID' id='userID'>";
-            for($i = 0; $i<count($matrix); $i++)
-            {
-                echo "<option value='".$matrix[$i][0]."'>".$matrix[$i][1]."</option>";
-            }
+            echo "<br/><form action='blog_A_userBlogs.php' method='post'>Vems bloggar?:
+            <select name='userID' id='userID'>";
+                $SQL = "SELECT userID, alias FROM user WHERE admin=0";
+                echo($SQL);
+                $matrix = $db->getData($SQL);
+                echo("<option value=''>Välj en...</option>");
+                for($i = 0; $i<count($matrix); $i++)
+                {
+                    echo "<option value='".$matrix[$i][0]."'>".$matrix[$i][1]."</option>";
+                }
             echo "</select><br/>";
-            echo "<input type='submit' value='kolla användarens bloggar'> </form>";
+            echo "<input type='submit' value='kolla användarens bloggar'>
+            </form>";
 
 
             echo"<a href='blog_A_viewFlags.php'>Kolla flaggor</a>";

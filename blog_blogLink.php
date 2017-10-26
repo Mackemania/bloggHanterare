@@ -10,7 +10,7 @@
     $userID = $_SESSION["userID"];
 
 
-    $sql = "SELECT blogID, blogTitle, blogDescription FROM blog WHERE userID=$userID";
+    $sql = "SELECT blogID, blogTitle, blogDescription FROM blog WHERE userID=$userID AND permissionStatus<4";
     $matrix = $db->getData($sql);
 
     for($i = 0; $i<count($matrix); $i++) {

@@ -28,18 +28,34 @@
         $selectBlogDescription = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE permissionStatus<=$permission AND blogDescription LIKE '%".$searchWord."%'";
         
         $matrix = $db->getData($selectBlogTitle);
-
+        $blogIDs = array();
+        
         for ($i=0;$i<count($matrix);$i++)
         {
-            echo "<a href='blog_blog.php?blogID=".$matrix[$i][0]."'> ".$matrix[$i][2]."</a>";
+            array_push($blogIDs, $matrix[$i][0]);
+            echo "<div class='randomBlog'>
+                    <h3 class='postH3'>
+                        <a href='blog_blog.php?blogID=".$matrix[$i][0]."'>".$matrix[$i][2]."</a>
+                    </h3><hr>
+                    ".$matrix[$i][1]."                    
+                </div>";
+        }
+        
+        for($j = 0; $j<count($blogIDs); $j++) {
+            $selectBlogDescription = $selectBlogDescription." AND blogID <>".$blogIDs[$j];
         }
 
         $matrix = $db->getData($selectBlogDescription);
-        
-                for ($i=0;$i<count($matrix);$i++)
-                {
-                    echo "<a href='blog_blog.php?blogID=".$matrix[$i][0]."'> ".$matrix[$i][1]."</a>";
-                }    
+
+        for ($i=0;$i<count($matrix);$i++)
+        {
+            echo "<div class='randomBlog'>
+            <h3 class='postH3'>
+                <a href='blog_blog.php?blogID=".$matrix[$i][0]."'>".$matrix[$i][2]."</a>
+            </h3><hr>
+            ".$matrix[$i][1]."                    
+        </div>";
+        }  
                 
     }
 

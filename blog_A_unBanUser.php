@@ -4,12 +4,17 @@
         if(isset($_SESSION["admin"])) {
             if($_SESSION["admin"] == 1) {
 
+                $date = date("Y-m-d");
+                require_once("blog_db.php");
+                $db = new DB();
                 echo "<br/><form action='blog_A_unBanUserDB.php' method='post'>";
                 
                 echo("<h2>Ta bort en bann</h2>");
                 echo "<select name='userID' id='userID' class='formText'></br>
                 <option value=''>Välj en...</option>";
-                
+                $SQL = "SELECT userID, alias, suspended FROM user WHERE suspended>$date";
+                echo($SQL);
+                $matrix = $db->getData($SQL);
                 for($i = 0; $i<count($matrix); $i++)
                 {
                     if(strtotime($matrix[$i][2])>time())
@@ -28,13 +33,17 @@
 
                 
 
-                echo "<br/><form action='blog_A_userBlogs.php' method='post'>vems bloggar?: <select name='userID' id='userID'>";
+                echo "<br/><form action='blog_A_userBlogs.php' method='post'>Vems bloggar?:</br>
+                <select name='userID' id='userID' class='formText'>";
+                $SQL = "SELECT userID, alias FROM user WHERE admin=0";
+                $matrix = $db->getData($SQL);
+                echo("<option value=''>Välj en...</option>");
                 for($i = 0; $i<count($matrix); $i++)
                 {
                     echo "<option value='".$matrix[$i][0]."'>".$matrix[$i][1]."</option>";
                 }
-                echo "</select><br/>";
-                echo "<input type='submit' value='kolla användarens bloggar'> </form>";
+                echo "</select><br/></br>";
+                echo "<input type='submit' class='formButton' value='kolla användarens bloggar'> </form>";
             
             } else {
 

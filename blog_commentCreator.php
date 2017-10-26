@@ -1,10 +1,14 @@
-<?php
+<?PHP
     require_once("blog_db.php");
     $db = new DB();
 
     session_start();
     $blogID = $_SESSION["blogID"];
-    $userID = $_SESSION["userID"];
+    $userID = "0";
+    if(isset($_SESSION["userID"])) {
+        $userID = $_SESSION["userID"];
+    }
+    
     $postID = $_SESSION["postID"];
     $commentText = $db->getCon()->real_escape_string($_POST["commentArea"]);
 
@@ -61,6 +65,7 @@
     }
 
     $SQL = "INSERT INTO comment(OS, IP, source, userID, postID) VALUES('$os_platform','$getIP', '$source', $userID, $postID)";
+    echo($SQL);
     $db->execute($SQL);
 
     $old = umask(0);

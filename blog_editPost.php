@@ -12,9 +12,11 @@
     $postTitle = $_REQUEST['editPostTitle'];
     $postText = $_REQUEST['editPostText'];
 
-    $postTitle = $db->getCon()->real_escape_string($postTitle);
-    $postText = $db->getCon()->real_escape_string($postText);
-    //echo("text".$postTitle."mertext");
+    if($postTitle!= "' '" && $postText != "' '") {
+        $postTitle = $db->getCon()->real_escape_string($postTitle);
+        $postText = $db->getCon()->real_escape_string($postText);
+        //echo("text".$postTitle."mertext");
+    }
 
     $deletePost = false;
     

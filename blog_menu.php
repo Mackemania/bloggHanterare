@@ -28,7 +28,7 @@
 <div id="menu">
     <?PHP
         echo("
-            <img src='graphics/logga.svg' class='menuLogo'/>
+            <a href='index.php'><img src='graphics/logga.svg' class='menuLogo'/></a>
             <a class='menuA' href='index.php' title='Gå till startsidan' data-toggle='popover' data-trigger='hover' data-content='Some content'>Startsida</a>
         ");
 

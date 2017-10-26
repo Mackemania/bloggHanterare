@@ -136,7 +136,7 @@ textarea {
 }
 
 #menu {
-    max-height: 6%;
+    min-height: 4%;
     position: fixed;
     width: 100%;
     text-align: center;
@@ -160,7 +160,7 @@ textarea {
 
 #searchbar {
     float: left;
-    margin-top: 0.3%;
+    margin-top: 0.05%;
     margin-left: 1%;
     text-decoration: none;
     min-width: 30%;
@@ -421,8 +421,8 @@ textarea {
     text-decoration: none;
     text-align: center;
     display: block;
-    padding-top: 0.6%;
-    padding-bottom: 1%;
+    padding-top: 0.4%;
+    padding-bottom: 0.5%;
     float: left;
 
 }
@@ -434,8 +434,8 @@ textarea {
     text-decoration: none;
     text-align: center;
     display: block;
-    padding-top: 0.6%;
-    padding-bottom: 1%;
+    padding-top: 0.4%;
+    padding-bottom: 0.5%;
     float: left;
 }
 
@@ -451,7 +451,7 @@ textarea {
     background-color: rgb(253, 119, 66);
     border-color: rgb(253, 97, 35);
     border-width: 1px;
-    margin-top: 0.37%;
+    margin-top: 0.4%;
     margin-left: 1%;
     border-radius: 3px;
 }
@@ -469,15 +469,15 @@ textarea {
     border-color: rgb(253, 119, 66);
     border-width: 1px;
     outline: none;
-    margin-top: 0.37%;
+    margin-top: 0.4%;
     margin-left: 1%;
     border-radius: 3px;
 }
 
 .menuLogo {
-    margin-top: 0.25%;
+    margin-top: 0.35%;
     float: left;
-    height:85%;
+    height: 40px;
     margin-right: 1.5%;
 
 }

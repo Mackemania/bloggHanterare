@@ -66,8 +66,10 @@
     </form>
 
     <form action = "">
-        <div class="userTheme">
-            <button style="font-size:48px" type="submit" name="userTheme" class="formButton"><i class="material-icons">lightbulb_outline</i></button>
+        <div>
+            <button type="submit" name="userTheme" class="userTheme">
+                <span class="material-icons themeButton">lightbulb_outline</span>
+            </button>
         </div>
     </form>
 </div>

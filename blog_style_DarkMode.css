@@ -287,8 +287,8 @@ textarea {
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
-    background-color: rgb(0, 162, 255);
-    border-color: rgb(0, 119, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
     border-width: 1px;
     outline: none;
 }
@@ -301,8 +301,8 @@ textarea {
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
-    background-color: rgb(253, 119, 66);
-    border-color: rgb(253, 97, 35);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
     border-width: 1px;
     outline: none;
 }
@@ -326,8 +326,8 @@ textarea {
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
-    background-color: rgb(0, 162, 255);
-    border-color: rgb(0, 119, 255);
+    background-color: rgb(253, 119, 66);
+    border-color: rgb(253, 97, 35);
     border-width: 1px;
     outline: none;
 }
@@ -340,8 +340,8 @@ textarea {
     padding-top: 0%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
-    background-color: rgb(253, 119, 66);
-    border-color: rgb(253, 97, 35);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
     border-width: 1px;
     outline: none;
 }
@@ -635,18 +635,43 @@ textarea {
     width: 2%;
     margin-right: 2%;
     margin-top: -0.275%;
-    min-height: 55%;
+    min-height: 5%;
+    height: 10%;
     font-size: 90%;
-    padding-top: 0%;
+    padding-top: -0.5%;
     padding-bottom: 0%;
     color: rgb(255, 255, 255);
-    background-color: rgb(253, 119, 66);
-    border-color: rgb(253, 97, 35);
+    background-color: rgb(0, 162, 255);
+    border-color: rgb(0, 119, 255);
     border-width: 1px;
     text-decoration: none;
     outline: none;
     border-radius: 3px;
 }
+
+.userTheme:hover, .userTheme:focus {
+    
+    float: right;
+    width: 2%;
+    margin-right: 2%;
+    margin-top: -0.275%;
+    min-height: 5%;
+    height: 10%;
+    font-size: 90%;
+    padding-top: -0.5%;
+    padding-bottom: 0%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 119, 255);
+    border-color: rgb(0, 162, 255);
+    border-width: 1px;
+    text-decoration: none;
+    outline: none;
+    border-radius: 3px;
+}
+.themeButton {
+    font-size: 150%;
+}
+
 /*
 float: left;
 width: 12%;

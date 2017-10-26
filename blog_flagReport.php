@@ -8,20 +8,25 @@
     $userID = $_SESSION["userID"];
     $blogID = $_SESSION["blogID"];
 
-    if(isset($_SESSION["postID"])) {
+    if(isset($_REQUEST["type"])) {
+        $type = $_REQUEST["type"];
+    }
+
+    if($type == "post") {
         $postID = $_SESSION["postID"];
         $reason = $_REQUEST["flagReason"];
         $textReason = $reasons[$reason];
-        $reportFlag = "INSERT INTO flag(userID, reason, blogID, postID) VALUES ($userID, '$textReason', $blogID, $postID)";
+        $reportFlag = "INSERT INTO flag(userID, checked, reason, blogID, postID) VALUES ($userID, 0, '$textReason', $blogID, $postID)";
         $db->execute($reportFlag);
     }
 
 
-    if(isset($_SESSION["commentID"])) {
+    if($type == "comment") {
         $commentID = $_SESSION["commentID"];
-        $reason = $_REQUEST["flagReason"];
+        $reason = $_REQUEST["flagCommentReason"];
         $textReason = $reasons[$reason];
-        $reportFlag = "INSERT INTO flag(userID, reason, blogID, commentID) VALUES ($userID, '$textReason', $blogID, $commentID)";
+        echo($textReason);
+        $reportFlag = "INSERT INTO flag(userID, checked, reason, blogID, commentID) VALUES ($userID, 0, '$textReason', $blogID, $commentID)";
         $db->execute($reportFlag);
     }
 

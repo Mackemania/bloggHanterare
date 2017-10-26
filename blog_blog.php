@@ -146,7 +146,7 @@
                 
                 <div id="flagContent">
                 </div><br />
-                <form id="reportForm" method='post' action="blog_flagReport.php">
+                <form id="reportForm" method='post' action="blog_flagReport.php?type=post">
                     <h3>Rapportera inlägg</h3><br /><br />
                     
                     <select id="flagReason" name="flagReason" class="formText" required="required">
@@ -175,15 +175,16 @@
                 
                 <div id="flagContent">
                 </div><br />
-                <?PHP echo "<form method='post' action='blog_flagReport.php'>";?>
+                <?PHP echo "<form method='post' action='blog_flagReport.php?type=comment'>";?>
                     <h3>Rapportera kommentar</h3><br /><br />
-                    <select id="flagComment" name "flagComment" class="formText"  required="required">
+                    <select id="flagCommentReason" name="flagCommentReason" class="formText"  required="required">
 
-                    <option value=''>Välj en...</option>
-                    <option value='1'>Spam</option>
-                    <option value='2'>Förtal</option>
-                    <option value='3'>Pornografi</option>
-                    <option value='4'>Anstötligt uppförande</option>
+                        <option value=''>Välj en...</option>
+                        <option value='0'>Spam</option>
+                        <option value='1'>Förtal</option>
+                        <option value='2'>Pornografi</option>
+                        <option value='3'>Anstötligt uppförande</option>
+                        <option value='4'>Övrigt</option>
 
                     </select><br /><br />
 

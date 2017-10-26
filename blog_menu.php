@@ -65,6 +65,7 @@
         
     </form>
 
+    <!--
     <form action = "">
         <div>
             <button type="submit" name="userTheme" class="userTheme">
@@ -72,6 +73,7 @@
             </button>
         </div>
     </form>
+    -->
 </div>
 
  <!--

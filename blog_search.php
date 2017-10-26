@@ -1,9 +1,8 @@
 <?php
-    session_start();
+    //session_start();
+    require_once("blog_menu.php");
     require_once("blog_db.php");
     $db = new DB();
-
-
 
     $permission = 0;
 
@@ -21,19 +20,43 @@
         }
     }
 
+    
     if (isset($_POST['searchWord'])) {
 
         $searchWord = $_POST['searchWord'];
         $selectBlogTitle = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE permissionStatus<=$permission AND blogTitle LIKE '%".$searchWord."%'";
         $selectBlogDescription = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE permissionStatus<=$permission AND blogDescription LIKE '%".$searchWord."%'";
-
+        
         $matrix = $db->getData($selectBlogTitle);
+        $blogIDs = array();
+        
+        for ($i=0;$i<count($matrix);$i++)
+        {
+            array_push($blogIDs, $matrix[$i][0]);
+            echo "<div class='randomBlog'>
+                    <h3 class='postH3'>
+                        <a href='blog_blog.php?blogID=".$matrix[$i][0]."'>".$matrix[$i][2]."</a>
+                    </h3><hr>
+                    ".$matrix[$i][1]."                    
+                </div>";
+        }
+        
+        for($j = 0; $j<count($blogIDs); $j++) {
+            $selectBlogDescription = $selectBlogDescription." AND blogID <>".$blogIDs[$j];
+        }
+
+        $matrix = $db->getData($selectBlogDescription);
 
         for ($i=0;$i<count($matrix);$i++)
         {
-            echo "<a href='blog_blog.php?blogID=".$matrix[$i][0]."'> ".$matrix[$i][1]."</a>";
-        }
-
+            echo "<div class='randomBlog'>
+            <h3 class='postH3'>
+                <a href='blog_blog.php?blogID=".$matrix[$i][0]."'>".$matrix[$i][2]."</a>
+            </h3><hr>
+            ".$matrix[$i][1]."                    
+        </div>";
+        }  
+                
     }
 
     $permSQL = "SELECT level, blogID FROM permission WHERE userID=$userID";
@@ -49,16 +72,24 @@
                 if (isset($_POST['searchWord'])) {
 
                     $searchWord = $_POST['searchWord'];
-                    $selectBlogTitle = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE blogID=$blogID AND blogTitle LIKE '%".$searchWord."%'";
-
+                    $selectBlogTitle = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE permissionStatus<=$permissionLevel AND blogTitle LIKE '%".$searchWord."%'";
+                    $selectBlogDescription = "SELECT blogID, blogDescription, blogTitle FROM blog WHERE permissionStatus<=$permissionLevel AND blogDescription LIKE '%".$searchWord."%'";
+                    
                     $matrix = $db->getData($selectBlogTitle);
 
                     for ($i=0;$i<count($matrix);$i++)
                     {
                         echo "<a href='blog_blog.php?blogID=".$matrix[$i][0]."'> ".$matrix[$i][1]."</a>";
-                    }
+                    }        
 
-                }
+
+                    $matrix = $db->getData($selectBlogDescription);
+                    
+                            for ($i=0;$i<count($matrix);$i++)
+                            {
+                                echo "<a href='blog_blog.php?blogID=".$matrix[$i][0]."'> ".$matrix[$i][2]."</a>";
+                            }    
+                        }
             }
 
         }

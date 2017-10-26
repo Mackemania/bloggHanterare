@@ -3,7 +3,7 @@ require_once("blog_db.php");
 
 $db = new DB();
 
-$SQL = "SELECT blogID, blogTitle, createDate FROM blog WHERE userID=".$_SESSION['userID'];
+$SQL = "SELECT blogID, blogTitle, createDate FROM blog WHERE userID=".$_SESSION['userID']." AND permissionStatus<4";
 $matrix = $db->getData($SQL);
 
 

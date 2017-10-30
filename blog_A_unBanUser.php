@@ -35,7 +35,7 @@
 
                 echo "<br/><form action='blog_A_userBlogs.php' method='post'>Vems bloggar?:</br>
                 <select name='userID' id='userID' class='formText'>";
-                $SQL = "SELECT userID, alias FROM user WHERE admin=0";
+                $SQL = "SELECT userID, alias FROM user WHERE admin=0 AND userID !=0";
                 $matrix = $db->getData($SQL);
                 echo("<option value=''>Välj en...</option>");
                 for($i = 0; $i<count($matrix); $i++)

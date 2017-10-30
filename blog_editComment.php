@@ -15,15 +15,18 @@
     if($commentText == "' '") {
         $commentText = " ";
         $commentEdited = true;
+    } else {
+        $commentText = $db->getCon()->real_escape_string($commentText);
     }
 
 
-    $SQL = "SELECT commentID FROM comment ORDER BY commentID DESC";
+    $SQL = "SELECT commentID,postID FROM comment ORDER BY commentID DESC";
     $matrix = $db->getData($SQL);
 
     $commentID = $matrix[0][0]+1;
+    $postID = $matrix[0][1];
 
-    $source = "blog/blog_$blogID/post_$commentID/comment_$commentID.txt";
+    $source = "blog/blog_$blogID/post_$postID/comment_$commentID.txt";
 
     $SQL = "INSERT INTO comment(source, userID, postID) VALUES('$source', $userID, $postID)";
     $db->execute($SQL);

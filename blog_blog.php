@@ -98,7 +98,8 @@
                 <div id="closeDiv">
                     <span onclick="document.getElementById('comment').style.display='none'" class="postClose" title="Stäng">&times;</span>
                 </div>
-
+                <span class="commentName">Genom att kommentera accpeterar du <a href="blog_eula.php">Slutanvändaravtalet</a></span>
+		
                 <div id="commentContent">
                     </div>
                     </br>

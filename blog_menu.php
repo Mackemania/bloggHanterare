@@ -17,6 +17,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="code.js"></script>
     <script src="ajaxlib.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" sizes="64x64" />
+
     
     <?PHP
         echo("<link href='blog_style.css' media='screen' type='text/css' rel='stylesheet'/>");

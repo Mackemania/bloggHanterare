@@ -354,6 +354,18 @@ textarea {
 
 }
 
+.eulaPane {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(169, 169, 169);
+    border-radius: 15px;
+    padding: 3%;
+}
+
 .form {
     width: 100%;
     text-align: center;

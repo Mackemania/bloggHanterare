@@ -23,7 +23,7 @@
                     <input type="submit" id="editButton" name="editButton" class="formButton" onclick="javascript: blog_editProfileInDB();" value="Spara Behörighetsändring">
 
                 </form>
-                <form action='blog_sendWhiteListToDB.php' method='post'>
+                <form action='blog_sendWhitelistToDB.php' method='post'>
 
                     <?PHP require("blog_getBlogsFromUser.php");?><br />
 

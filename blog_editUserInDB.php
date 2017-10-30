@@ -41,13 +41,13 @@
         if($password != null) {
             $SQL = "update user set firstName='$firstName', lastName='$lastName', password='$password', birthDate='$birthDate' where userID=$userID";
             $db->execute($SQL);
-            echo("true");
+            echo(1);
 
         } else {
 
             $SQL = "update user set firstName='$firstName', lastName='$lastName', birthDate='$birthDate' where userID=$userID";
             $db->execute($SQL);
-            echo("true");
+            echo(1);
         }
 
     } else {

@@ -54,7 +54,10 @@ function blog_showEditComment(id, request) {
         var commentID = returningValue[1];
         var comment = document.getElementById("comment"+commentID);
         var nodes = comment.childNodes;
-        var content = nodes[0].textContent;
+        var content = nodes[0].innerHTML;
+        console.log(nodes[0].innerHTML);
+        content = content.replace(/<br>/g, "\r\n");
+        console.log(content);
         //console.log(nodes[2].innerHTML);
         document.getElementById("editCommentContent").innerHTML = "";
         document.getElementById("editCommentText").innerHTML = content;
@@ -413,11 +416,17 @@ function blog_serverText(id, request) {
                 div.setAttribute("class", "comment");
                 document.getElementById("comments").appendChild(div);
                 var content = document.getElementById("comments").innerHTML;
+
+                var commentContent = document.createElement("div");
                 
+                comment =comments[i];
+                comment = comment.replace(/\\r\\n/g, "</br>");
+                commentContent.innerHTML = comment;
+                div.appendChild(commentContent);
+
                 var creatorSpan = document.createElement("span");
                 creatorSpan.setAttribute("class", "commentName");
                 creatorSpan.innerHTML = "<hr>"+user+"</br>"+date+"</br>"
-                div.innerHTML = comments[i];
                 div.appendChild(creatorSpan);
 
                 var creatorAnchor = document.createElement("a");
@@ -495,7 +504,7 @@ function blog_editProfileInDB() {
 
 function blog_profileEdited(id, request) {
     var text = request.responseText;
-    if(text == "true") {
+    if(text == 1) {
 
         alert("Din profil har ändrats!");
         location.reload();

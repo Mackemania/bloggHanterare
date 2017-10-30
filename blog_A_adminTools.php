@@ -7,7 +7,7 @@
 
             $date = date("Y-m-d");
 
-            $SQL = "SELECT userID, alias, suspended FROM user WHERE admin != 1";
+            $SQL = "SELECT userID, alias, suspended FROM user WHERE admin != 1 AND userID !=0";
 
             $matrix = $db->getData($SQL);
             
@@ -71,7 +71,7 @@
 
             echo "<br/><form action='blog_A_userBlogs.php' method='post'>Vems bloggar?:
             <select name='userID' id='userID'>";
-                $SQL = "SELECT userID, alias FROM user WHERE admin=0";
+                $SQL = "SELECT userID, alias FROM user WHERE admin=0 AND userID!=0";
                 echo($SQL);
                 $matrix = $db->getData($SQL);
                 echo("<option value=''>Välj en...</option>");

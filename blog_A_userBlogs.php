@@ -15,7 +15,7 @@
 
                     $db = new DB();
 
-                    $SQL = "SELECT blogID, blogTitle, createDate FROM blog WHERE userID=".$_POST['userID'];
+                    $SQL = "SELECT blogID, blogTitle, createDate FROM blog WHERE userID=".$_POST['userID']." AND userID !=0";
                     $matrix = $db->getData($SQL);
                     //echo $SQL;
                     echo "<br/><form action='blog_A_removeBlog.php' method='post'>Vilken blog vill du ta bort?:</br>

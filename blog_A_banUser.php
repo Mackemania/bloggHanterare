@@ -8,7 +8,7 @@
 
                 $date = date("Y-m-d");
 
-                $SQL = "SELECT userID, alias, suspended FROM user WHERE admin != 1";
+                $SQL = "SELECT userID, alias, suspended FROM user WHERE admin != 1 AND userID !=0";
 
                 $matrix = $db->getData($SQL);
                 

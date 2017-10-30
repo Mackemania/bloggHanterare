@@ -504,7 +504,7 @@ function blog_editProfileInDB() {
 
 function blog_profileEdited(id, request) {
     var text = request.responseText;
-    if(text == "true") {
+    if(text == 1) {
 
         alert("Din profil har ändrats!");
         location.reload();

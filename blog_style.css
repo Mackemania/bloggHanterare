@@ -260,6 +260,7 @@ textarea {
 .comment {
     width: 100%;
     margin-left:auto;
+    margin-right: auto;
     float: left;
     font-size: 100%;
     border-radius: 15px;
@@ -270,7 +271,13 @@ textarea {
     padding: 3% 10%;
     margin-bottom: 3%;
     text-align: left;
+    overflow-wrap: break-word;
 
+}
+
+.commentForm {
+
+    overflow-wrap: normal;
 }
 
 .commentName {
@@ -280,7 +287,7 @@ textarea {
 
 .commentReportButton {
     float: left;
-    width: 9%;
+    min-width: 9%;
     min-height: 4%;
     font-size: 90%;
     padding-top: 0%;
@@ -294,7 +301,7 @@ textarea {
 
 .commentReportButton:hover, .commentReportButton:focus {
     float: left;
-    width: 9%;
+    min-width: 9%;
     min-height: 4%;
     font-size: 90%;
     padding-top: 0%;
@@ -324,7 +331,7 @@ textarea {
 
 .CRAButton {
     float: left;
-    width: 4.5%;
+    min-width: 4.5%;
     min-height: 3.5%;
     padding-top: 0%;
     padding-bottom: 0%;
@@ -337,7 +344,7 @@ textarea {
 
 .CRAButton:hover, .CRAButton:focus{
     float: left;
-    width: 4.5%;
+    min-width: 4.5%;
     min-height: 3.5%;
     padding-top: 0%;
     padding-bottom: 0%;

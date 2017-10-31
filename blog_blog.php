@@ -101,14 +101,15 @@
                 <span class="commentName">Genom att kommentera accpeterar du <a href="blog_eula.php">Slutanvändaravtalet</a></span>
 		
                 <div id="commentContent">
-                    </div>
-                    </br>
-                    
-                    <div id="comments">
+                
+                </div>
+                </br>
+                
+                <div id="comments">
 
                 </div></br>
                     
-                <form method="post" action="blog_commentCreator.php">
+                <form method="post" action="blog_commentCreator.php" class="commentForm">
                     
                     Kommentera:</br>
                     <textarea id="commentArea" name="commentArea" class="textarea" rows="5" cols="40"  placeholder="Kommentar" autocomplete="off" required="required"></textarea>
